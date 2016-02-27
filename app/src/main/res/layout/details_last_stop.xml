@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/text_margin">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="17.5dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/line" />
+
+    <ImageView
+        android:id="@+id/dot"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"/>
+
+    <TextView
+        android:id="@+id/stop_last_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/dot"
+        android:layout_marginTop="38dp"
+        android:text="Stop end"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/resultDark"/>
+</RelativeLayout>

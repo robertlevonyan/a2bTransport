@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="#888"
+    tools:targetApi="21">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#fafafa"/>
+            <size>45dp</size>
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:src="@drawable/ic_my_location"
+            android:gravity="center" />
+    </item>
+
+</ripple>

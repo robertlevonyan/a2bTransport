@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,82 +7,82 @@
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="robert.findtransport.DetailesActivity"
-    tools:showIn="@layout/activity_detailes"
-    android:background="@color/resultLight">
+    tools:showIn="@layout/activity_detailes">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-            <RelativeLayout
-                android:paddingStart="@dimen/app_padding"
-                android:paddingEnd="@dimen/app_padding"
-                android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/resultDark"
+            android:paddingEnd="@dimen/app_padding"
+            android:paddingStart="@dimen/app_padding">
+
+            <ImageView
+                android:id="@+id/transport_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/details_transport_text_margin"
+                android:layout_marginEnd="@dimen/details_transport_text_margin"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="@dimen/details_transport_text_margin" />
+
+            <TextView
+                android:id="@+id/trasport_number"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/resultDark">
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/details_transport_text_margin"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="@dimen/details_transport_text_margin"
+                android:layout_marginTop="@dimen/details_transport_text_margin"
+                android:layout_toEndOf="@id/transport_icon"
+                android:text="1"
+                android:textColor="@color/resultLightText"
+                android:textSize="45sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/transport_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="@dimen/details_transport_text_margin"
-                    android:layout_marginBottom="@dimen/details_transport_text_margin"
-                    android:layout_marginEnd="@dimen/details_transport_text_margin"
-                    android:layout_marginStart="10dp"
-                    android:layout_centerVertical="true"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/trasport_number"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/trasport_number"
+                    android:id="@+id/transport_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/details_transport_text_margin"
-                    android:layout_marginBottom="@dimen/details_transport_text_margin"
-                    android:layout_marginStart="@dimen/details_transport_text_margin"
-                    android:layout_marginEnd="10dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@id/transport_icon"
-                    android:text="1"
-                    android:textSize="45sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/resultLightText"/>
+                    android:layout_gravity="center_horizontal"
+                    android:text=" "
+                    android:textColor="@color/resultLightText"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:orientation="vertical"
+                <TextView
+                    android:id="@+id/transport_routes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/trasport_number">
-                    <TextView
-                        android:id="@+id/transport_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text=" "
-                        android:textStyle="bold"
-                        android:textColor="@color/resultLightText" />
-
-                    <TextView
-                        android:id="@+id/transport_routes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:layout_gravity="center_horizontal"
-                        android:text=" "
-                        android:textStyle="bold"
-                        android:textColor="@color/resultLightText"/>
-                </LinearLayout>
-            </RelativeLayout>
+                    android:layout_gravity="center_horizontal"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textColor="@color/resultLightText"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/stops_table"
-            android:paddingStart="@dimen/app_padding"
-            android:paddingEnd="@dimen/app_padding"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/app_padding"
+            android:paddingStart="@dimen/app_padding" />
 
     </LinearLayout>
 

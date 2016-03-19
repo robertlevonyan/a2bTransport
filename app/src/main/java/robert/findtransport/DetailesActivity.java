@@ -1,6 +1,7 @@
 package robert.findtransport;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -28,12 +29,14 @@ public class DetailesActivity extends AppCompatActivity {
     private TextView transportTypeView;
     private TextView transportRoutes;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailes);
 
-        init();
+
+        init(savedInstanceState);
         getExtraData(savedInstanceState);
         buildUI();
 
@@ -59,17 +62,18 @@ public class DetailesActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             finish();
+//            overridePendingTransition(R.anim.anim_out, R.anim.anim_in);
             overridePendingTransition(0, 0);
             return true;
         }
-        if (id == R.id.open_map) {
-            startActivity(new Intent(DetailesActivity.this, DetailedMapActivity.class));
-        }
+//        if (id == R.id.open_map) {
+//            startActivity(new Intent(DetailesActivity.this, DetailedMapActivity.class));
+//        }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void init() {
+    private void init(Bundle savedInstanceState) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -101,7 +105,9 @@ public class DetailesActivity extends AppCompatActivity {
         } else {
             transportType = (String) savedInstanceState.getSerializable("Details_type");
             transportNumber.setText((String) savedInstanceState.getSerializable("Details_number"));
-            stopsGet = ((String) savedInstanceState.getSerializable("Details_type")).split("\t");
+            if (((String) savedInstanceState.getSerializable("Details_type")) != null) {
+                stopsGet = ((String) savedInstanceState.getSerializable("Details_type")).split("\t");
+            }
         }
         stopsFinal = Arrays.asList(Arrays.copyOfRange(stopsGet, 2, stopsGet.length));
     }

@@ -32,7 +32,6 @@ public class Main extends AppCompatActivity {
     private double lattitude;
     private double longitude;
     private DatabaseAdapter databaseAdapter;
-    private ArrayAdapter<String> spinnerAdapter;
     private Context thisContext;
     private String transports, stops;
     private ProgressDialog progressDialog;
@@ -71,33 +70,6 @@ public class Main extends AppCompatActivity {
                 R.drawable.mbus,
                 R.drawable.bus,
         };
-
-//        for (int i = 0; i < 15; i++) {
-//            View view = getLayoutInflater().inflate(R.layout.result, mainContent, false);
-//            if (i % 2 != 0) {
-//                view.setBackgroundColor(getResources().getColor(R.color.resultLight));
-//
-//                TextView transportNumber = (TextView) view.findViewById(R.id.trasport_number);
-//                TextView transportType = (TextView) view.findViewById(R.id.transport_type);
-//                TextView transportRoutes = (TextView) view.findViewById(R.id.transport_routes);
-//
-//                transportNumber.setTextColor(getResources().getColor(R.color.resultDarkText));
-//                transportType.setTextColor(getResources().getColor(R.color.resultDarkText));
-//                transportRoutes.setTextColor(getResources().getColor(R.color.resultDarkText));
-//                view.invalidate();
-//            } else {
-//                view.setBackgroundColor(getResources().getColor(R.color.resultDark));
-//                TextView transportNumber = (TextView) view.findViewById(R.id.trasport_number);
-//                TextView transportType = (TextView) view.findViewById(R.id.transport_type);
-//                TextView transportRoutes = (TextView) view.findViewById(R.id.transport_routes);
-//
-//                transportNumber.setTextColor(getResources().getColor(R.color.resultLightText));
-//                transportType.setTextColor(getResources().getColor(R.color.resultLightText));
-//                transportRoutes.setTextColor(getResources().getColor(R.color.resultLightText));
-//                view.invalidate();
-//            }
-//            mainContent.addView(view);
-//        }
 
         /** Search Button */
 
@@ -214,19 +186,14 @@ public class Main extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return false;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify transports parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -252,19 +219,36 @@ public class Main extends AppCompatActivity {
         char[] current = route.toCharArray();
 
         if (Character.isDigit(current[0]) && !Character.isDigit(current[1])) {
-            switch (current[2]) {
-                case 'T':
-                    transportType.setText(R.string.trolleybus);
-                    break;
-                case 'M':
-                    transportType.setText(R.string.microbus);
-                    break;
-                case 'A':
-                    transportType.setText(R.string.bus);
-                    break;
-                default:
-                    transportType.setText(R.string.na);
-                    break;
+            if (current[1] == 'ա') {
+                switch (current[3]) {
+                    case 'T':
+                        transportType.setText(R.string.trolleybus);
+                        break;
+                    case 'M':
+                        transportType.setText(R.string.microbus);
+                        break;
+                    case 'A':
+                        transportType.setText(R.string.bus);
+                        break;
+                    default:
+                        transportType.setText(R.string.na);
+                        break;
+                }
+            } else {
+                switch (current[2]) {
+                    case 'T':
+                        transportType.setText(R.string.trolleybus);
+                        break;
+                    case 'M':
+                        transportType.setText(R.string.microbus);
+                        break;
+                    case 'A':
+                        transportType.setText(R.string.bus);
+                        break;
+                    default:
+                        transportType.setText(R.string.na);
+                        break;
+                }
             }
         } else if (Character.isDigit(current[0]) && Character.isDigit(current[1]) && Character.isDigit(current[2])) {
             switch (current[4]) {
@@ -348,6 +332,7 @@ public class Main extends AppCompatActivity {
                 intent.putExtra("Details_type", transportType.getText());
                 intent.putExtra("Details_stops", route);
                 startActivity(intent);
+//                overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
                 overridePendingTransition(0, 0);
             }
         });
@@ -431,7 +416,7 @@ public class Main extends AppCompatActivity {
 
             //text.setText(s);
 
-            spinnerAdapter = new ArrayAdapter<String>(Main.this, R.layout.spinner_item, s.split("\n"));
+            ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(Main.this, R.layout.spinner_item, s.split("\n"));
             spinnerAdapter.setDropDownViewResource(R.layout.spinner_item_dropdown);
             fromWhence.setAdapter(spinnerAdapter);
             toWhere.setAdapter(spinnerAdapter);

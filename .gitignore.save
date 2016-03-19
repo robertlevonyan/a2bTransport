@@ -1,0 +1,17 @@
+app/hs_err_pid4607.log.gradle 
+/local.properties 
+/.idea/workspace.xml 
+/.idea/libraries 
+.idea/ 
+/gradle/wrapper 
+.DS_Store 
+/build 
+/captures 
+*.iml 
+gradle-wrapper.properties 
+proguard-rules.pro 
+gradle.properties 
+settings.gradle 
+app/hs_err_pid10915.log 
+app/app-release.apk 
+app/hs_err_pid32306.log

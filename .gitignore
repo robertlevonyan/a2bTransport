@@ -17,3 +17,5 @@ app/hs_err_pid4607.log
 app/hs_err_pid5057.log
 gradlew
 gradlew.bat
+app/app-release.apk
+app/hs_err_pid32306.log

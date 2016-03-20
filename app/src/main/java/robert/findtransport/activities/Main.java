@@ -208,7 +208,7 @@ public class Main extends AppCompatActivity {
      * Get Result Method
      */
     private void getResult(final String route, int backgroundColor, int textColor) {
-        View view = getLayoutInflater().inflate(R.layout.result, mainContent, false);
+        View view = getLayoutInflater().inflate(R.layout.item_result_list, mainContent, false);
 
         final TextView transportNumber = (TextView) view.findViewById(R.id.trasport_number);
         final TextView transportType = (TextView) view.findViewById(R.id.transport_type);

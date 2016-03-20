@@ -3,6 +3,6 @@
     <string name="ga_trackingId">UA-72267792-2</string>
     <bool name="ga_autoActivityTracking">true</bool>
 
-    <screenName name="robert.findtransport.Main">Main screen</screenName>
+    <screenName name="robert.findtransport.activities.Main">Main screen</screenName>
 
 </resources>

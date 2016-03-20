@@ -1,4 +1,4 @@
-package robert.findtransport;
+package robert.findtransport.adapters;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
+
+import robert.findtransport.R;
 
 /**
  * Created by robert on 11/15/15.

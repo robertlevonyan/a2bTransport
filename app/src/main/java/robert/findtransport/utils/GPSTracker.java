@@ -1,4 +1,4 @@
-package robert.findtransport;
+package robert.findtransport.utils;
 
 import android.Manifest;
 import android.app.Activity;

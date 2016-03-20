@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="robert.findtransport.DetailesActivity"
+    tools:context=".activities.DetailesActivity"
     tools:showIn="@layout/activity_detailes">
 
     <LinearLayout

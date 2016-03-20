@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBg"
-    tools:context=".Main">
+    tools:context=".activities.Main">
 
     <LinearLayout
         android:id="@+id/main_content"

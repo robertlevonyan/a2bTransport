@@ -1,4 +1,4 @@
-package robert.findtransport;
+package robert.findtransport.activities;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
@@ -12,6 +12,8 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+
+import robert.findtransport.R;
 
 public class DetailedMapActivity extends FragmentActivity implements OnMapReadyCallback {
 

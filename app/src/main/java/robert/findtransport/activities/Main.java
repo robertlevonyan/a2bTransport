@@ -1,4 +1,4 @@
-package robert.findtransport;
+package robert.findtransport.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -20,7 +20,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import robert.findtransport.adapters.DatabaseAdapter;
+import robert.findtransport.utils.GPSTracker;
+import robert.findtransport.utils.MyApplication;
+import robert.findtransport.R;
 
 public class Main extends AppCompatActivity {
 

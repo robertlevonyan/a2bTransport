@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/resultBg"
     android:fitsSystemWindows="true"
-    tools:context="robert.findtransport.DetailesActivity">
+    tools:context=".activities.DetailesActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

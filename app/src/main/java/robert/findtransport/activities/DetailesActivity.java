@@ -1,4 +1,4 @@
-package robert.findtransport;
+package robert.findtransport.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.List;
+
+import robert.findtransport.R;
 
 public class DetailesActivity extends AppCompatActivity {
 

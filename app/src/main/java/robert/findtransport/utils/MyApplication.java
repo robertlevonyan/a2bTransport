@@ -1,10 +1,12 @@
-package robert.findtransport;
+package robert.findtransport.utils;
 
 import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.Tracker;
+
+import robert.findtransport.R;
 
 /**
  * Created by robert on 1/20/16.

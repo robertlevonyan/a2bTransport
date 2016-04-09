@@ -17,9 +17,14 @@
     <uses-feature
         android:name="android.hardware.location.GPS"
         android:required="false" />
-    <!--<uses-feature-->
-        <!--android:name="android.hardware.location.NETWORK"-->
-        <!--android:required="false" />-->
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
 
     <application
         android:name=".utils.MyApplication"

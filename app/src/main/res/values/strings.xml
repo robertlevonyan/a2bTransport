@@ -130,6 +130,7 @@
         <item>Աճառյան փ. 2-րդ փակուղի</item>
         <item>Ամիրյան փ․</item>
         <item>Այվազովսկու փ․</item>
+        <item>Անաստաս Միկոյան փ․</item>
         <item>Աշխաբադի փ․</item>
         <item>Աշխատանքի հրապարակ (Բանվորի արձան)</item>
         <item>Աշտարակի խճ․</item>
@@ -145,6 +146,7 @@
         <item>Արամ Խաչատրյան փ․</item>
         <item>Արարատյան փ․</item>
         <item>Արաքս մ/դ</item>
+        <item>Արաքս գ/ն</item>
         <item>Արգիշտի փ․</item>
         <item>Արևելյան քաղցրավենիքներ գ/ն</item>
         <item>Արզումանյան փ․</item>
@@ -162,6 +164,7 @@
         <item>Արշակունյաց պ․ (Սուրմալու ա/կ)</item>
         <item>Արտաշատի խճ․</item>
         <item>Արտաշիսյան փ․</item>
+        <item>Արտեմ Միկոյան փ․</item>
         <item>Արցախի փ․</item>
         <item>Բագրատունյաց պ․ (Արտաշիսյան խաչմերուկ)</item>
         <item>Բագրատունյաց պ․ (Բանվորի արձան)</item>
@@ -171,7 +174,7 @@
         <item>Բադալ Մուրադյան փ․</item>
         <item>Բաղյան փ․</item>
         <item>Բաղրամյան պ․ (Ամերիկյան համալսարան)</item>
-        <item>Բաղրամյան պ․ (Բարեկամություն)</item>
+        <item>Բաղրամյան պ․ (SAS)</item>
         <item>Բաղրամյան պ․ (Կամոյի դպրոց)</item>
         <item>Բաղրամյան պ․ (Սահմանադրական դատարան)</item>
         <item>Բաղրամյան պ․ (Օպերա)</item>
@@ -206,7 +209,7 @@
         <item>գ. Փարաքար</item>
         <item>գ. Քասախ</item>
         <item>գ. Այնթապ</item>
-        <item>գ. Առինջ</item>
+        <item>գ. Առինջ</item>Ալեք-Մանուկյան փ․
         <item>գ. Արգավանդ</item>
         <item>գ. Գեղանիստ</item>
         <item>գ. Դաշտավան</item>
@@ -238,7 +241,8 @@
         <item>Դալմա Գարդեն Մոլ</item>
         <item>Դավթաշենի 1-ին թաղ.</item>
         <item>Դավթաշենի 2-րդ թաղ.</item>
-        <item>Դավթաշենի 4-րդ թ․</item>
+        <item>Դավթաշենի 3-րդ թաղ.</item>
+        <item>Դավթաշենի 4-րդ թաղ․</item>
         <item>Դավթաշենի կամուրջ</item>
         <item>Դավիթ Անհաղթի փ․ (Դրոյի խաչմերուկ)</item>
         <item>Դավիթ Անհաղթի փ․ (թաղապետարան)</item>
@@ -368,7 +372,6 @@
         <item>Մարտիրոսյան փ․</item>
         <item>Մելքումովի փ.</item>
         <item>Մերգելյանի ինստիտուտ</item>
-        <item>Միկոյան փ․</item>
         <item>Մինսկի փ․ (Նոր նորքի 8-րդ զ/ծ)</item>
         <item>Մյասնիկյան պ․ (Հերացի խաչմերուկ)</item>
         <item>Մյասնիկյան պ․ (Կենդանաբանական այգի)</item>
@@ -549,6 +552,12 @@
     <string name="title_activity_detailes">DetailesActivity</string>
     <string name="title_activity_detailed_map">Map</string>
     <string name="google_maps_api_key">AIzaSyCLqHRL74bfJnWAO5cQOzSnwN8bGmiJUbc</string>
+
+    <string name="rate_title">Գնահատեք</string>
+    <string name="rate_message">Եթե հավանում եք հավելվածը, խնդրում եմ գնահատեք այն։ Շնորհակալություն</string>
+    <string name="rate_rate">Գնահատել</string>
+    <string name="rate_cancel">Ավելի ուշ</string>
+    <string name="rate_thanks">Ոչ, շնորհակալություն</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

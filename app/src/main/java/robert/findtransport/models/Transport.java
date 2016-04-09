@@ -9,7 +9,10 @@ public class Transport {
     private String transportNumber;
     private String transportType;
     private String transportRoutes;
-    private boolean hasOptionForLimitedPeople;
+    private String transportRoutesFull;
+    private int backgroundColor;
+    private int textColor;
+    public String route;
 
     public Transport() {
     }
@@ -46,11 +49,43 @@ public class Transport {
         this.transportRoutes = transportRoutes;
     }
 
-    public boolean isHasOptionForLimitedPeople() {
-        return hasOptionForLimitedPeople;
+    public String getTransportRoutesFull() {
+        return transportRoutesFull;
     }
 
-    public void setHasOptionForLimitedPeople(boolean hasOptionForLimitedPeople) {
-        this.hasOptionForLimitedPeople = hasOptionForLimitedPeople;
+    public void setTransportRoutesFull(String transportRoutesFull) {
+        this.transportRoutesFull = transportRoutesFull;
+    }
+
+    //    public boolean isHasOptionForLimitedPeople() {
+//        return hasOptionForLimitedPeople;
+//    }
+//
+//    public void setHasOptionForLimitedPeople(boolean hasOptionForLimitedPeople) {
+//        this.hasOptionForLimitedPeople = hasOptionForLimitedPeople;
+//    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+
+    public void setRoute(String route) {
+        this.route = route;
     }
 }

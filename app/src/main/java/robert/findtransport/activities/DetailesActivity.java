@@ -1,10 +1,12 @@
 package robert.findtransport.activities;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
+import android.transition.Slide;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +24,8 @@ public class DetailesActivity extends AppCompatActivity {
     private static final String MAP_TAG = "Show map";
 
     private String[] stopsGet;
-    private List<String> stopsFinal;
+    private String[] allRoute;
+    private String stopsFinal;
     private LinearLayout stopsTable;
     private TextView transportNumber;
     private String transportType;
@@ -81,7 +84,7 @@ public class DetailesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         stopsTable = (LinearLayout) findViewById(R.id.stops_table);
-        transportNumber = (TextView) findViewById(R.id.trasport_number);
+        transportNumber = (TextView) findViewById(R.id.transport_number);
         transportIcon = (ImageView) findViewById(R.id.transport_icon);
         transportTypeView = (TextView) findViewById(R.id.transport_type);
         transportRoutes = (TextView) findViewById(R.id.transport_routes);
@@ -99,10 +102,12 @@ public class DetailesActivity extends AppCompatActivity {
                 transportType = "";
                 transportNumber.setText("");
                 stopsGet = new String[]{};
+                allRoute = new String[]{};
             } else {
                 transportType = extras.getString("Details_type");
                 transportNumber.setText(extras.getString("Details_number"));
                 stopsGet = extras.getString("Details_stops").split("\t");
+                allRoute = extras.getStringArray("Details_route");
             }
         } else {
             transportType = (String) savedInstanceState.getSerializable("Details_type");
@@ -111,33 +116,42 @@ public class DetailesActivity extends AppCompatActivity {
                 stopsGet = ((String) savedInstanceState.getSerializable("Details_type")).split("\t");
             }
         }
-        stopsFinal = Arrays.asList(Arrays.copyOfRange(stopsGet, 2, stopsGet.length));
+        Log.e("SL", stopsGet.toString());
+        stopsFinal = stopsGet[0];
     }
 
     private void buildUI() {
         transportTypeView.setText(transportType);
-        transportRoutes.setText(String.format("%s - %s", stopsFinal.get(0), stopsFinal.get(stopsFinal.size() - 1)));
+        transportRoutes.setText(stopsFinal);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(/*TransitionInflater.from(thisContext).inflateTransition(R.transition.enter_transition)*/new Explode());
+            getWindow().setExitTransition(/*TransitionInflater.from(thisContext).inflateTransition(R.transition.exit_transition)*/new Slide());
+        }
 
         getSupportActionBar().setTitle(transportType + " " + transportNumber.getText());
 
-        for (int i = 0; i < stopsFinal.size(); i++) {
-            View first = getLayoutInflater().inflate(R.layout.details_first_stop, null, false);
-            View stop = getLayoutInflater().inflate(R.layout.details_stops, null, false);
-            View last = getLayoutInflater().inflate(R.layout.details_last_stop, null, false);
+        for (int i = 0; i < allRoute.length; i++) {
+            if (i >= 2) {
+                View first = getLayoutInflater().inflate(R.layout.details_first_stop, null, false);
+                View stop = getLayoutInflater().inflate(R.layout.details_stops, null, false);
+                View last = getLayoutInflater().inflate(R.layout.details_last_stop, null, false);
 
-            TextView firstStopTitle = (TextView) first.findViewById(R.id.stop_first_title);
-            TextView stopTitle = (TextView) stop.findViewById(R.id.stop_title);
-            TextView lastStopTitle = (TextView) last.findViewById(R.id.stop_last_title);
+                TextView firstStopTitle = (TextView) first.findViewById(R.id.stop_first_title);
+                TextView stopTitle = (TextView) stop.findViewById(R.id.stop_title);
+                TextView lastStopTitle = (TextView) last.findViewById(R.id.stop_last_title);
 
-            if (i == 0) {
-                firstStopTitle.setText(stopsFinal.get(i));
-                stopsTable.addView(first);
-            } else if (i == stopsFinal.size() - 1) {
-                lastStopTitle.setText(stopsFinal.get(i));
-                stopsTable.addView(last);
-            } else {
-                stopTitle.setText(stopsFinal.get(i));
-                stopsTable.addView(stop);
+                if (i == 2) {
+                    firstStopTitle.setText(allRoute[i]);
+                    stopsTable.addView(first);
+                } else if (i == allRoute.length - 1) {
+                    lastStopTitle.setText(allRoute[i]);
+                    stopsTable.addView(last);
+                } else {
+                    stopTitle.setText(allRoute[i]);
+                    stopsTable.addView(stop);
+                }
             }
         }
 

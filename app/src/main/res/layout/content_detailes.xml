@@ -32,7 +32,7 @@
                 android:layout_marginTop="@dimen/details_transport_text_margin" />
 
             <TextView
-                android:id="@+id/trasport_number"
+                android:id="@+id/transport_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/trasport_number"
+                android:layout_toEndOf="@id/transport_number"
                 android:orientation="vertical">
 
                 <TextView

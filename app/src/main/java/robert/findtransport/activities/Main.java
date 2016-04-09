@@ -4,57 +4,84 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
+
+import com.kobakei.ratethisapp.RateThisApp;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import robert.findtransport.adapters.DatabaseAdapter;
+import robert.findtransport.adapters.TransportResultsAdapter;
+import robert.findtransport.listeners.DatabaseLoadListener;
+import robert.findtransport.models.Transport;
 import robert.findtransport.utils.GPSTracker;
 import robert.findtransport.utils.MyApplication;
 import robert.findtransport.R;
 
-public class Main extends AppCompatActivity {
+public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
     private LinearLayout findMyLocation;
     private Spinner fromWhence;
     private Spinner toWhere;
-    private TextView text;
     private GPSTracker gps;
     private double lattitude;
     private double longitude;
     private DatabaseAdapter databaseAdapter;
     private Context thisContext;
-    private String transports, stops;
     private ProgressDialog progressDialog;
-    private LinearLayout mainContent;
     private String allRoutes;
     private String searchResult;
-    private int[] transportIcons;
     private Snackbar snackbar;
-    private FloatingActionButton fab;
-    private FloatingActionButton fabReset;
     private boolean reseted;
+
+    private RecyclerView mainRecycler;
+
+    private String[] res;
+
+    private SharedPreferences sharedPreferences;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RateThisApp.onStart(thisContext);
+        RateThisApp.showRateDialogIfNeeded(thisContext);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        /** Declarations */
+        initRate();
 
+        /** Declarations */
         thisContext = Main.this;
         progressDialog = new ProgressDialog(this);
 
@@ -65,97 +92,99 @@ public class Main extends AppCompatActivity {
         fromWhence = (Spinner) findViewById(R.id.from_whence);
         toWhere = (Spinner) findViewById(R.id.to_where);
 
-        text = (TextView) findViewById(R.id.text);
-
-        mainContent = (LinearLayout) findViewById(R.id.main_content);
         searchResult = new String();
-        transportIcons = new int[]{
-                R.drawable.tbus,
-                R.drawable.mbus,
-                R.drawable.bus,
-        };
+        mainRecycler = (RecyclerView) findViewById(R.id.main_content_recycler);
+
+        sharedPreferences = thisContext.getSharedPreferences("Transport", MODE_PRIVATE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(/*TransitionInflater.from(thisContext).inflateTransition(R.transition.enter_transition)*/new Explode());
+            getWindow().setExitTransition(/*TransitionInflater.from(thisContext).inflateTransition(R.transition.exit_transition)*/new Slide());
+        }
 
         /** Search Button */
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fabReset = (FloatingActionButton) findViewById(R.id.fab_reset);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fabReset = (FloatingActionButton) findViewById(R.id.fab_reset);
+        if (fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    int count = 0;
 
-                int count = 0;
+                    String from = fromWhence.getSelectedItem().toString();
+                    String to = toWhere.getSelectedItem().toString();
 
-                String from = fromWhence.getSelectedItem().toString();
-                String to = toWhere.getSelectedItem().toString();
+                    String[] allRoutesSplitted = allRoutes.split("\n");
+                    String[] searchSplitted;
+                    searchResult = "";
+                    if (from.equals(to)) {
+                        snackbar = Snackbar.make(view, getString(R.string.change), Snackbar.LENGTH_LONG)
+                                .setAction("Լավ", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        snackbar.dismiss();
+                                    }
+                                });
+                        snackbar.show();
+                    } else {
+                        mainRecycler.getLayoutManager().removeAllViews();
 
-                String[] allRoutesSplitted = allRoutes.split("\n");
-                String[] searchSplitted;
-                searchResult = "";
-                if (from.equals(to)) {
-                    snackbar = Snackbar.make(view, getString(R.string.change), Snackbar.LENGTH_LONG)
-                            .setAction("Լավ", new View.OnClickListener() {
+                        for (int i = 0; i < allRoutesSplitted.length; i++) {
+                            if (allRoutesSplitted[i].contains(from.substring(0, from.length() - 2)) && allRoutesSplitted[i].contains(to.substring(0, to.length() - 2))) {
+                                searchResult += allRoutesSplitted[i] + "\n";
+                            } else {
+                                count++;
+                            }
+                        }
+
+                        searchSplitted = searchResult.split("\n");
+
+                        if (count == allRoutesSplitted.length) {
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(thisContext);
+                            alertDialogBuilder.setTitle(getString(R.string.no_routes_title));
+                            alertDialogBuilder.setMessage(getString(R.string.no_routes_body));
+                            alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
-                                public void onClick(View v) {
-                                    snackbar.dismiss();
+                                public void onClick(DialogInterface dialog, int which) {
+                                    new GetTransport(Main.this).execute(null, null, null);
                                 }
                             });
-                    snackbar.show();
-                } else {
-                    mainContent.removeAllViews();
-
-                    for (int i = 0; i < allRoutesSplitted.length; i++) {
-                        if (allRoutesSplitted[i].contains(from.substring(0, from.length() - 2)) && allRoutesSplitted[i].contains(to.substring(0, to.length() - 2))) {
-                            //Toast.makeText(Main.this, "YES", Toast.LENGTH_SHORT).show();
-                            searchResult += allRoutesSplitted[i] + "\n";
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.resultLightText)));
+                            alertDialog.show();
+                            reseted = true;
                         } else {
-                            count++;
+                            performSearch(searchSplitted);
+                            reseted = false;
                         }
                     }
+                }
+            });
+        }
 
-                    searchSplitted = searchResult.split("\n");
-
-                    if (count == allRoutesSplitted.length) {
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(thisContext);
-                        alertDialogBuilder.setTitle(getString(R.string.no_routes_title));
-                        alertDialogBuilder.setMessage(getString(R.string.no_routes_body));
-                        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                new GetTransport().execute(null, null, null);
-                            }
-                        });
-                        AlertDialog alertDialog = alertDialogBuilder.create();
-                        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.resultLightText)));
-                        alertDialog.show();
+        /** Reset Button */
+        if (fabReset != null) {
+            fabReset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!reseted) {
+                        performSearch(res);
                         reseted = true;
                     } else {
-                        getResultList(searchSplitted);
-                        reseted = false;
+                        snackbar = Snackbar.make(v, getString(R.string.reseted), Snackbar.LENGTH_LONG)
+                                .setAction("Լավ", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        snackbar.dismiss();
+                                    }
+                                });
+                        snackbar.show();
                     }
                 }
-            }
-        });
-
-        fabReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!reseted) {
-                    mainContent.removeAllViews();
-                    new GetTransport().execute(null, null, null);
-                    reseted = true;
-                } else {
-                    snackbar = Snackbar.make(v, getString(R.string.reseted), Snackbar.LENGTH_LONG)
-                            .setAction("Լավ", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    snackbar.dismiss();
-                                }
-                            });
-                    snackbar.show();
-                }
-            }
-        });
+            });
+        }
 
 //        findMyLocation.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -177,13 +206,11 @@ public class Main extends AppCompatActivity {
 //        });
 
         /** Getting Database*/
-
-        new GetTransport().execute(null, null, null);
+        new GetTransport(this).execute(null, null, null);
         new GetStops().execute(null, null, null);
         reseted = true;
 
         /** Google Analytics */
-
         ((MyApplication) getApplication()).getTracker();
 
     }
@@ -204,159 +231,30 @@ public class Main extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Get Result Method
-     */
-    private void getResult(final String route, int backgroundColor, int textColor) {
-        View view = getLayoutInflater().inflate(R.layout.item_result_list, mainContent, false);
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK && !reseted) {
+//            mainContent.removeAllViews();
+//            new GetTransport().execute(null, null, null);
+//            reseted = true;
+//            return true;
+//        }
 
-        final TextView transportNumber = (TextView) view.findViewById(R.id.trasport_number);
-        final TextView transportType = (TextView) view.findViewById(R.id.transport_type);
-        TextView transportRoutes = (TextView) view.findViewById(R.id.transport_routes);
-        ImageView transportIcon = (ImageView) view.findViewById(R.id.transport_icon);
-
-        view.setBackgroundColor(backgroundColor);
-        transportNumber.setTextColor(textColor);
-        transportType.setTextColor(textColor);
-        transportRoutes.setTextColor(textColor);
-
-        char[] current = route.toCharArray();
-
-        if (Character.isDigit(current[0]) && !Character.isDigit(current[1])) {
-            if (current[1] == 'ա') {
-                switch (current[3]) {
-                    case 'T':
-                        transportType.setText(R.string.trolleybus);
-                        break;
-                    case 'M':
-                        transportType.setText(R.string.microbus);
-                        break;
-                    case 'A':
-                        transportType.setText(R.string.bus);
-                        break;
-                    default:
-                        transportType.setText(R.string.na);
-                        break;
-                }
-            } else {
-                switch (current[2]) {
-                    case 'T':
-                        transportType.setText(R.string.trolleybus);
-                        break;
-                    case 'M':
-                        transportType.setText(R.string.microbus);
-                        break;
-                    case 'A':
-                        transportType.setText(R.string.bus);
-                        break;
-                    default:
-                        transportType.setText(R.string.na);
-                        break;
-                }
-            }
-        } else if (Character.isDigit(current[0]) && Character.isDigit(current[1]) && Character.isDigit(current[2])) {
-            switch (current[4]) {
-                case 'T':
-                    transportType.setText(R.string.trolleybus);
-                    break;
-                case 'M':
-                    transportType.setText(R.string.microbus);
-                    break;
-                case 'A':
-                    transportType.setText(R.string.bus);
-                    break;
-                default:
-                    transportType.setText(R.string.na);
-                    break;
-            }
-        } else if (Character.isDigit(current[0]) && Character.isDigit(current[1])) {
-            if (current[2] == 'ա') {
-                switch (current[4]) {
-                    case 'T':
-                        transportType.setText(R.string.trolleybus);
-                        break;
-                    case 'M':
-                        transportType.setText(R.string.microbus);
-                        break;
-                    case 'A':
-                        transportType.setText(R.string.bus);
-                        break;
-                    default:
-                        transportType.setText(R.string.na);
-                        break;
-                }
-            } else {
-                switch (current[3]) {
-                    case 'T':
-                        transportType.setText(R.string.trolleybus);
-                        break;
-                    case 'M':
-                        transportType.setText(R.string.microbus);
-                        break;
-                    case 'A':
-                        transportType.setText(R.string.bus);
-                        break;
-                    default:
-                        transportType.setText(R.string.na);
-                        break;
-                }
-            }
-        }
-
-        if (Character.isDigit(current[2])) {
-            transportNumber.setText(current, 0, 3);
-            transportNumber.setTextSize(30f);
-        } else if (current[2] == 'ա') {
-            transportNumber.setText(current, 0, 3);
-            transportNumber.setTextSize(30f);
-        } else {
-            transportNumber.setText(current, 0, 2);
-        }
-
-        String[] firstAndLastStop = route.split("\t");
-
-//        transportRoutes.setText(current, 4, route.length() - 4);
-        transportRoutes.setText(String.format("%s - %s", firstAndLastStop[2], firstAndLastStop[firstAndLastStop.length - 1]));
-
-
-        if (transportType.getText().equals(getResources().getString(R.string.trolleybus))) {
-            transportIcon.setBackground(getResources().getDrawable(transportIcons[0]));
-        } else if (transportType.getText().equals(getResources().getString(R.string.microbus))) {
-            transportIcon.setBackground(getResources().getDrawable(transportIcons[1]));
-        } else if (transportType.getText().equals(getResources().getString(R.string.bus))) {
-            transportIcon.setBackground(getResources().getDrawable(transportIcons[2]));
-        }
-
-        view.invalidate();
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(thisContext, DetailesActivity.class);
-                intent.putExtra("Details_number", transportNumber.getText());
-                intent.putExtra("Details_type", transportType.getText());
-                intent.putExtra("Details_stops", route);
-                startActivity(intent);
-//                overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
-                overridePendingTransition(0, 0);
-            }
-        });
-        mainContent.addView(view);
+        return super.onKeyDown(keyCode, event);
     }
 
-    private void getResultList(String[] results) {
-        for (int i = 0; i < results.length; i++) {
-            if (i % 2 == 0) {
-                getResult(results[i], getResources().getColor(R.color.resultLight), getResources().getColor(R.color.resultDarkText));
-            } else {
-                getResult(results[i], getResources().getColor(R.color.resultDark), getResources().getColor(R.color.resultLightText));
-            }
-        }
+    @Override
+    public void onLoadFinished() {
+        performSearch(res);
     }
 
-    /**
-     * Get All Transort
-     */
     private class GetTransport extends AsyncTask<String, Void, String> {
+
+        private DatabaseLoadListener listener;
+
+        public GetTransport(DatabaseLoadListener listener) {
+            this.listener = listener;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -370,8 +268,7 @@ public class Main extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             databaseAdapter = new DatabaseAdapter(thisContext);
-            transports = databaseAdapter.getTransport();
-            //stops = databaseAdapter.getStops();
+            String transports = databaseAdapter.getTransport();
             return transports;
         }
 
@@ -380,8 +277,8 @@ public class Main extends AppCompatActivity {
             super.onPostExecute(s);
             allRoutes = s;
             String[] stops = s.split("\n");
-            getResultList(stops);
-
+            res = stops;
+            listener.onLoadFinished();
             databaseAdapter.closeDatabase();
             progressDialog.dismiss();
         }
@@ -406,7 +303,7 @@ public class Main extends AppCompatActivity {
 
             databaseAdapter = new DatabaseAdapter(thisContext);
             //transports = databaseAdapter.getTransport();
-            stops = databaseAdapter.getStops();
+            String stops = databaseAdapter.getStops();
             return stops;
         }
 
@@ -428,4 +325,121 @@ public class Main extends AppCompatActivity {
             progressDialog.dismiss();
         }
     }
+
+    /**
+     * Get Transport List
+     */
+    private List<Transport> getTransports(Context context, String[] results, int spanCount) {
+        List<Transport> transports = new ArrayList<>();
+
+        int textColor;
+        int bgColor;
+
+        if (spanCount == 1) {
+            for (int i = 0; i < results.length; i++) {
+                Transport transport = new Transport();
+                if (i % 2 == 0) {
+                    textColor = getResources().getColor(R.color.resultDarkText);
+                    bgColor = getResources().getColor(R.color.resultLight);
+                } else {
+                    textColor = getResources().getColor(R.color.resultLightText);
+                    bgColor = getResources().getColor(R.color.resultDark);
+                }
+
+                transport.setBackgroundColor(bgColor);
+                transport.setTextColor(textColor);
+                transport.setTransportIcon(R.mipmap.ic_launcher);
+                transport.setTransportType("");
+                transport.setRoute(results[i]);
+                transport.setTransportNumber("");
+
+
+                transports.add(transport);
+            }
+        } else if (spanCount == 2) {
+            int c = 0;
+            for (int i = 0; i < results.length; i++) {
+                Transport transport = new Transport();
+                if (i % 2 == 0) {
+                    c++;
+                }
+                if (c == 2 || c == 0) {
+                    c = 0;
+                    if (i % 2 == 0) {
+                        textColor = getResources().getColor(R.color.resultDarkText);
+                        bgColor = getResources().getColor(R.color.resultLight);
+                    } else {
+                        textColor = getResources().getColor(R.color.resultLightText);
+                        bgColor = getResources().getColor(R.color.resultDark);
+                    }
+                } else {
+                    if (i % 2 == 0) {
+                        textColor = getResources().getColor(R.color.resultLightText);
+                        bgColor = getResources().getColor(R.color.resultDark);
+                    } else {
+                        textColor = getResources().getColor(R.color.resultDarkText);
+                        bgColor = getResources().getColor(R.color.resultLight);
+                    }
+                }
+
+                transport.setBackgroundColor(bgColor);
+                transport.setTextColor(textColor);
+                transport.setTransportIcon(R.mipmap.ic_launcher);
+                transport.setTransportType("");
+                transport.setRoute(results[i]);
+                transport.setTransportNumber("");
+
+
+                transports.add(transport);
+            }
+        }
+
+        return transports;
+    }
+
+    private void performSearch(String[] results) {
+        GridLayoutManager manager;
+        TransportResultsAdapter adapter;
+        if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+            manager = new GridLayoutManager(thisContext, 1, GridLayoutManager.VERTICAL, false);
+            adapter = new TransportResultsAdapter(thisContext, getTransports(thisContext, results, 1));
+        } else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+            manager = new GridLayoutManager(thisContext, 1, GridLayoutManager.VERTICAL, false);
+            adapter = new TransportResultsAdapter(thisContext, getTransports(thisContext, results, 1));
+        }
+        else {
+            manager = new GridLayoutManager(thisContext, 1, GridLayoutManager.VERTICAL, false);
+            adapter = new TransportResultsAdapter(thisContext, getTransports(thisContext, results, 1));
+        }
+        adapter.notifyDataSetChanged();
+
+        mainRecycler.setAdapter(adapter);
+        mainRecycler.setLayoutManager(manager);
+    }
+
+    private void initRate() {
+        RateThisApp.Config rateConfig = new RateThisApp.Config(3, 5);
+        rateConfig.setTitle(R.string.rate_title);
+        rateConfig.setMessage(R.string.rate_message);
+        rateConfig.setRateButton(R.string.rate_rate);
+        rateConfig.setCancelButton(R.string.rate_cancel);
+        rateConfig.setThanksButton(R.string.rate_thanks);
+        RateThisApp.init(rateConfig);
+        RateThisApp.setCallback(new RateThisApp.Callback() {
+            @Override
+            public void onYesClicked() {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=robert.findtransport")));
+            }
+
+            @Override
+            public void onNoClicked() {
+                RateThisApp.stopRateDialog(thisContext);
+            }
+
+            @Override
+            public void onCancelClicked() {
+            }
+        });
+    }
+
 }

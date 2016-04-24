@@ -1,127 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="@color/mainBg"
-    tools:context=".activities.Main">
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:fitsSystemWindows="true"
-        android:layout_height="@dimen/app_bar_height"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:background="@color/mainBg"
+        android:fitsSystemWindows="true"
+        tools:context=".activities.Main">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            android:fitsSystemWindows="true"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
-            app:contentScrim="?attr/colorPrimary">
+            android:layout_height="@dimen/app_bar_height"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/head"
-                android:fitsSystemWindows="true"/>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle">
 
-            <LinearLayout
-                android:layout_marginTop="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-                <android.support.v7.widget.CardView
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginRight="35dp"
-                    android:layout_marginBottom="15dp">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <Spinner
-                            android:id="@+id/from_whence"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/head" />
 
-                            android:dropDownSelector="@drawable/ic_menu_down"
-                            android:background="@drawable/ripple"/>
-                        <!--
-                        android:layout_toLeftOf="@+id/separator"
-                        <LinearLayout-->
+                <!--<FrameLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="7dp">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/from_whence_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="35dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="0dp"
+                        android:minHeight="45dp"
+                        app:cardBackgroundColor="@color/resultLight">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <EditText
+                                android:id="@+id/from_whence_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_toLeftOf="@+id/from_whence"
+                                android:layout_toStartOf="@+id/from_whence"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:hint="@string/hint_whence"
+                                android:imeOptions="actionNext"
+                                android:singleLine="true"
+                                android:textColor="@color/mainBg"
+                                android:textColorHint="@color/colorHint"
+                                android:textSize="14sp" />
+
+                            <Spinner
+                                android:id="@+id/from_whence"
+                                android:layout_width="25dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/ripple"
+                                android:dropDownSelector="@drawable/ic_menu_down" />
+                            <!--
+                            android:layout_toLeftOf="@+id/separator"
+                            <LinearLayout-->
                             <!--android:id="@+id/separator"-->
                             <!--android:layout_width="1dp"-->
                             <!--android:orientation="vertical"-->
                             <!--android:layout_height="match_parent"-->
                             <!--android:background="#b9b9b9"-->
                             <!--android:layout_toLeftOf="@+id/find_my_location"/>-->
-                        <!--<LinearLayout-->
+                            <!--<LinearLayout-->
                             <!--android:id="@+id/find_my_location"-->
                             <!--android:orientation="vertical"-->
                             <!--android:layout_width="45dp"-->
                             <!--android:layout_height="45dp"-->
                             <!--android:background="@drawable/my_location"-->
                             <!--android:layout_alignParentRight="true"/>-->
-                    </RelativeLayout>
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginRight="35dp"
-                    android:layout_marginBottom="0dp">
-                    <Spinner
-                        android:id="@+id/to_where"
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/to_where_card"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:dropDownSelector="@drawable/ic_menu_down"
-                        android:background="@drawable/ripple"/>
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+                        android:layout_height="45dp"
+                        android:layout_below="@id/from_whence_card"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="35dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="20dp"
+                        app:cardBackgroundColor="@color/resultLight">
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_marginTop="@dimen/app_bar_height"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <include layout="@layout/content_main_recycler" />
-    </LinearLayout>
+                            <EditText
+                                android:id="@+id/to_where_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_toLeftOf="@+id/to_where"
+                                android:layout_toStartOf="@+id/to_where"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:hint="@string/hint_where"
+                                android:imeOptions="actionDone"
+                                android:singleLine="true"
+                                android:textColor="@color/mainBg"
+                                android:textColorHint="@color/colorHint"
+                                android:textSize="14sp" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        android:src="@drawable/ic_search_white_36dp" />
+                            <Spinner
+                                android:id="@+id/to_where"
+                                android:layout_width="25dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/ripple"
+                                android:dropDownSelector="@drawable/ic_menu_down" />
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|start"
-        app:fabSize="mini"
-        android:src="@drawable/ic_refresh_white_18dp" />
+                </RelativeLayout>
+
+                <!--<ListView-->
+                <!--android:id="@+id/from_whence_suggestions"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="55dp"/>-->
+                <!--</FrameLayout>-->
+
+                <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"-->
+                <!--app:layout_collapseMode="pin"-->
+                <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/app_bar_height"
+            android:orientation="vertical">
+
+            <include layout="@layout/content_main_recycler" />
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_search_white_36dp"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|end" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_refresh_white_18dp"
+            app:fabSize="mini"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|start" />
+
+
     </android.support.design.widget.CoordinatorLayout>
+
+    <ListView
+        android:id="@+id/from_whence_suggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="77dp"
+        android:divider="@null"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/to_where_suggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="143dp"
+        android:divider="@null"
+        android:visibility="gone"/>
+</RelativeLayout>

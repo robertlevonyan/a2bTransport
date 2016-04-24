@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activities.DetailesActivity">
+    tools:context=".activities.DetailsActivity">
     <!--<item-->
         <!--android:id="@+id/open_map"-->
         <!--android:icon="@drawable/ic_map_white_24dp"-->

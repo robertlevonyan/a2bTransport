@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spinner_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/spinner_text"
+    android:ellipsize="end"
+    android:gravity="center_vertical"
+    android:maxLines="1"
+    android:paddingBottom="10dp"
     android:paddingLeft="25dp"
     android:paddingTop="15dp"
-    android:paddingBottom="10dp"
-    android:gravity="center_vertical"
-    android:textColor="@color/resultDark"
-    android:ellipsize="end"
-    android:maxLines="1"
-    android:background="@drawable/spinner_text"/>
+    android:textColor="@color/resultDark" />

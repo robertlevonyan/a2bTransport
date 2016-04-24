@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -18,23 +19,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.transition.Explode;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kobakei.ratethisapp.RateThisApp;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import robert.findtransport.adapters.DatabaseAdapter;
@@ -50,6 +65,10 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     private LinearLayout findMyLocation;
     private Spinner fromWhence;
     private Spinner toWhere;
+    private EditText fromWhenceInput;
+    private EditText toWhereInput;
+    private ListView fromWhenceSuggestions;
+    private ListView toWhereSuggestions;
     private GPSTracker gps;
     private double lattitude;
     private double longitude;
@@ -64,6 +83,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     private RecyclerView mainRecycler;
 
     private String[] res;
+    private String[] stops;
 
     private SharedPreferences sharedPreferences;
 
@@ -91,9 +111,15 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         //findMyLocation = (LinearLayout) findViewById(R.id.find_my_location);
         fromWhence = (Spinner) findViewById(R.id.from_whence);
         toWhere = (Spinner) findViewById(R.id.to_where);
+        fromWhenceInput = (EditText) findViewById(R.id.from_whence_input);
+        toWhereInput = (EditText) findViewById(R.id.to_where_input);
+        fromWhenceSuggestions = (ListView) findViewById(R.id.from_whence_suggestions);
+        toWhereSuggestions = (ListView) findViewById(R.id.to_where_suggestions);
 
-        searchResult = new String();
+        searchResult = "";
         mainRecycler = (RecyclerView) findViewById(R.id.main_content_recycler);
+
+        final CoordinatorLayout root = (CoordinatorLayout) findViewById(R.id.root);
 
         sharedPreferences = thisContext.getSharedPreferences("Transport", MODE_PRIVATE);
 
@@ -111,16 +137,31 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
                 @Override
                 public void onClick(View view) {
 
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
                     int count = 0;
 
-                    String from = fromWhence.getSelectedItem().toString();
-                    String to = toWhere.getSelectedItem().toString();
+//                    String from = fromWhence.getSelectedItem().toString();
+//                    String to = toWhere.getSelectedItem().toString();
+                    String from = fromWhenceInput.getText().toString();
+                    String to = toWhereInput.getText().toString();
 
                     String[] allRoutesSplitted = allRoutes.split("\n");
                     String[] searchSplitted;
                     searchResult = "";
+
                     if (from.equals(to)) {
                         snackbar = Snackbar.make(view, getString(R.string.change), Snackbar.LENGTH_LONG)
+                                .setAction("Լավ", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        snackbar.dismiss();
+                                    }
+                                });
+                        snackbar.show();
+                    } else if (from.equals(null) || to.equals(null)) {
+                        snackbar = Snackbar.make(view, getString(R.string.input), Snackbar.LENGTH_LONG)
                                 .setAction("Լավ", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -205,6 +246,143 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 //            }
 //        });
 
+        fromWhence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                fromWhenceInput.setText(fromWhence.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        toWhere.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                toWhereInput.setText(toWhere.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        fromWhenceInput.setText("");
+        toWhereInput.setText("");
+
+        fromWhenceInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                List<String> results = new ArrayList<>();
+                results.clear();
+
+                if (stops != null) {
+                    for (String stop : stops) {
+                        if (StringUtils.containsIgnoreCase(stop, s)) {
+                            results.add(stop);
+                        }
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(thisContext, R.layout.spinner_item_dropdown, results);
+                adapter.notifyDataSetChanged();
+                if (fromWhenceSuggestions != null) {
+//                    fromWhenceSuggestions.setVisibility(View.VISIBLE);
+                    fromWhenceSuggestions.setAdapter(adapter);
+                    fromWhenceSuggestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            fromWhenceInput.setText(((TextView) view.findViewById(R.id.spinner_item)).getText());
+                            fromWhenceSuggestions.setVisibility(View.GONE);
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        });
+
+        fromWhenceInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fromWhenceSuggestions.setVisibility(View.VISIBLE);
+                toWhereSuggestions.setVisibility(View.GONE);
+            }
+        });
+
+        toWhereInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                List<String> results = new ArrayList<>();
+                results.clear();
+
+                if (stops != null) {
+                    for (String stop : stops) {
+                        if (StringUtils.containsIgnoreCase(stop, s)) {
+                            results.add(stop);
+                        }
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(thisContext, R.layout.spinner_item_dropdown, results);
+                adapter.notifyDataSetChanged();
+                if (toWhereSuggestions != null) {
+//                    toWhereSuggestions.setVisibility(View.VISIBLE);
+                    toWhereSuggestions.setAdapter(adapter);
+                    toWhereSuggestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            toWhereInput.setText(((TextView) view.findViewById(R.id.spinner_item)).getText());
+                            toWhereSuggestions.setVisibility(View.GONE);
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        toWhereInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toWhereSuggestions.setVisibility(View.VISIBLE);
+                fromWhenceSuggestions.setVisibility(View.GONE);
+            }
+        });
+
+        if (root != null) {
+            root.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (fromWhenceSuggestions.getVisibility() == View.VISIBLE) {
+                        fromWhenceSuggestions.setVisibility(View.GONE);
+                    }
+                    if (toWhereSuggestions.getVisibility() == View.VISIBLE) {
+                        toWhereSuggestions.setVisibility(View.GONE);
+                    }
+                    return true;
+                }
+            });
+        }
+
         /** Getting Database*/
         new GetTransport(this).execute(null, null, null);
         new GetStops().execute(null, null, null);
@@ -233,12 +411,20 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK && !reseted) {
-//            mainContent.removeAllViews();
-//            new GetTransport().execute(null, null, null);
-//            reseted = true;
-//            return true;
-//        }
+        if (keyCode == KeyEvent.KEYCODE_BACK && !reseted) {
+            performSearch(res);
+            reseted = true;
+            return true;
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK && fromWhenceSuggestions.getVisibility() == View.VISIBLE) {
+            fromWhenceSuggestions.setVisibility(View.GONE);
+            return true;
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK && toWhereSuggestions.getVisibility() == View.VISIBLE) {
+            toWhereSuggestions.setVisibility(View.GONE);
+            return true;
+        }
+
 
         return super.onKeyDown(keyCode, event);
     }
@@ -247,6 +433,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     public void onLoadFinished() {
         performSearch(res);
     }
+
 
     private class GetTransport extends AsyncTask<String, Void, String> {
 
@@ -284,9 +471,6 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         }
     }
 
-    /**
-     * Get Stops
-     */
     private class GetStops extends AsyncTask<String, Void, String> {
 
         @Override
@@ -317,7 +501,8 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
             //text.setText(s);
 
-            ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(Main.this, R.layout.spinner_item, s.split("\n"));
+            stops = s.split("\n");
+            ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(Main.this, R.layout.spinner_item, stops);
             spinnerAdapter.setDropDownViewResource(R.layout.spinner_item_dropdown);
             fromWhence.setAdapter(spinnerAdapter);
             toWhere.setAdapter(spinnerAdapter);
@@ -326,9 +511,6 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         }
     }
 
-    /**
-     * Get Transport List
-     */
     private List<Transport> getTransports(Context context, String[] results, int spanCount) {
         List<Transport> transports = new ArrayList<>();
 
@@ -406,8 +588,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         } else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
             manager = new GridLayoutManager(thisContext, 1, GridLayoutManager.VERTICAL, false);
             adapter = new TransportResultsAdapter(thisContext, getTransports(thisContext, results, 1));
-        }
-        else {
+        } else {
             manager = new GridLayoutManager(thisContext, 1, GridLayoutManager.VERTICAL, false);
             adapter = new TransportResultsAdapter(thisContext, getTransports(thisContext, results, 1));
         }

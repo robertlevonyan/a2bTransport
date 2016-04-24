@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.DetailesActivity"
-    tools:showIn="@layout/activity_detailes">
+    tools:context=".activities.DetailsActivity"
+    tools:showIn="@layout/activity_details">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,9 @@
                 android:layout_marginBottom="@dimen/details_transport_text_margin"
                 android:layout_marginEnd="@dimen/details_transport_text_margin"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="@dimen/details_transport_text_margin" />
+                android:layout_marginTop="@dimen/details_transport_text_margin"
+                android:layout_marginRight="@dimen/details_transport_text_margin"
+                android:layout_marginLeft="10dp" />
 
             <TextView
                 android:id="@+id/transport_number"
@@ -45,14 +47,18 @@
                 android:text="1"
                 android:textColor="@color/resultLightText"
                 android:textSize="45sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="@dimen/details_transport_text_margin"
+                android:layout_toRightOf="@id/transport_icon" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/transport_number"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/transport_number">
 
                 <TextView
                     android:id="@+id/transport_type"

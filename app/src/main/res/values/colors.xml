@@ -5,8 +5,10 @@
     <color name="colorAccent">#ffb400</color>
 
     <color name="mainBg">#424242</color>
+    <color name="colorHint">#969696</color>
 
     <color name="resultLight">#ffdf88</color>
+    <color name="resultLight2">#ffd45f</color>
     <color name="resultDark">#424242</color>
     <color name="resultLightText">#d7d7d7</color>
     <color name="resultDarkText">#595959</color>

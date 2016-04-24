@@ -92,6 +92,9 @@
     <string name="action_settings">Settings</string>
     <string name="action_open_map">Քարտեզ</string>
 
+    <string name="hint_whence">Մուտքագրեք մեկնելու կանգառը</string>
+    <string name="hint_where">Մուտքագրեք ժամանման կանգառը</string>
+
     <string name="bus">Ավտոբուս</string>
     <string name="microbus">Միկրոավտոբուս</string>
     <string name="trolleybus">Տրոլեյբուս</string>
@@ -100,6 +103,7 @@
     <string name="no_routes_title">Երթուղիներ չեն գտնվել</string>
     <string name="no_routes_body">Վերդառնում ենք ամբողջական ցուցակին</string>
     <string name="change">Ընտրեք մեկնելու և ժամանման տարբեր կանգառներ</string>
+    <string name="input">Լրացրեք պահանջվող դաշտերը</string>
     <string name="reseted">Ցուցակն ամբողջական է</string>
 
     <string-array name="stops">

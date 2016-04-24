@@ -14,12 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Arrays;
-import java.util.List;
-
 import robert.findtransport.R;
 
-public class DetailesActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity {
 
     private static final String MAP_TAG = "Show map";
 
@@ -38,7 +35,7 @@ public class DetailesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailes);
+        setContentView(R.layout.activity_details);
 
 
         init(savedInstanceState);
@@ -72,7 +69,7 @@ public class DetailesActivity extends AppCompatActivity {
             return true;
         }
 //        if (id == R.id.open_map) {
-//            startActivity(new Intent(DetailesActivity.this, DetailedMapActivity.class));
+//            startActivity(new Intent(DetailsActivity.this, DetailedMapActivity.class));
 //        }
 
         return super.onOptionsItemSelected(item);

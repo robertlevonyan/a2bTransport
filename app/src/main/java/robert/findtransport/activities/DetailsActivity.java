@@ -42,14 +42,6 @@ public class DetailsActivity extends AppCompatActivity {
         getExtraData(savedInstanceState);
         buildUI();
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     @Override
@@ -113,8 +105,10 @@ public class DetailsActivity extends AppCompatActivity {
                 stopsGet = ((String) savedInstanceState.getSerializable("Details_type")).split("\t");
             }
         }
-        Log.e("SL", stopsGet.toString());
-        stopsFinal = stopsGet[0];
+        if (stopsGet != null) {
+            Log.e("SL", stopsGet.toString());
+            stopsFinal = stopsGet[0];
+        }
     }
 
     private void buildUI() {

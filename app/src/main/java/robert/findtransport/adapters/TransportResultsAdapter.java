@@ -36,7 +36,6 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
     public TransportResultsAdapter(Context context, List<Transport> transports) {
         this.context = context;
         this.transports = transports;
-        this.spanCount = spanCount;
         allRoutes = new ArrayList<>();
     }
 
@@ -257,20 +256,6 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
             transportNumber = (TextView) itemView.findViewById(R.id.transport_number);
             transportType = (TextView) itemView.findViewById(R.id.transport_type);
             transportRoutes = (TextView) itemView.findViewById(R.id.transport_routes);
-
-//            resultMain.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(context, DetailsActivity.class);
-//                    intent.putExtra("Details_number", transportNumber.getText().toString());
-//                    intent.putExtra("Details_type", transportType.getText().toString());
-//                    intent.putExtra("Details_stops", transportRoutes.getText().toString());
-//                    intent.putExtra("Details_route", allRoutes);
-//                    context.startActivity(intent);
-////                context.overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
-////                context.overridePendingTransition(0, 0);
-//                }
-//            });
 
         }
 

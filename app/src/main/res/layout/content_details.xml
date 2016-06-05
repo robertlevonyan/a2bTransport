@@ -5,19 +5,17 @@
     android:id="@+id/details_scroll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:paddingEnd="@dimen/app_padding"
-    android:paddingLeft="@dimen/app_padding"
-    android:paddingRight="@dimen/app_padding"
-    android:paddingStart="@dimen/app_padding"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_details">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/details_transport_separator_padding"
-        android:layout_marginBottom="@dimen/details_transport_separator_padding"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/app_padding"
+        android:layout_marginLeft="@dimen/app_padding"
+        android:layout_marginRight="@dimen/app_padding"
+        android:layout_marginStart="@dimen/app_padding"
         app:cardElevation="5dp">
 
         <LinearLayout
@@ -98,9 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/app_padding"
                 android:paddingEnd="@dimen/app_padding"
-                android:paddingStart="@dimen/app_padding" />
+                android:paddingStart="@dimen/app_padding"
+                android:paddingBottom="50dp"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

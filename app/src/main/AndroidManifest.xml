@@ -78,9 +78,6 @@
             android:label="@string/title_activity_detailes"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.DetailedMapActivity"
-            android:theme="@style/Theme.AppCompat.Dialog" />
     </application>
 
 </manifest>

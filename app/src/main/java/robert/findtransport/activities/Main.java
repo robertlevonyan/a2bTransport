@@ -33,10 +33,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -51,6 +54,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import robert.findtransport.adapters.DatabaseAdapter;
 import robert.findtransport.adapters.TransportResultsAdapter;
@@ -86,6 +90,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     private String[] stops;
 
     private SharedPreferences sharedPreferences;
+    private Locale locale;
 
     @Override
     protected void onStart() {
@@ -116,6 +121,11 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         fromWhenceSuggestions = (ListView) findViewById(R.id.from_whence_suggestions);
         toWhereSuggestions = (ListView) findViewById(R.id.to_where_suggestions);
 
+        final FrameLayout fade = (FrameLayout) findViewById(R.id.fade);
+        final FrameLayout fade2 = (FrameLayout) findViewById(R.id.fade2);
+        fade.setVisibility(View.GONE);
+        fade2.setVisibility(View.GONE);
+
         searchResult = "";
         mainRecycler = (RecyclerView) findViewById(R.id.main_content_recycler);
 
@@ -131,7 +141,11 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         /** Search Button */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         FloatingActionButton fabReset = (FloatingActionButton) findViewById(R.id.fab_reset);
+        FloatingActionButton fabLanguage = (FloatingActionButton) findViewById(R.id.fab_language);
+        final FloatingActionButton fabLanguageAm = (FloatingActionButton) findViewById(R.id.fab_language_am);
+        final FloatingActionButton fabLanguageEn = (FloatingActionButton) findViewById(R.id.fab_language_en);
 
+        //region FAB
         if (fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -226,6 +240,68 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
                 }
             });
         }
+        fabLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (fade.getVisibility() == View.VISIBLE && fade2.getVisibility() == View.VISIBLE) {
+                    fade.setVisibility(View.GONE);
+                    fade2.setVisibility(View.GONE);
+                    fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                    fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+                } else {
+                    fade.setVisibility(View.VISIBLE);
+                    fade2.setVisibility(View.VISIBLE);
+                    fabLanguageAm.animate().translationX(100f).translationY(-100f).setDuration(250);
+                    fabLanguageEn.animate().translationX(100f).translationY(100f).setDuration(250);
+                }
+            }
+        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            fabLanguageAm.setPaddingRelative(0, 0, 0, 0);
+            fabLanguageEn.setPaddingRelative(0, 0, 0, 0);
+        }
+
+        fade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+        fade2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+
+        fabLanguageAm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeLanguage("hy");
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+
+        fabLanguageEn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeLanguage("en");
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+        //endregion
 
 //        findMyLocation.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -271,6 +347,8 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
         fromWhenceInput.setText("");
         toWhereInput.setText("");
+        toWhere.setFocusable(false);
+        toWhere.setFocusableInTouchMode(false);
 
         fromWhenceInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -386,11 +464,19 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         /** Getting Database*/
         new GetTransport(this).execute(null, null, null);
         new GetStops().execute(null, null, null);
+        changeLanguage(getLanguage());
+
         reseted = true;
 
         /** Google Analytics */
         ((MyApplication) getApplication()).getTracker();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        databaseAdapter.closeDatabase();
     }
 
     @Override
@@ -466,7 +552,6 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
             String[] stops = s.split("\n");
             res = stops;
             listener.onLoadFinished();
-            databaseAdapter.closeDatabase();
             progressDialog.dismiss();
         }
     }
@@ -621,6 +706,32 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
             public void onCancelClicked() {
             }
         });
+    }
+
+    private void changeLanguage(String lng) {
+        if (lng.equalsIgnoreCase("")) {
+            return;
+        }
+        locale = new Locale(lng);
+        saveLanguage(lng);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+        saveLanguage(lng);
+
+        new GetTransport(this).execute(null, null, null);
+        new GetStops().execute(null, null, null);
+    }
+
+    private void saveLanguage(String lng) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("LNG", lng);
+        editor.apply();
+    }
+
+    private String getLanguage() {
+        return sharedPreferences.getString("LNG", "hy");
     }
 
 }

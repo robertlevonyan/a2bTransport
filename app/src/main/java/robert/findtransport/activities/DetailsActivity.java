@@ -2,6 +2,7 @@ package robert.findtransport.activities;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,7 +41,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
 
-        init(savedInstanceState);
+        init();
         getExtraData(savedInstanceState);
         buildUI();
 
@@ -56,21 +59,26 @@ public class DetailsActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             finish();
-//            overridePendingTransition(R.anim.anim_out, R.anim.anim_in);
             overridePendingTransition(0, 0);
             return true;
         }
-//        if (id == R.id.open_map) {
-//            startActivity(new Intent(DetailsActivity.this, DetailedMapActivity.class));
-//        }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void init(Bundle savedInstanceState) {
+    private void init() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window w = getWindow();
+//            w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//        NestedScrollView detailsScroll = (NestedScrollView) findViewById(R.id.details_scroll);
+//        detailsScroll.setFitsSystemWindows(false);
+
 
         stopsTable = (LinearLayout) findViewById(R.id.stops_table);
         transportNumber = (TextView) findViewById(R.id.transport_number);

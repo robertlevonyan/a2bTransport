@@ -2,12 +2,15 @@ package robert.findtransport.adapters;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 import robert.findtransport.R;
 
@@ -21,6 +24,8 @@ public class DatabaseAdapter {
 
     public DatabaseAdapter(Context context) {
         databaseHelper = new DatabaseHelper(context);
+
+//        databaseHelper.notify();
         this.context = context;
     }
 
@@ -124,7 +129,7 @@ public class DatabaseAdapter {
         private Context context;
 
         private static final String DATABASE_NAME = "Transport";
-        private static final int DATABASE_VERSION = 21;
+        private static final int DATABASE_VERSION = 22;
 
         private static final String TABLE_TRANSPORT_NAME = "table_transport";
         private static final String TABLE_STOP_NAME = "table_stop";

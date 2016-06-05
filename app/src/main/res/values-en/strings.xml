@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A2B Transport</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_open_map">Map</string>
+
+    <string name="hint_whence">Enter the point of departure</string>
+    <string name="hint_where">Enter the arrival stop</string>
+
+    <string name="bus">Bus</string>
+    <string name="microbus">Minibus</string>
+    <string name="trolleybus">Trolleybus</string>
+    <string name="na">N/A</string>
+
+    <string name="no_routes_title">No routes found</string>
+    <string name="no_routes_body">Returning to the full list</string>
+    <string name="change">The departure and arrival stops should be different</string>
+    <string name="input">Please fill the necessary fields</string>
+    <string name="reseted">The list is complete</string>
+
+    <string-array name="stops">
+        <item>15th district</item>
+        <item>16th district</item>
+        <item>Abovyan str. (Agrarayin Academy)</item>
+        <item>Abovyan str. (Yeritasardakan m/s)</item>
+        <item>Abovyan str. (Abovyan park)</item>
+        <item>Abelyan str.</item>
+        <item>Agathangeghos str.</item>
+        <item>Adonts str.</item>
+        <item>Aeratsia</item>
+        <item>Azatamartikneri str.</item>
+        <item>Azatutyan Ave. (Military Commission)</item>
+        <item>Azatutyan Ave. (The Victory Park)</item>
+        <item>Azatutyan Ave. (Nairi Zaryan cross)</item>
+        <item>Azatutyan Ave. (Raykom)</item>
+        <item>Athens\'s str.</item>
+        <item>Atoyan str.</item>
+        <item>Alek Manukyan str.</item>
+        <item>Almati\'s str.</item>
+        <item>Aksel Bakunts str.</item>
+        <item>Aharonyan str.</item>
+        <item>Aghababyan str.</item>
+        <item>Aghbyur Serob str.</item>
+        <item>Salt Mine</item>
+        <item>Acharyan str.</item>
+        <item>Acharyan str. 2nd deadlock</item>
+        <item>Amiryan str.</item>
+        <item>Ayvazovski str.</item>
+        <item>Anastas Mikoyan str.</item>
+        <item>Ashkhabad str.</item>
+        <item>Ashkhatanq square (Worker\'s statue)</item>
+        <item>Ashtarak road</item>
+        <item>Arinj Mall</item>
+        <item>Arno Babajanyan str.</item>
+        <item>Avan</item>
+        <item>Avan-Arinj</item>
+        <item>Avanesov str.</item>
+        <item>Avet Avetisyan str.</item>
+        <item>Arabkir\'s 17th str.</item>
+        <item>Arabkir\'s 29th str.</item>
+        <item>Aragats str.</item>
+        <item>Aram Khachaturyan str.</item>
+        <item>Araratyan str.</item>
+        <item>Arax stadium</item>
+        <item>Arax factory</item>
+        <item>Argishti str.</item>
+        <item>Eastern Sweets factory</item>
+        <item>Arzumanyan str.</item>
+        <item>Arin Berd\'s 3rd lane.</item>
+        <item>Arin Berd str.</item>
+        <item>Arghutyan str.</item>
+        <item>Armenal factory</item>
+        <item>Armenakyan str.</item>
+        <item>Armenia TV</item>
+        <item>Arshakunyats Ave. (To Charbakh)</item>
+        <item>Arshakunyats Ave. (Yerevan Mall)</item>
+        <item>Arshakunyats Ave. (Komitas\'s park)</item>
+        <item>Arshakunyats Ave. (Circus)</item>
+        <item>Arshakunyats Ave. (Hayreniq cinema)</item>
+        <item>Arshakunyats Ave. (Surmalu Mall)</item>
+        <item>Artashat road</item>
+        <item>Artashisyan str.</item>
+        <item>Artem Mikoyan str.</item>
+        <item>Artsakh str.</item>
+        <item>Bagratunyats Ave. (Artashisyan cross)</item>
+        <item>Bagratunyats Ave. (Worker\'s statue)</item>
+        <item>Bagratunyats Ave. (Yerevan City Supermarket)</item>
+        <item>Bagratunyats Ave. (Isakov cross)</item>
+        <item>Bagrevand\'s str.</item>
+        <item>Badal Muradyan str.</item>
+        <item>Baghyan str.</item>
+        <item>Baghramyan Ave. (American University of Armenia)</item>
+        <item>Baghramyan Ave. (SAS Supermarket)</item>
+        <item>Baghramyan Ave. (School after Kamo)</item>
+        <item>Baghramyan Ave. (Constitutional Court)</item>
+        <item>Baghramyan Ave. (Opera House)</item>
+        <item>Bashinjaghyan str.</item>
+        <item>Belinsku str.</item>
+        <item>Beknazaryan str.</item>
+        <item>Beirut\'s str.</item>
+        <item>Medical University</item>
+        <item>Boryan str.</item>
+        <item>Exchange building</item>
+        <item>Botanical park</item>
+        <item>Azatashen village</item>
+        <item>Aynthap village</item>
+        <item>Argavand village</item>
+        <item>Arinj village</item>
+        <item>Balahovit village</item>
+        <item>Geghanist village</item>
+        <item>Dashtavan village</item>
+        <item>Zovuni village</item>
+        <item>Khachpar village</item>
+        <item>Kharberd village</item>
+        <item>1st str. of Haghtanak village</item>
+        <item>10th str. of Haghtanak village</item>
+        <item>3nd str. of Haghtanak village</item>
+        <item>3rd str. of Haghtanak village</item>
+        <item>6th str. of Haghtanak village</item>
+        <item>7th str. of Haghtanak village</item>
+        <item>8th str. of Haghtanak village</item>
+        <item>9th str. of Haghtanak village</item>
+        <item>Marmashen village</item>
+        <item>Mushavan village</item>
+        <item>Norabac village</item>
+        <item>Jrashen village</item>
+        <item>Vardashen village</item>
+        <item>Verin Ptghni village</item>
+        <item>Paraqar village</item>
+        <item>Qasakh village</item>
+        <item>Gasprom Armenia</item>
+        <item>Galshoyan str.</item>
+        <item>Gayi ave. (Aquatec)</item>
+        <item>Gayi ave. (Statue of Gay)</item>
+        <item>Gayi ave. (Mersedes\-Benz Salon)</item>
+        <item>Gajegorcneri str.</item>
+        <item>Garegin Njdeh square</item>
+        <item>Garegin Njdeh str.</item>
+        <item>General Babayan str.</item>
+        <item>Glinka str.</item>
+        <item>Gyulbenkyan str.</item>
+        <item>Gyuliqekhvyan str.</item>
+        <item>Gyurjyan str.</item>
+        <item>Gum Market</item>
+        <item>Gusan Sheram str.</item>
+        <item>Grand Candy</item>
+        <item>Griboyedov str.</item>
+        <item>Grigor Lusavoritch str. (City Hall)</item>
+        <item>Grigor Lusavoritch str. (Circus)</item>
+        <item>Grigor Hasratyan str.</item>
+        <item>Dalma Garden Mall</item>
+        <item>Davtashen 1st district</item>
+        <item>Davtashen 2nd district</item>
+        <item>Davtashen 3rd district</item>
+        <item>Davtashen 4rth district</item>
+        <item>Davtashen bridge</item>
+        <item>Davit Anhaght str. (Dro str. cross)</item>
+        <item>Davit Anhaght str. (Municipality)</item>
+        <item>Davit Anhaght str. (Kerama Marazzi)</item>
+        <item>Davit Bekթաղապետարան</item>
+        <item>Duryan district</item>
+        <item>Dro srt.</item>
+        <item>Eghvard highway</item>
+        <item>Yerevan State University</item>
+        <item>Yerablur</item>
+        <item>Yerevan State Humanitarian Collage</item>
+        <item>Yervan Kochar str.</item>
+        <item>Zavaryan str.</item>
+        <item>Zakarya Kanaqerci str.</item>
+        <item>Zakyan str.</item>
+        <item>Zeytun 5th str.</item>
+        <item>Zovuni 6th str.</item>
+        <item>Zovuni 8th str.</item>
+        <item>Zovuni 39th str.</item>
+        <item>Zoravar Andranik str.</item>
+        <item>Zvarthnoc Airport</item>
+        <item>Ezras hasratyan str.</item>
+        <item>Electron factory</item>
+        <item>Energetikneri banavan</item>
+        <item>Ejmiatsin highway</item>
+        <item>Ejmiatsin old highway</item>
+        <item>Estonakan str.</item>
+        <item>Erebuni district</item>
+        <item>Erebuni museum</item>
+        <item>Erebuni str.</item>
+        <item>Erebuni Airport</item>
+        <item>Tadevosyan str.</item>
+        <item>Tbilisyan highway (Ayb High School)</item>
+        <item>Tbilisyan highway (Shampain factory of Yerevan)</item>
+        <item>Tbilisyan highway (Lights\' factory)</item>
+        <item>Tbilisyan highway (Radiomast)</item>
+        <item>Tevosyan str.</item>
+        <item>Totvents str.</item>
+        <item>Tumanyan district</item>
+        <item>Tumanyan str.</item>
+        <item>Clock\'s factory</item>
+        <item>Iosifyan str.</item>
+        <item>Leningradyan str. (Eurowagen)</item>
+        <item>Leningradyan str. (Kievyan bridge)</item>
+        <item>Leningradyan str. (Monte Melkonyan cross)</item>
+        <item>Lepsiusu str.</item>
+        <item>Lukashin str.</item>
+        <item>Lvovyan str.</item>
+        <item>Khakhagh Don str.</item>
+        <item>Khanjyan str. (Lunapark)</item>
+        <item>Khanjyan str. (Chess house)</item>
+        <item>Khachik Dashtents str.</item>
+        <item>Khorenatsi str. (Mashtoc cross)</item>
+        <item>Khorenatsi str. (Shahumyan square)</item>
+        <item>Khorenatsi str. (Shilachi)</item>
+        <item>Khudyakov str.</item>
+        <item>Tsarav Aghbyur str.</item>
+        <item>Tsitsarnakaberd higway</item>
+        <item>Isakov ave.</item>
+        <item>Isakov ave. (Sebastia cross)</item>
+        <item>Milk factory</item>
+        <item>Milk combinate</item>
+        <item>Kanaz Military Hospital</item>
+        <item>Kasyan str.</item>
+        <item>Red Cross</item>
+        <item>Kievyan str.(Barkamutyun)</item>
+        <item>Kievyan str.(Kievyan bridge)</item>
+        <item>Kievyan str.(Orbeli cross)</item>
+        <item>Kilikia autostation</item>
+        <item>Komitas ave. (Gyulbenkyan cross)</item>
+        <item>Komitas ave. (Lambada bridge)</item>
+        <item>Komitas ave. (Komitas Market)</item>
+        <item>Komitas ave. (Russian-Armenian University)</item>
+        <item>Komitas ave. (Vagharshyan cross)</item>
+        <item>Komitas ave. (Vracakan cross)</item>
+        <item>Komitas ave. (Papazyan cross)</item>
+        <item>Koryun str. (Citadel)</item>
+        <item>Custo str.</item>
+        <item>Kurghinyan str.</item>
+        <item>H. Hovsepyan str.</item>
+        <item>HAT</item>
+        <item>Halabyan str. (TUMO)</item>
+        <item>Halabyan str. (Kievyan bridge)</item>
+        <item>Halabyan str. (Fizika cross)</item>
+        <item>Hakob Hakobyan str.</item>
+        <item>Victory bridge</item>
+        <item>Armenian-Belorussian trade center</item>
+        <item>Hanrapetakan stadium</item>
+        <item>Republic Square</item>
+        <item>Telecenter</item>
+        <item>Heratsi str.</item>
+        <item>Northern autostation</item>
+        <item>Hovhannisyan str.</item>
+        <item>Hovsepyan str.</item>
+        <item>Huysi district</item>
+        <item>Hunan Avetisyan str.</item>
+        <item>Souvenirs combinate</item>
+        <item>Hrazdan stadium</item>
+        <item>Hrachya Kochar str. (Gyulbenkyan cross)</item>
+        <item>Hrachya Kochar str. (Vagharshyan cross)</item>
+        <item>Hrachya Kochar str. (Papazyan cross)</item>
+        <item>Ghapantsyan str.</item>
+        <item>Mazmanyan str.</item>
+        <item>Malatia Medical Center</item>
+        <item>Malkhasyants str.</item>
+        <item>Malkhasyan dead end</item>
+        <item>Mahari str.</item>
+        <item>Mamikonyants str.</item>
+        <item>Mayisi 9th str.</item>
+        <item>Manandyan str.</item>
+        <item>Mantashyan str.</item>
+        <item>Pedagogical University</item>
+        <item>Mashtots ave. (Amiryan cross)</item>
+        <item>Mashtots ave. (Covered market)</item>
+        <item>Mashtots ave. (Conservatoire)</item>
+        <item>Mashtots ave. (Fish market)</item>
+        <item>Mashtots ave. (Matenadaran)</item>
+        <item>Mashtots ave. (Margaryan hospital)</item>
+        <item>Mashtots ave. (Opera)</item>
+        <item>Melik-Adamyan str.</item>
+        <item>Marash</item>
+        <item>Margaryan str. (Hanrapetakan hospital)</item>
+        <item>Margaryan str. (Pegas)</item>
+        <item>Marshal Babajanyan str.</item>
+        <item>Marshal Khudyakov str.</item>
+        <item>Mars factory</item>
+        <item>Martirossyan str.</item>
+        <item>Melqumov str.</item>
+        <item>Mergelyan Intitute</item>
+        <item>Minsk str. (Nor Nork 8th district)</item>
+        <item>Myasnikyan ave. (Heratsi cross)</item>
+        <item>Myasnikyan ave. (Yerevan Zoo)</item>
+        <item>Myasnikyan ave. (Water world)</item>
+        <item>Moldovakan str.</item>
+        <item>Moskovyan str. (Tumanyan cross)</item>
+        <item>Moskovyan str. (Camera music house)</item>
+        <item>Moskovyan str. (Kaskad)</item>
+        <item>Moskovyan str. (Conservatoire)</item>
+        <item>Musayelyan str.</item>
+        <item>Muratsan str.</item>
+        <item>Meat combinate</item>
+        <item>Nazarbekyan district</item>
+        <item>Nairi Zaryan str.</item>
+        <item>Moskovyan str.</item>
+        <item>Nalbandyan str. (Yerevan State Economical University)</item>
+        <item>Nalbandyan str. (Republic Square)</item>
+        <item>Nanset str.</item>
+        <item>Nar-Dos str. (Shilachi cross)</item>
+        <item>Noragavit 1st str.</item>
+        <item>Nersisyan str.</item>
+        <item>Nerqin Shengavit</item>
+        <item>Nerqin Shengavit 11th str.</item>
+        <item>Nerqin Shengavit 9th str.</item>
+        <item>Nerqin Charbakh 1st str.</item>
+        <item>Nerson Safaryan str.</item>
+        <item>Nor Aresh 20th str.</item>
+        <item>Nor Aresh 50th str.</item>
+        <item>Nor Aresh 7th str.</item>
+        <item>Nor Kharberd</item>
+        <item>Nor Norq 1st district</item>
+        <item>Nor Norq 2nd district</item>
+        <item>Nor Norq 3rd district</item>
+        <item>Nor Norq 4th district</item>
+        <item>Nor Norq 5th district</item>
+        <item>Nor Norq 6th district</item>
+        <item>Nor Norq 7th district</item>
+        <item>Nor Norq 8th district</item>
+        <item>Nor Norq 9th district</item>
+        <item>Noragavith 1st str.</item>
+        <item>Noragyux</item>
+        <item>Norashen district</item>
+        <item>Norq cinema</item>
+        <item>Norq Marash Medikay Center</item>
+        <item>Norq 1st str. lane</item>
+        <item>Norq 2nd srt. lane</item>
+        <item>Norq 5th str.</item>
+        <item>Norq 6th str.</item>
+        <item>Norq 7th str.</item>
+        <item>Norq 8th str.</item>
+        <item>Norq 9th str.</item>
+        <item>Norq 13th str.</item>
+        <item>Norq Gardens 1st lane</item>
+        <item>Nubarashen 10th str.</item>
+        <item>Nubarashen 11th str.</item>
+        <item>Nubarashen 6th str.</item>
+        <item>Nubarashen 9th str.</item>
+        <item>Nubarashen highway</item>
+        <item>Nubarashen highway (Military unit)</item>
+        <item>Nubarashen str.</item>
+        <item>Nver Safaryan str.</item>
+        <item>Shahamiryan str.</item>
+        <item>Shahumyan 4th str.</item>
+        <item>Sharur str.</item>
+        <item>Shengavit metro station</item>
+        <item>Shinararner str.</item>
+        <item>Shiraz str.</item>
+        <item>Shirak 5th lane</item>
+        <item>Shirak str. (Erebuni Aurport)</item>
+        <item>Shirak str. (Hippodrome)</item>
+        <item>Shirak str. (Charbakh Market)</item>
+        <item>Shirvanzade str.</item>
+        <item>Shopron str.</item>
+        <item>Ulnetsi str.</item>
+        <item>Ulnetsi str.(To Monument)</item>
+        <item>Oncology Institute</item>
+        <item>Educational Hostels</item>
+        <item>Chaush str.</item>
+        <item>Charenc str. (Zigzag)</item>
+        <item>Charenc str. (Yerevan State University)</item>
+        <item>Charenc str. (RA Police)</item>
+        <item>Chekhov str.</item>
+        <item>Paronyan str. (Cesar Palace)</item>
+        <item>Paruyr Sevak str.</item>
+        <item>Proshyan avan</item>
+        <item>Proshyan str.</item>
+        <item>Prosthetics Center</item>
+        <item>Janibekyan str.</item>
+        <item>Thermal Power Plant</item>
+        <item>Jugha str.</item>
+        <item>Jrvezh</item>
+        <item>Radiohouse</item>
+        <item>Riga str.</item>
+        <item>Romanos Melikyan str.</item>
+        <item>Rostovyan str.</item>
+        <item>Rubinyants str. (Almast factory)</item>
+        <item>Rubinyants str. (Aharonyan str.)</item>
+        <item>Rubinyants str. (Yerevan City Supermarket)</item>
+        <item>Russian-Armenian University</item>
+        <item>Sayat Nova ave. (Abovyan cross)</item>
+        <item>Sayat Nova ave. (Aleq Manukyan cross)</item>
+        <item>Sayat Nova ave. (Nalbandyan cross)</item>
+        <item>Sasna Tsrer str.</item>
+        <item>Sasuntsi Davit str.</item>
+        <item>Saralanj str.</item>
+        <item>Sari tagh</item>
+        <item>Sari Tagh 1st str.</item>
+        <item>Sari Tagh 3rd str.</item>
+        <item>Sari Tagh 5th str.</item>
+        <item>Sari Tagh 11th str.</item>
+        <item>Sari Tagh 12th str.</item>
+        <item>Sari Tagh 20th str.</item>
+        <item>Sari Tagh 21th str.</item>
+        <item>Saryan str. (Amiryan cross)</item>
+        <item>Saryan str. (Tumanyan cross)</item>
+        <item>Saryan str. (Saryan post)</item>
+        <item>Saint Gregory Iluminator Church</item>
+        <item>Sebastia str. (Tichina cross)</item>
+        <item>Sebastia str. (Kurghinyan cross)</item>
+        <item>Sebastia str. (Leningradyan cross)</item>
+        <item>Sebastia str. (Malatia Market)</item>
+        <item>Sevan str.</item>
+        <item>Silikyan 4th str.</item>
+        <item>Silikyan 7th str.</item>
+        <item>Silikyan 10th str.</item>
+        <item>Silikyan district</item>
+        <item>Silikyan New Highway</item>
+        <item>Saint Gregory Iluminator Medical Center</item>
+        <item>Spandaryan Station</item>
+        <item>Stepanyan str.</item>
+        <item>Vazgen Sargsyan str.</item>
+        <item>Vakhtangovi str.</item>
+        <item>Vahagni district</item>
+        <item>Vagharshyan str.</item>
+        <item>Vantyan str.</item>
+        <item>Vardananc str.</item>
+        <item>Vardashen 5th str.</item>
+        <item>Vardashen 6th str.</item>
+        <item>Vardashen 9th str.</item>
+        <item>Varshavyan str.</item>
+        <item>Varouzhan str.</item>
+        <item>Verin Charbakh</item>
+        <item>Vernisage</item>
+        <item>Vilnus str.</item>
+        <item>Vstrech bridge</item>
+        <item>Vracakan str.</item>
+        <item>Tashkent str.</item>
+        <item>Tarontsi str.</item>
+        <item>Teryan str.</item>
+        <item>Tigran Mets ave. (Ayrarat cinema)</item>
+        <item>Tigran Mets ave. (Yerevan Railway Station)</item>
+        <item>Tigran Mets ave. (Yerevan Railway Station Management)</item>
+        <item>Tigran Mets ave. (Tashir Mall)</item>
+        <item>Tigran Mets ave. (Firdus Market)</item>
+        <item>Tigran Petrosyan str.</item>
+        <item>Tichina str.</item>
+        <item>Titigradyan str.</item>
+        <item>Raffi str.</item>
+        <item>Raffi str. (Malatia Market)</item>
+        <item>Papazyan str.</item>
+        <item>Petak Mall</item>
+        <item>Abovyan city</item>
+        <item>Masis city</item>
+        <item>City Pantheon</item>
+        <item>Qanaqer Hydro Power Plant</item>
+        <item>Qanaqer Zeytun Medical Center</item>
+        <item>Qanaqer 13th str.</item>
+        <item>Qochinyan str.</item>
+        <item>Qristapor str.</item>
+        <item>Odesa str.</item>
+        <item>Ohanov str.</item>
+        <item>Orbeli str.</item>
+        <item>Fanarjyan str.</item>
+        <item>Fuchik str.</item>
+    </string-array>
+
+    <string name="title_activity_detailes">Details</string>
+    <string name="google_maps_api_key">AIzaSyCLqHRL74bfJnWAO5cQOzSnwN8bGmiJUbc</string>
+
+    <string name="rate_title">Rate</string>
+    <string name="rate_message">If you like this app. Please like it.\nThank you</string>
+    <string name="rate_rate">Rate</string>
+    <string name="rate_cancel">Later</string>
+    <string name="rate_thanks">No, Thanks</string>
+
+    <string name="part_a">a</string>
+</resources>

@@ -57,16 +57,12 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
                 for (int i = 0; i < allRoutes.size(); i++) {
                     if (Arrays.toString(allRoutes.get(i)).contains(transportNumber.getText().toString().replace("\t", ""))) {
 
-                        switch (transportType.getText().toString()) {
-                            case "Ավտոբուս":
-                                t = "A";
-                                break;
-                            case "Միկրոավտոբուս":
-                                t = "M";
-                                break;
-                            case "Տրոլեյբուս":
-                                t = "T";
-                                break;
+                        if (transportType.getText().toString().equalsIgnoreCase(context.getResources().getString(R.string.bus))) {
+                            t = "A";
+                        } else if (transportType.getText().toString().equalsIgnoreCase(context.getResources().getString(R.string.microbus))) {
+                            t = "M";
+                        } else if (transportType.getText().toString().equalsIgnoreCase(context.getResources().getString(R.string.trolleybus))) {
+                            t = "T";
                         }
                         if (Arrays.toString(allRoutes.get(i)).contains(t)
                                 && Arrays.toString(allRoutes.get(i)).contains(transportRoutes.getText().toString().split(" - ")[0])
@@ -108,7 +104,7 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
         char[] current = transport.getRoute().toCharArray();
 
         if (Character.isDigit(current[0]) && !Character.isDigit(current[1])) {
-            if (current[1] == 'ա') {
+            if (current[1] == context.getResources().getString(R.string.part_a).charAt(0)) {
                 switch (current[3]) {
                     case 'T':
                         holder.getTransportType().setText(R.string.trolleybus);
@@ -155,7 +151,7 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
                     break;
             }
         } else if (Character.isDigit(current[0]) && Character.isDigit(current[1])) {
-            if (current[2] == 'ա') {
+            if (current[2] == context.getResources().getString(R.string.part_a).charAt(0)) {
                 switch (current[4]) {
                     case 'T':
                         holder.getTransportType().setText(R.string.trolleybus);
@@ -191,7 +187,7 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
         if (Character.isDigit(current[2])) {
             holder.getTransportNumber().setText(current, 0, 3);
             holder.getTransportNumber().setTextSize(30f);
-        } else if (current[2] == 'ա') {
+        } else if (current[2] == context.getResources().getString(R.string.part_a).charAt(0)) {
             holder.getTransportNumber().setText(current, 0, 3);
             holder.getTransportNumber().setTextSize(30f);
         } else {

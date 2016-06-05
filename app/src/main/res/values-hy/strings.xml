@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">A2B Transport</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Կարգավորումներ</string>
     <string name="action_open_map">Քարտեզ</string>
 
     <string name="hint_whence">Մուտքագրեք մեկնելու կանգառը</string>
@@ -9,7 +10,7 @@
     <string name="bus">Ավտոբուս</string>
     <string name="microbus">Միկրոավտոբուս</string>
     <string name="trolleybus">Տրոլեյբուս</string>
-    <string name="na">N/A</string>
+    <string name="na">Անհայտ</string>
 
     <string name="no_routes_title">Երթուղիներ չեն գտնվել</string>
     <string name="no_routes_body">Վերդառնում ենք ամբողջական ցուցակին</string>
@@ -103,9 +104,11 @@
         <item>Բուսաբանական այգի</item>
         <item>գ․ Ազատաշեն</item>
         <item>գ․ Այնթափ</item>
+        <item>գ. Առինջ</item>
         <item>գ․ Արգավանդ</item>
         <item>գ․ Բալահովիտ</item>
         <item>գ․ Գեղանիստ</item>
+        <item>գ. Դաշտավան</item>
         <item>գ․ Զովունի</item>
         <item>գ. Խաչփառ</item>
         <item>գ․ Խարբերդ</item>
@@ -113,6 +116,8 @@
         <item>գ. Հաղթանակի 10-րդ փ․</item>
         <item>գ. Հաղթանակի 2-րդ փ․</item>
         <item>գ. Հաղթանակի 3-րդ փ․</item>
+        <item>գ. Հաղթանակի 6-րդ փ․</item>
+        <item>գ. Հաղթանակի 7-րդ փ․</item>
         <item>գ. Հաղթանակի 8-րդ փ․</item>
         <item>գ. Հաղթանակի 9-րդ փ․</item>
         <item>գ. Մարմարաշեն</item>
@@ -123,16 +128,6 @@
         <item>գ․ Վերին Պտղնի</item>
         <item>գ. Փարաքար</item>
         <item>գ. Քասախ</item>
-        <item>գ. Այնթապ</item>
-        <item>գ. Առինջ</item>Ալեք-Մանուկյան փ․
-        <item>գ. Արգավանդ</item>
-        <item>գ. Գեղանիստ</item>
-        <item>գ. Դաշտավան</item>
-        <item>գ. Հաղթանակի 1-ին փ․</item>
-        <item>գ. Հաղթանակի 10-րդ փ․</item>
-        <item>գ. Հաղթանակի 6-րդ փ․</item>
-        <item>գ. Հաղթանակի 7-րդ փ․</item>
-        <item>գ. Հաղթանակի 9-րդ փ․</item>
         <item>Գազպրոմ Արմենիա</item>
         <item>Գալշոյան փ․</item>
         <item>Գայի պ․ (Աքվատեք)</item>
@@ -301,16 +296,14 @@
         <item>Մսի կոմբինատ</item>
         <item>Նազարբեկյան թաղ.</item>
         <item>Նաիրի Զարյան փ․</item>
-        <item>Մոսկովյան փ․ (????)</item>
+        <item>Մոսկովյան փ․</item>
         <item>Նալբանդյան փ․ (ԵՊՏՀ)</item>
         <item>Նալբանդյան փ․ (Հանրապետության Հրապարակ)</item>
         <item>Նանսենի փ․</item>
         <item>Նար-Դոսի փ․ (Սիլաչի խաչմերուկ)</item>
-        <item>Ներագավթի 1-ին փ․</item>
         <item>Ներսիսյան փ․</item>
         <item>Ներքին Շենգավիթ</item>
         <item>Ներքին Շենգավիթի 11-րդ փ.</item>
-        <item>Ներքին Շենգավիթի 9-րդ փ.</item>
         <item>Ներքին Շենգավիթի 9-րդ փ.</item>
         <item>Ներքին Չարբախի 1-ին փ․</item>
         <item>Ներսոն Սաֆարյան փ․</item>
@@ -454,7 +447,7 @@
         <item>Քաղաքային պանթեոն</item>
         <item>Քանաքեռ ՀԷԿ</item>
         <item>Քանաքեռ-Զեյթուն բ/կ</item>
-        <item>Քանաքեռի 13- րդ փ.</item>
+        <item>Քանաքեռի 13-րդ փ.</item>
         <item>Քոչինյան փ․</item>
         <item>Քրիստափորի փ․</item>
         <item>Օդեսայի փ․</item>
@@ -464,8 +457,7 @@
         <item>Ֆուչիկի փ․</item>
     </string-array>
 
-    <string name="title_activity_detailes">DetailesActivity</string>
-    <string name="title_activity_detailed_map">Map</string>
+    <string name="title_activity_detailes">Մանրամասներ</string>
     <string name="google_maps_api_key">AIzaSyCLqHRL74bfJnWAO5cQOzSnwN8bGmiJUbc</string>
 
     <string name="rate_title">Գնահատեք</string>
@@ -474,6 +466,6 @@
     <string name="rate_cancel">Ավելի ուշ</string>
     <string name="rate_thanks">Ոչ, շնորհակալություն</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="part_a">ա</string>
+
 </resources>

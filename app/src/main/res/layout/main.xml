@@ -174,7 +174,16 @@
                 <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
 
+                <FrameLayout
+                    android:id="@+id/fade2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:background="#50ffffff"/>
+
+
             </android.support.design.widget.CollapsingToolbarLayout>
+
         </android.support.design.widget.AppBarLayout>
 
         <LinearLayout
@@ -205,6 +214,58 @@
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom|start" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_language_am"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:src="@drawable/hy"
+            app:backgroundTint="#ffffff"
+            app:fabSize="mini"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|start" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_language_en"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:src="@drawable/en"
+            app:backgroundTint="#ffffff"
+            app:fabSize="mini"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|start" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:src="@drawable/ic_translate_white_24dp"
+            app:fabSize="mini"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|start" />
+
+        <FrameLayout
+            android:id="@+id/fade"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#50ffffff"/>
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -230,5 +291,5 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="143dp"
         android:divider="@null"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 </RelativeLayout>

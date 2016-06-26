@@ -103,205 +103,12 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        initRate();
-
-        /** Declarations */
-        thisContext = Main.this;
-        progressDialog = new ProgressDialog(this);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //findMyLocation = (LinearLayout) findViewById(R.id.find_my_location);
-        fromWhence = (Spinner) findViewById(R.id.from_whence);
-        toWhere = (Spinner) findViewById(R.id.to_where);
-        fromWhenceInput = (EditText) findViewById(R.id.from_whence_input);
-        toWhereInput = (EditText) findViewById(R.id.to_where_input);
-        fromWhenceSuggestions = (ListView) findViewById(R.id.from_whence_suggestions);
-        toWhereSuggestions = (ListView) findViewById(R.id.to_where_suggestions);
-
-        final FrameLayout fade = (FrameLayout) findViewById(R.id.fade);
-        final FrameLayout fade2 = (FrameLayout) findViewById(R.id.fade2);
-        fade.setVisibility(View.GONE);
-        fade2.setVisibility(View.GONE);
-
-        searchResult = "";
-        mainRecycler = (RecyclerView) findViewById(R.id.main_content_recycler);
-
-        final CoordinatorLayout root = (CoordinatorLayout) findViewById(R.id.root);
-
-        sharedPreferences = thisContext.getSharedPreferences("Transport", MODE_PRIVATE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setEnterTransition(/*TransitionInflater.from(thisContext).inflateTransition(R.transition.enter_transition)*/new Explode());
-            getWindow().setExitTransition(/*TransitionInflater.from(thisContext).inflateTransition(R.transition.exit_transition)*/new Slide());
-        }
-
-        /** Search Button */
+        CoordinatorLayout root = (CoordinatorLayout) findViewById(R.id.root);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         FloatingActionButton fabReset = (FloatingActionButton) findViewById(R.id.fab_reset);
-        FloatingActionButton fabLanguage = (FloatingActionButton) findViewById(R.id.fab_language);
-        final FloatingActionButton fabLanguageAm = (FloatingActionButton) findViewById(R.id.fab_language_am);
-        final FloatingActionButton fabLanguageEn = (FloatingActionButton) findViewById(R.id.fab_language_en);
-
-        //region FAB
-        if (fab != null) {
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
-                    int count = 0;
-
-//                    String from = fromWhence.getSelectedItem().toString();
-//                    String to = toWhere.getSelectedItem().toString();
-                    String from = fromWhenceInput.getText().toString();
-                    String to = toWhereInput.getText().toString();
-
-                    String[] allRoutesSplitted = allRoutes.split("\n");
-                    String[] searchSplitted;
-                    searchResult = "";
-
-                    if (from.equals(to)) {
-                        snackbar = Snackbar.make(view, getString(R.string.change), Snackbar.LENGTH_LONG)
-                                .setAction("Լավ", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        snackbar.dismiss();
-                                    }
-                                });
-                        snackbar.show();
-                    } else if (from.equals(null) || to.equals(null)) {
-                        snackbar = Snackbar.make(view, getString(R.string.input), Snackbar.LENGTH_LONG)
-                                .setAction("Լավ", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        snackbar.dismiss();
-                                    }
-                                });
-                        snackbar.show();
-                    } else {
-                        mainRecycler.getLayoutManager().removeAllViews();
-
-                        for (int i = 0; i < allRoutesSplitted.length; i++) {
-                            if (allRoutesSplitted[i].contains(from.substring(0, from.length() - 2)) && allRoutesSplitted[i].contains(to.substring(0, to.length() - 2))) {
-                                searchResult += allRoutesSplitted[i] + "\n";
-                            } else {
-                                count++;
-                            }
-                        }
-
-                        searchSplitted = searchResult.split("\n");
-
-                        if (count == allRoutesSplitted.length) {
-                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(thisContext);
-                            alertDialogBuilder.setTitle(getString(R.string.no_routes_title));
-                            alertDialogBuilder.setMessage(getString(R.string.no_routes_body));
-                            alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new GetTransport(Main.this).execute(null, null, null);
-                                }
-                            });
-                            AlertDialog alertDialog = alertDialogBuilder.create();
-                            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.resultLightText)));
-                            alertDialog.show();
-                            reseted = true;
-                        } else {
-                            performSearch(searchSplitted);
-                            reseted = false;
-                        }
-                    }
-                }
-            });
-        }
-
-        /** Reset Button */
-        if (fabReset != null) {
-            fabReset.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!reseted) {
-                        performSearch(res);
-                        reseted = true;
-                    } else {
-                        snackbar = Snackbar.make(v, getString(R.string.reseted), Snackbar.LENGTH_LONG)
-                                .setAction("Լավ", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        snackbar.dismiss();
-                                    }
-                                });
-                        snackbar.show();
-                    }
-                }
-            });
-        }
-        fabLanguage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fade.getVisibility() == View.VISIBLE && fade2.getVisibility() == View.VISIBLE) {
-                    fade.setVisibility(View.GONE);
-                    fade2.setVisibility(View.GONE);
-                    fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                    fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-                } else {
-                    fade.setVisibility(View.VISIBLE);
-                    fade2.setVisibility(View.VISIBLE);
-                    fabLanguageAm.animate().translationX(100f).translationY(-100f).setDuration(250);
-                    fabLanguageEn.animate().translationX(100f).translationY(100f).setDuration(250);
-                }
-            }
-        });
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            fabLanguageAm.setPaddingRelative(0, 0, 0, 0);
-            fabLanguageEn.setPaddingRelative(0, 0, 0, 0);
-        }
-
-        fade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-        fade2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-
-        fabLanguageAm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeLanguage("hy");
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-
-        fabLanguageEn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeLanguage("en");
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-        //endregion
 
 //        findMyLocation.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -322,153 +129,19 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 //            }
 //        });
 
-        fromWhence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                fromWhenceInput.setText(fromWhence.getSelectedItem().toString());
-            }
+        init();
+        initRate();
+        initSearch(fab);
+        initReset(fabReset);
+        initLanguagesButtons();
+        initSuggestions(root);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        toWhere.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                toWhereInput.setText(toWhere.getSelectedItem().toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        fromWhenceInput.setText("");
-        toWhereInput.setText("");
-        toWhere.setFocusable(false);
-        toWhere.setFocusableInTouchMode(false);
-
-        fromWhenceInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                List<String> results = new ArrayList<>();
-                results.clear();
-
-                if (stops != null) {
-                    for (String stop : stops) {
-                        if (StringUtils.containsIgnoreCase(stop, s)) {
-                            results.add(stop);
-                        }
-                    }
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(thisContext, R.layout.spinner_item_dropdown, results);
-                adapter.notifyDataSetChanged();
-                if (fromWhenceSuggestions != null) {
-//                    fromWhenceSuggestions.setVisibility(View.VISIBLE);
-                    fromWhenceSuggestions.setAdapter(adapter);
-                    fromWhenceSuggestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            fromWhenceInput.setText(((TextView) view.findViewById(R.id.spinner_item)).getText());
-                            fromWhenceSuggestions.setVisibility(View.GONE);
-                        }
-                    });
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-
-            }
-        });
-
-        fromWhenceInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fromWhenceSuggestions.setVisibility(View.VISIBLE);
-                toWhereSuggestions.setVisibility(View.GONE);
-            }
-        });
-
-        toWhereInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                List<String> results = new ArrayList<>();
-                results.clear();
-
-                if (stops != null) {
-                    for (String stop : stops) {
-                        if (StringUtils.containsIgnoreCase(stop, s)) {
-                            results.add(stop);
-                        }
-                    }
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(thisContext, R.layout.spinner_item_dropdown, results);
-                adapter.notifyDataSetChanged();
-                if (toWhereSuggestions != null) {
-//                    toWhereSuggestions.setVisibility(View.VISIBLE);
-                    toWhereSuggestions.setAdapter(adapter);
-                    toWhereSuggestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            toWhereInput.setText(((TextView) view.findViewById(R.id.spinner_item)).getText());
-                            toWhereSuggestions.setVisibility(View.GONE);
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        toWhereInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toWhereSuggestions.setVisibility(View.VISIBLE);
-                fromWhenceSuggestions.setVisibility(View.GONE);
-            }
-        });
-
-        if (root != null) {
-            root.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (fromWhenceSuggestions.getVisibility() == View.VISIBLE) {
-                        fromWhenceSuggestions.setVisibility(View.GONE);
-                    }
-                    if (toWhereSuggestions.getVisibility() == View.VISIBLE) {
-                        toWhereSuggestions.setVisibility(View.GONE);
-                    }
-                    return true;
-                }
-            });
-        }
-
-        /** Getting Database*/
+        changeLanguage(getLanguage());
         new GetTransport(this).execute(null, null, null);
         new GetStops().execute(null, null, null);
-        changeLanguage(getLanguage());
 
         reseted = true;
 
-        /** Google Analytics */
         ((MyApplication) getApplication()).getTracker();
 
     }
@@ -520,6 +193,21 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         performSearch(res);
     }
 
+    private void init() {
+        thisContext = Main.this;
+        progressDialog = new ProgressDialog(this);
+        fromWhence = (Spinner) findViewById(R.id.from_whence);
+        toWhere = (Spinner) findViewById(R.id.to_where);
+        fromWhenceInput = (EditText) findViewById(R.id.from_whence_input);
+        toWhereInput = (EditText) findViewById(R.id.to_where_input);
+        fromWhenceSuggestions = (ListView) findViewById(R.id.from_whence_suggestions);
+        toWhereSuggestions = (ListView) findViewById(R.id.to_where_suggestions);
+
+        searchResult = "";
+        mainRecycler = (RecyclerView) findViewById(R.id.main_content_recycler);
+
+        sharedPreferences = thisContext.getSharedPreferences("Transport", MODE_PRIVATE);
+    }
 
     private class GetTransport extends AsyncTask<String, Void, String> {
 
@@ -541,6 +229,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         protected String doInBackground(String... params) {
 
             databaseAdapter = new DatabaseAdapter(thisContext);
+
             String transports = databaseAdapter.getTransport();
             return transports;
         }
@@ -553,6 +242,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
             res = stops;
             listener.onLoadFinished();
             progressDialog.dismiss();
+//            databaseAdapter.updateTransport();
         }
     }
 
@@ -571,28 +261,37 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         protected String doInBackground(String... params) {
 
             databaseAdapter = new DatabaseAdapter(thisContext);
-            //transports = databaseAdapter.getTransport();
-            String stops = databaseAdapter.getStops();
+            String stops;
+            switch (getLanguage()) {
+                case "en":
+                    stops = databaseAdapter.getStopsEn();
+                    break;
+                case "hy":
+                    stops = databaseAdapter.getStops();
+                    break;
+                case "ru":
+                    stops = databaseAdapter.getStopsRu();
+                    break;
+                default:
+                    stops = null;
+            }
             return stops;
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-//            Snackbar.make(null, "Please turn GPS on", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show();
+            if (s != null) {
+                stops = s.split("\n");
+                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(Main.this, R.layout.spinner_item, stops);
+                spinnerAdapter.setDropDownViewResource(R.layout.spinner_item_dropdown);
+                fromWhence.setAdapter(spinnerAdapter);
+                toWhere.setAdapter(spinnerAdapter);
 
-            //Toast.makeText(thisContext, "Ready to work", Toast.LENGTH_SHORT).show();
-
-            //text.setText(s);
-
-            stops = s.split("\n");
-            ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(Main.this, R.layout.spinner_item, stops);
-            spinnerAdapter.setDropDownViewResource(R.layout.spinner_item_dropdown);
-            fromWhence.setAdapter(spinnerAdapter);
-            toWhere.setAdapter(spinnerAdapter);
-
-            progressDialog.dismiss();
+                progressDialog.dismiss();
+//                databaseAdapter.updateStops();
+            }
+//            spinnerAdapter.notifyDataSetChanged();
         }
     }
 
@@ -732,6 +431,318 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
     private String getLanguage() {
         return sharedPreferences.getString("LNG", "hy");
+    }
+
+    private void initSuggestions(CoordinatorLayout root) {
+        fromWhence.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                fromWhenceInput.setText(fromWhence.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        toWhere.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                toWhereInput.setText(toWhere.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        fromWhenceInput.setText("");
+        toWhereInput.setText("");
+        toWhere.setFocusable(false);
+        toWhere.setFocusableInTouchMode(false);
+
+        fromWhenceInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                List<String> results = new ArrayList<>();
+                results.clear();
+
+                if (stops != null) {
+                    for (String stop : stops) {
+                        if (StringUtils.containsIgnoreCase(stop, s)) {
+                            results.add(stop);
+                        }
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(thisContext, R.layout.spinner_item_dropdown, results);
+                adapter.notifyDataSetChanged();
+                if (fromWhenceSuggestions != null) {
+//                    fromWhenceSuggestions.setVisibility(View.VISIBLE);
+                    fromWhenceSuggestions.setAdapter(adapter);
+                    fromWhenceSuggestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            fromWhenceInput.setText(((TextView) view.findViewById(R.id.spinner_item)).getText());
+                            fromWhenceSuggestions.setVisibility(View.GONE);
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        });
+
+        fromWhenceInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fromWhenceSuggestions.setVisibility(View.VISIBLE);
+                toWhereSuggestions.setVisibility(View.GONE);
+            }
+        });
+
+        toWhereInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                List<String> results = new ArrayList<>();
+                results.clear();
+
+                if (stops != null) {
+                    for (String stop : stops) {
+                        if (StringUtils.containsIgnoreCase(stop, s)) {
+                            results.add(stop);
+                        }
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(thisContext, R.layout.spinner_item_dropdown, results);
+                adapter.notifyDataSetChanged();
+                if (toWhereSuggestions != null) {
+//                    toWhereSuggestions.setVisibility(View.VISIBLE);
+                    toWhereSuggestions.setAdapter(adapter);
+                    toWhereSuggestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            toWhereInput.setText(((TextView) view.findViewById(R.id.spinner_item)).getText());
+                            toWhereSuggestions.setVisibility(View.GONE);
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        toWhereInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toWhereSuggestions.setVisibility(View.VISIBLE);
+                fromWhenceSuggestions.setVisibility(View.GONE);
+            }
+        });
+
+        if (root != null) {
+            root.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (fromWhenceSuggestions.getVisibility() == View.VISIBLE) {
+                        fromWhenceSuggestions.setVisibility(View.GONE);
+                    }
+                    if (toWhereSuggestions.getVisibility() == View.VISIBLE) {
+                        toWhereSuggestions.setVisibility(View.GONE);
+                    }
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void initLanguagesButtons() {
+
+        FloatingActionButton fabLanguage = (FloatingActionButton) findViewById(R.id.fab_language);
+        final FloatingActionButton fabLanguageAm = (FloatingActionButton) findViewById(R.id.fab_language_am);
+        final FloatingActionButton fabLanguageEn = (FloatingActionButton) findViewById(R.id.fab_language_en);
+
+        final FrameLayout fade = (FrameLayout) findViewById(R.id.fade);
+        final FrameLayout fade2 = (FrameLayout) findViewById(R.id.fade2);
+        fade.setVisibility(View.GONE);
+        fade2.setVisibility(View.GONE);
+
+        fabLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (fade.getVisibility() == View.VISIBLE && fade2.getVisibility() == View.VISIBLE) {
+                    fade.setVisibility(View.GONE);
+                    fade2.setVisibility(View.GONE);
+                    fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                    fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+                } else {
+                    fade.setVisibility(View.VISIBLE);
+                    fade2.setVisibility(View.VISIBLE);
+                    fabLanguageAm.animate().translationX(100f).translationY(-100f).setDuration(250);
+                    fabLanguageEn.animate().translationX(100f).translationY(100f).setDuration(250);
+                }
+            }
+        });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            fabLanguageAm.setPaddingRelative(0, 0, 0, 0);
+            fabLanguageEn.setPaddingRelative(0, 0, 0, 0);
+        }
+
+        fade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+        fade2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+
+        fabLanguageAm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeLanguage("hy");
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+
+        fabLanguageEn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeLanguage("en");
+                fade.setVisibility(View.GONE);
+                fade2.setVisibility(View.GONE);
+                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
+                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
+            }
+        });
+    }
+
+    private void initReset(FloatingActionButton fabReset) {
+        if (fabReset != null) {
+            fabReset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!reseted) {
+                        performSearch(res);
+                        reseted = true;
+                    } else {
+                        snackbar = Snackbar.make(v, getString(R.string.reseted), Snackbar.LENGTH_LONG)
+                                .setAction(R.string.ok, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        snackbar.dismiss();
+                                    }
+                                });
+                        snackbar.show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void initSearch(FloatingActionButton fab) {
+        if (fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+                    int count = 0;
+
+                    String from = fromWhenceInput.getText().toString();
+                    String to = toWhereInput.getText().toString();
+
+                    String[] allRoutesSplitted = allRoutes.split("\n");
+                    String[] searchSplitted;
+                    searchResult = "";
+
+                    if (from.equals(to)) {
+                        snackbar = Snackbar.make(view, getString(R.string.change), Snackbar.LENGTH_LONG)
+                                .setAction(R.string.ok, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        snackbar.dismiss();
+                                    }
+                                });
+                        snackbar.show();
+                    } else if (from.equals(null) || to.equals(null)) {
+                        snackbar = Snackbar.make(view, getString(R.string.input), Snackbar.LENGTH_LONG)
+                                .setAction(R.string.ok, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        snackbar.dismiss();
+                                    }
+                                });
+                        snackbar.show();
+                    } else {
+                        mainRecycler.getLayoutManager().removeAllViews();
+
+                        for (int i = 0; i < allRoutesSplitted.length; i++) {
+                            if (allRoutesSplitted[i].contains(from.substring(0, from.length() - 2)) && allRoutesSplitted[i].contains(to.substring(0, to.length() - 2))) {
+                                searchResult += allRoutesSplitted[i] + "\n";
+                            } else {
+                                count++;
+                            }
+                        }
+
+                        searchSplitted = searchResult.split("\n");
+
+                        if (count == allRoutesSplitted.length) {
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(thisContext);
+                            alertDialogBuilder.setTitle(getString(R.string.no_routes_title));
+                            alertDialogBuilder.setMessage(getString(R.string.no_routes_body));
+                            alertDialogBuilder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    new GetTransport(Main.this).execute(null, null, null);
+                                }
+                            });
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.resultLightText)));
+                            alertDialog.show();
+                            reseted = true;
+                        } else {
+                            performSearch(searchSplitted);
+                            reseted = false;
+                        }
+                    }
+                }
+            });
+        }
     }
 
 }

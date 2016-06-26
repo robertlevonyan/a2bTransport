@@ -75,23 +75,6 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
             }
         });
 
-//        final TextView transportNumber = (TextView) view.findViewById(R.id.transport_number);
-//        final TextView transportType = (TextView) view.findViewById(R.id.transport_type);
-//        final TextView transportRoute = (TextView) view.findViewById(R.id.transport_routes);
-//
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, DetailsActivity.class);
-//                intent.putExtra("Details_number", transportNumber.getText());
-//                intent.putExtra("Details_type", transportType.getText());
-//                intent.putExtra("Details_stops", transportRoute.getText());
-//                context.startActivity(intent);
-////                context.overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
-////                context.overridePendingTransition(0, 0);
-//            }
-//        });
-
         return new TransportViewHolder(view);
     }
 
@@ -211,8 +194,6 @@ public class TransportResultsAdapter extends RecyclerView.Adapter<TransportResul
         holder.getTransportNumber().setTextColor(transport.getTextColor());
         holder.getTransportType().setTextColor(transport.getTextColor());
         holder.getTransportRoutes().setTextColor(transport.getTextColor());
-
-        setAnimation(holder.getResultMain(), position);
 
     }
 

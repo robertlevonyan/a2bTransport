@@ -19,21 +19,23 @@ import robert.findtransport.R;
  */
 public class DatabaseAdapter {
 
-    DatabaseHelper databaseHelper;
-    Context context;
+    private DatabaseHelper databaseHelper;
+    private Context context;
+    private SQLiteDatabase db;
+    private Cursor cursor;
 
     public DatabaseAdapter(Context context) {
         databaseHelper = new DatabaseHelper(context);
+        db = databaseHelper.getWritableDatabase();
 
 //        databaseHelper.notify();
         this.context = context;
     }
 
     public String getTransport() {
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
         StringBuffer buffer = new StringBuffer();
 
-        Cursor cursor = db.query(DatabaseHelper.TABLE_TRANSPORT_NAME, null, null, null, null, null, null);
+        cursor = db.query(DatabaseHelper.TABLE_TRANSPORT_NAME, null, null, null, null, null, null);
 
         int indexTransportNumber = cursor.getColumnIndex(DatabaseHelper.COLUMN_TRANSPORT_NUMBER);
         int indexTransportType = cursor.getColumnIndex(DatabaseHelper.COLUMN_TRANSPORT_TYPE);
@@ -99,15 +101,46 @@ public class DatabaseAdapter {
                     + cursor.getString(indexStop45) + "\n");
         }
 
-        cursor.close();
+//        cursor.close();
         return buffer.toString();
     }
 
     public String getStops() {
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
         StringBuffer buffer = new StringBuffer();
 
-        Cursor cursor = db.query(databaseHelper.TABLE_STOP_NAME, null, null, null, null, null, null);
+        cursor = db.query(databaseHelper.TABLE_STOP_NAME, null, null, null, null, null, null);
+
+        int indexStops = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS);
+        int indexStopsLatitude = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS_LATITUDE);
+        int indexStopsLongitude = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS_LONGITUDE);
+
+        while (cursor.moveToNext()) {
+            buffer.append(cursor.getString(indexStops) + "\t" + cursor.getString(indexStopsLatitude) + "\t" + cursor.getString(indexStopsLongitude) + "\n");
+        }
+
+        return buffer.toString();
+    }
+
+    public String getStopsEn() {
+        StringBuffer buffer = new StringBuffer();
+
+        cursor = db.query(databaseHelper.TABLE_STOP_NAME_EN, null, null, null, null, null, null);
+
+        int indexStops = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS);
+        int indexStopsLatitude = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS_LATITUDE);
+        int indexStopsLongitude = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS_LONGITUDE);
+
+        while (cursor.moveToNext()) {
+            buffer.append(cursor.getString(indexStops) + "\t" + cursor.getString(indexStopsLatitude) + "\t" + cursor.getString(indexStopsLongitude) + "\n");
+        }
+
+        return buffer.toString();
+    }
+
+    public String getStopsRu() {
+        StringBuffer buffer = new StringBuffer();
+
+        cursor = db.query(databaseHelper.TABLE_STOP_NAME_RU, null, null, null, null, null, null);
 
         int indexStops = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS);
         int indexStopsLatitude = cursor.getColumnIndex(databaseHelper.COLUMN_ALL_STOPS_LATITUDE);
@@ -124,15 +157,29 @@ public class DatabaseAdapter {
         databaseHelper.close();
     }
 
+//    public void updateTransport() {
+//        cursor = db.query(DatabaseHelper.TABLE_TRANSPORT_NAME, null, null, null, null, null, null);
+//
+//    }
+//    public void updateStops() {
+//        cursor = db.query(databaseHelper.TABLE_STOP_NAME, null, null, null, null, null, null);
+//    }
+
     private class DatabaseHelper extends SQLiteOpenHelper {
 
         private Context context;
 
         private static final String DATABASE_NAME = "Transport";
-        private static final int DATABASE_VERSION = 22;
+        private static final int DATABASE_VERSION = 24;
 
         private static final String TABLE_TRANSPORT_NAME = "table_transport";
         private static final String TABLE_STOP_NAME = "table_stop";
+
+        private static final String TABLE_TRANSPORT_NAME_EN = "table_transport_en";
+        private static final String TABLE_STOP_NAME_EN = "table_stop_en";
+
+        private static final String TABLE_TRANSPORT_NAME_RU = "table_transport_ru";
+        private static final String TABLE_STOP_NAME_RU = "table_stop_ru";
 
         private static final String COLUMN_ID = "_id";
         private static final String COLUMN_TRANSPORT_NUMBER = "transport_number";
@@ -173,7 +220,53 @@ public class DatabaseAdapter {
                 COLUMN_STOP41 + " varchar(255), " + COLUMN_STOP42 + " varchar(255), " + COLUMN_STOP43 + " varchar(255), " + COLUMN_STOP44 + " varchar(255), " +
                 COLUMN_STOP45 + " varchar(255));";
 
+        private static final String CREATE_TABLE_TRANSPORT_NAME_EN = "create table " + TABLE_TRANSPORT_NAME_EN + " (" +
+                COLUMN_ID + " integer primary key autoincrement, " +
+                COLUMN_TRANSPORT_NUMBER + " varchar(255), " +
+                COLUMN_TRANSPORT_TYPE + " varchar(255), " +
+                COLUMN_STOP1 + " varchar(255), " + COLUMN_STOP2 + " varchar(255), " + COLUMN_STOP3 + " varchar(255), " + COLUMN_STOP4 + " varchar(255), " +
+                COLUMN_STOP5 + " varchar(255), " + COLUMN_STOP6 + " varchar(255), " + COLUMN_STOP7 + " varchar(255), " + COLUMN_STOP8 + " varchar(255), " +
+                COLUMN_STOP9 + " varchar(255), " + COLUMN_STOP10 + " varchar(255), " + COLUMN_STOP11 + " varchar(255), " + COLUMN_STOP12 + " varchar(255), " +
+                COLUMN_STOP13 + " varchar(255), " + COLUMN_STOP14 + " varchar(255), " + COLUMN_STOP15 + " varchar(255), " + COLUMN_STOP16 + " varchar(255), " +
+                COLUMN_STOP17 + " varchar(255), " + COLUMN_STOP18 + " varchar(255), " + COLUMN_STOP19 + " varchar(255), " + COLUMN_STOP20 + " varchar(255), " +
+                COLUMN_STOP21 + " varchar(255), " + COLUMN_STOP22 + " varchar(255), " + COLUMN_STOP23 + " varchar(255), " + COLUMN_STOP24 + " varchar(255), " +
+                COLUMN_STOP25 + " varchar(255), " + COLUMN_STOP26 + " varchar(255), " + COLUMN_STOP27 + " varchar(255), " + COLUMN_STOP28 + " varchar(255), " +
+                COLUMN_STOP29 + " varchar(255), " + COLUMN_STOP30 + " varchar(255), " + COLUMN_STOP31 + " varchar(255), " + COLUMN_STOP32 + " varchar(255), " +
+                COLUMN_STOP33 + " varchar(255), " + COLUMN_STOP34 + " varchar(255), " + COLUMN_STOP35 + " varchar(255), " + COLUMN_STOP36 + " varchar(255), " +
+                COLUMN_STOP37 + " varchar(255), " + COLUMN_STOP38 + " varchar(255), " + COLUMN_STOP39 + " varchar(255), " + COLUMN_STOP40 + " varchar(255), " +
+                COLUMN_STOP41 + " varchar(255), " + COLUMN_STOP42 + " varchar(255), " + COLUMN_STOP43 + " varchar(255), " + COLUMN_STOP44 + " varchar(255), " +
+                COLUMN_STOP45 + " varchar(255));";
+
+        private static final String CREATE_TABLE_TRANSPORT_NAME_RU = "create table " + TABLE_TRANSPORT_NAME_RU + " (" +
+                COLUMN_ID + " integer primary key autoincrement, " +
+                COLUMN_TRANSPORT_NUMBER + " varchar(255), " +
+                COLUMN_TRANSPORT_TYPE + " varchar(255), " +
+                COLUMN_STOP1 + " varchar(255), " + COLUMN_STOP2 + " varchar(255), " + COLUMN_STOP3 + " varchar(255), " + COLUMN_STOP4 + " varchar(255), " +
+                COLUMN_STOP5 + " varchar(255), " + COLUMN_STOP6 + " varchar(255), " + COLUMN_STOP7 + " varchar(255), " + COLUMN_STOP8 + " varchar(255), " +
+                COLUMN_STOP9 + " varchar(255), " + COLUMN_STOP10 + " varchar(255), " + COLUMN_STOP11 + " varchar(255), " + COLUMN_STOP12 + " varchar(255), " +
+                COLUMN_STOP13 + " varchar(255), " + COLUMN_STOP14 + " varchar(255), " + COLUMN_STOP15 + " varchar(255), " + COLUMN_STOP16 + " varchar(255), " +
+                COLUMN_STOP17 + " varchar(255), " + COLUMN_STOP18 + " varchar(255), " + COLUMN_STOP19 + " varchar(255), " + COLUMN_STOP20 + " varchar(255), " +
+                COLUMN_STOP21 + " varchar(255), " + COLUMN_STOP22 + " varchar(255), " + COLUMN_STOP23 + " varchar(255), " + COLUMN_STOP24 + " varchar(255), " +
+                COLUMN_STOP25 + " varchar(255), " + COLUMN_STOP26 + " varchar(255), " + COLUMN_STOP27 + " varchar(255), " + COLUMN_STOP28 + " varchar(255), " +
+                COLUMN_STOP29 + " varchar(255), " + COLUMN_STOP30 + " varchar(255), " + COLUMN_STOP31 + " varchar(255), " + COLUMN_STOP32 + " varchar(255), " +
+                COLUMN_STOP33 + " varchar(255), " + COLUMN_STOP34 + " varchar(255), " + COLUMN_STOP35 + " varchar(255), " + COLUMN_STOP36 + " varchar(255), " +
+                COLUMN_STOP37 + " varchar(255), " + COLUMN_STOP38 + " varchar(255), " + COLUMN_STOP39 + " varchar(255), " + COLUMN_STOP40 + " varchar(255), " +
+                COLUMN_STOP41 + " varchar(255), " + COLUMN_STOP42 + " varchar(255), " + COLUMN_STOP43 + " varchar(255), " + COLUMN_STOP44 + " varchar(255), " +
+                COLUMN_STOP45 + " varchar(255));";
+
         private static final String CREATE_TABLE_STOP_NAME = "create table " + TABLE_STOP_NAME + " (" +
+                COLUMN_ID + " integer primary key autoincrement, " +
+                COLUMN_ALL_STOPS + " varchar(255), " +
+                COLUMN_ALL_STOPS_LATITUDE + " varchar(255), " +
+                COLUMN_ALL_STOPS_LONGITUDE + " varchar(255));";
+
+        private static final String CREATE_TABLE_STOP_NAME_EN = "create table " + TABLE_STOP_NAME_EN + " (" +
+                COLUMN_ID + " integer primary key autoincrement, " +
+                COLUMN_ALL_STOPS + " varchar(255), " +
+                COLUMN_ALL_STOPS_LATITUDE + " varchar(255), " +
+                COLUMN_ALL_STOPS_LONGITUDE + " varchar(255));";
+
+        private static final String CREATE_TABLE_STOP_NAME_RU = "create table " + TABLE_STOP_NAME_RU + " (" +
                 COLUMN_ID + " integer primary key autoincrement, " +
                 COLUMN_ALL_STOPS + " varchar(255), " +
                 COLUMN_ALL_STOPS_LATITUDE + " varchar(255), " +
@@ -181,6 +274,13 @@ public class DatabaseAdapter {
 
         private static final String DROP_TABLE_TRANSPORT_NAME = "drop table if exists " + TABLE_TRANSPORT_NAME;
         private static final String DROP_TABLE_STOP_NAME = "drop table if exists " + TABLE_STOP_NAME;
+
+        private static final String DROP_TABLE_TRANSPORT_NAME_EN = "drop table if exists " + TABLE_TRANSPORT_NAME_EN;
+        private static final String DROP_TABLE_STOP_NAME_EN = "drop table if exists " + TABLE_STOP_NAME_EN;
+
+        private static final String DROP_TABLE_TRANSPORT_NAME_RU = "drop table if exists " + TABLE_TRANSPORT_NAME_RU;
+        private static final String DROP_TABLE_STOP_NAME_RU = "drop table if exists " + TABLE_STOP_NAME_RU;
+
 
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -192,22 +292,25 @@ public class DatabaseAdapter {
 
             try {
                 db.execSQL(CREATE_TABLE_TRANSPORT_NAME);
-                //Toast.makeText(context, "Table transport created", Toast.LENGTH_SHORT).show();
+                db.execSQL(CREATE_TABLE_TRANSPORT_NAME_EN);
+                db.execSQL(CREATE_TABLE_TRANSPORT_NAME_RU);
             } catch (SQLException e) {
                 e.printStackTrace();
-                //Toast.makeText(context, "Table transport not created", Toast.LENGTH_SHORT).show();
             }
 
             try {
                 db.execSQL(CREATE_TABLE_STOP_NAME);
-                //Toast.makeText(context, "Table stop created", Toast.LENGTH_SHORT).show();
+                db.execSQL(CREATE_TABLE_STOP_NAME_EN);
+                db.execSQL(CREATE_TABLE_STOP_NAME_RU);
             } catch (SQLException e) {
                 e.printStackTrace();
-                //Toast.makeText(context, "Table stop created", Toast.LENGTH_SHORT).show();
             }
 
             insertIntoTransport(db);
+
             insertIntoStop(db);
+            insertIntoStopEn(db);
+            insertIntoStopRu(db);
 
         }
 
@@ -217,6 +320,8 @@ public class DatabaseAdapter {
             if (newVersion > oldVersion) {
                 try {
                     db.execSQL(DROP_TABLE_TRANSPORT_NAME);
+                    db.execSQL(DROP_TABLE_TRANSPORT_NAME_EN);
+                    db.execSQL(DROP_TABLE_TRANSPORT_NAME_RU);
                 } catch (SQLException e) {
                     e.printStackTrace();
                     Log.e("TR_NAME", "NOT DROPPED");
@@ -224,6 +329,8 @@ public class DatabaseAdapter {
 
                 try {
                     db.execSQL(DROP_TABLE_STOP_NAME);
+                    db.execSQL(DROP_TABLE_STOP_NAME_EN);
+                    db.execSQL(DROP_TABLE_STOP_NAME_RU);
                     onCreate(db);
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -1331,6 +1438,26 @@ public class DatabaseAdapter {
 
             for (int i = 0; i < stops.length; i++) {
                 db.insert(TABLE_STOP_NAME, null, insertDataToTableStop(stops[i], "", ""));
+            }
+
+        }
+
+        private void insertIntoStopEn(SQLiteDatabase db) {
+
+            String[] stops = context.getResources().getStringArray(R.array.stops_en);
+
+            for (int i = 0; i < stops.length; i++) {
+                db.insert(TABLE_STOP_NAME_EN, null, insertDataToTableStop(stops[i], "", ""));
+            }
+
+        }
+
+        private void insertIntoStopRu(SQLiteDatabase db) {
+
+            String[] stops = context.getResources().getStringArray(R.array.stops_ru);
+
+            for (int i = 0; i < stops.length; i++) {
+                db.insert(TABLE_STOP_NAME_RU, null, insertDataToTableStop(stops[i], "", ""));
             }
 
         }

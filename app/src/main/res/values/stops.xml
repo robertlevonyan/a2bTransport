@@ -454,10 +454,10 @@
         <item>Azatutyan Ave. (The Victory Park)</item>
         <item>Azatutyan Ave. (Nairi Zaryan cross)</item>
         <item>Azatutyan Ave. (Raykom)</item>
-        <item>Athens\'s str.</item>
+        <item>Athens str.</item>
         <item>Atoyan str.</item>
         <item>Alek Manukyan str.</item>
-        <item>Almati\'s str.</item>
+        <item>Almati str.</item>
         <item>Aksel Bakunts str.</item>
         <item>Aharonyan str.</item>
         <item>Aghababyan str.</item>
@@ -476,8 +476,8 @@
         <item>Avan-Arinj</item>
         <item>Avanesov str.</item>
         <item>Avet Avetisyan str.</item>
-        <item>Arabkir\'s 17th str.</item>
-        <item>Arabkir\'s 29th str.</item>
+        <item>Arabkir 17th str.</item>
+        <item>Arabkir 29th str.</item>
         <item>Aragats str.</item>
         <item>Aram Khachaturyan str.</item>
         <item>Araratyan str.</item>
@@ -485,7 +485,7 @@
         <item>Arax factory</item>
         <item>Argishti str.</item>
         <item>Arzumanyan str.</item>
-        <item>Arin Berd\'s 3rd lane.</item>
+        <item>Arin Berd 3rd lane</item>
         <item>Arin Berd str.</item>
         <item>Arghutyan str.</item>
         <item>Armenal factory</item>
@@ -506,7 +506,7 @@
         <item>Bagratunyats Ave. (Worker\'s statue)</item>
         <item>Bagratunyats Ave. (Yerevan City Supermarket)</item>
         <item>Bagratunyats Ave. (Isakov cross)</item>
-        <item>Bagrevand\'s str.</item>
+        <item>Bagrevand str.</item>
         <item>Badal Muradyan str.</item>
         <item>Baghyan str.</item>
         <item>Baghramyan Ave. (American University of Armenia)</item>
@@ -517,7 +517,7 @@
         <item>Bashinjaghyan str.</item>
         <item>Belinsku str.</item>
         <item>Beknazaryan str.</item>
-        <item>Beirut\'s str.</item>
+        <item>Beirut str.</item>
         <item>Boryan str.</item>
         <item>Botanical park</item>
         <item>Chaush str.</item>
@@ -525,13 +525,13 @@
         <item>Charenc str. (Yerevan State University)</item>
         <item>Charenc str. (RA Police)</item>
         <item>Chekhov str.</item>
-        <item>Clock\'s factory</item>
+        <item>Clock factory</item>
         <item>Custo str.</item>
         <item>Dalma Garden Mall</item>
         <item>Davtashen 1st district</item>
         <item>Davtashen 2nd district</item>
         <item>Davtashen 3rd district</item>
-        <item>Davtashen 4rth district</item>
+        <item>Davtashen 4th district</item>
         <item>Davtashen bridge</item>
         <item>Davit Anhaght str. (Dro str. cross)</item>
         <item>Davit Anhaght str. (Municipality)</item>
@@ -542,7 +542,7 @@
         <item>Eastern Sweets factory</item>
         <item>Educational Hostels</item>
         <item>Eghvard highway</item>
-        <item>Ezras hasratyan str.</item>
+        <item>Ezras Hasratyan str.</item>
         <item>Electron factory</item>
         <item>Energetikneri banavan</item>
         <item>Ejmiatsin highway</item>
@@ -559,7 +559,7 @@
         <item>Galshoyan str.</item>
         <item>Gayi ave. (Aquatec)</item>
         <item>Gayi ave. (Statue of Gay)</item>
-        <item>Gayi ave. (Mersedes\-Benz Salon)</item>
+        <item>Gayi ave. (Mersedes Benz Salon)</item>
         <item>Gajegorcneri str.</item>
         <item>Garegin Njdeh square</item>
         <item>Garegin Njdeh str.</item>
@@ -577,7 +577,6 @@
         <item>Grigor Hasratyan str.</item>
         <item>Ghapantsyan str.</item>
         <item>H. Hovsepyan str.</item>
-        <item>HAT</item>
         <item>Halabyan str. (TUMO)</item>
         <item>Halabyan str. (Kievyan bridge)</item>
         <item>Halabyan str. (Fizika cross)</item>
@@ -591,6 +590,7 @@
         <item>Hrazdan stadium</item>
         <item>Hrachya Kochar str. (Gyulbenkyan cross)</item>
         <item>Hrachya Kochar str. (Vagharshyan cross)</item>
+        <item>Hrachya Kochar str. (Vratsakan cross)</item>
         <item>Hrachya Kochar str. (Papazyan cross)</item>
         <item>Iosifyan str.</item>
         <item>Isakov ave.</item>
@@ -624,13 +624,14 @@
         <item>Leningradyan str. (Eurowagen)</item>
         <item>Leningradyan str. (Kievyan bridge)</item>
         <item>Leningradyan str. (Monte Melkonyan cross)</item>
-        <item>Lepsiusu str.</item>
+        <item>Leningradyan str. (Shinararner cross)</item>
+        <item>Lepsius str.</item>
         <item>Lukashin str.</item>
         <item>Lvovyan str.</item>
         <item>Mazmanyan str.</item>
         <item>Malatia Medical Center</item>
         <item>Malkhasyants str.</item>
-        <item>Malkhasyan dead end</item>
+        <item>Malkhasyants dead end</item>
         <item>Mahari str.</item>
         <item>Mamikonyants str.</item>
         <item>Mayisi 9th str.</item>
@@ -654,17 +655,17 @@
         <item>Martirossyan str.</item>
         <item>Melqumov str.</item>
         <item>Mergelyan Intitute</item>
-        <item>Minsk str. (Nor Nork 8th district)</item>
+        <item>Minsk str. (Nor Nor 8th district)</item>
         <item>Milk factory</item>
         <item>Milk combinate</item>
         <item>Myasnikyan ave. (Heratsi cross)</item>
         <item>Myasnikyan ave. (Yerevan Zoo)</item>
         <item>Myasnikyan ave. (Water world)</item>
         <item>Moldovakan str.</item>
-        <item>Moskovyan str. (Tumanyan cross)</item>
         <item>Moskovyan str. (Camera music house)</item>
-        <item>Moskovyan str. (Kaskad)</item>
+        <item>Moskovyan str. (Cascade)</item>
         <item>Moskovyan str. (Conservatoire)</item>
+        <item>Moskovyan str. (Tumanyan cross)</item>
         <item>Musayelyan str.</item>
         <item>Muratsan str.</item>
         <item>Meat combinate</item>
@@ -672,7 +673,7 @@
         <item>Nairi Zaryan str.</item>
         <item>Nalbandyan str. (Yerevan State Economical University)</item>
         <item>Nalbandyan str. (Republic Square)</item>
-        <item>Nanset str.</item>
+        <item>Nansen str.</item>
         <item>Nar-Dos str. (Shilachi cross)</item>
         <item>Northern autostation</item>
         <item>Nersisyan str.</item>
@@ -696,10 +697,10 @@
         <item>Nor Norq 8th district</item>
         <item>Nor Norq 9th district</item>
         <item>Noragavith 1st str.</item>
-        <item>Noragyux</item>
+        <item>Noragyukh</item>
         <item>Norashen district</item>
         <item>Norq cinema</item>
-        <item>Norq Marash Medikay Center</item>
+        <item>Norq Marash Medical Center</item>
         <item>Norq 1st str. lane</item>
         <item>Norq 2nd srt. lane</item>
         <item>Norq 5th str.</item>
@@ -725,6 +726,7 @@
         <item>Pedagogical University</item>
         <item>Petak Mall</item>
         <item>City Pantheon</item>
+        <item>Paronyan str. (Nairi Medical Center)</item>
         <item>Paronyan str. (Cesar Palace)</item>
         <item>Paruyr Sevak str.</item>
         <item>Proshyan avan</item>
@@ -777,6 +779,7 @@
         <item>Silikyan district</item>
         <item>Silikyan New Highway</item>
         <item>Saint Gregory Iluminator Medical Center</item>
+        <item>South-Western district</item>
         <item>Spandaryan Station</item>
         <item>Stepanyan str.</item>
         <item>Souvenirs combinate</item>
@@ -787,7 +790,7 @@
         <item>Shinararner str.</item>
         <item>Shiraz str.</item>
         <item>Shirak 5th lane</item>
-        <item>Shirak str. (Erebuni Aurport)</item>
+        <item>Shirak str. (Erebuni Airport)</item>
         <item>Shirak str. (Hippodrome)</item>
         <item>Shirak str. (Charbakh Market)</item>
         <item>Shirvanzade str.</item>
@@ -795,12 +798,12 @@
         <item>Tadevosyan str.</item>
         <item>Tbilisyan highway (Ayb High School)</item>
         <item>Tbilisyan highway (Shampain factory of Yerevan)</item>
-        <item>Tbilisyan highway (Lights\' factory)</item>
+        <item>Tbilisyan highway (Lights factory)</item>
         <item>Tbilisyan highway (Radiomast)</item>
         <item>Thermal Power Plant</item>
         <item>Telecenter</item>
         <item>Tevosyan str.</item>
-        <item>Totvents str.</item>
+        <item>Totovents str.</item>
         <item>Tumanyan district</item>
         <item>Tumanyan str.</item>
         <item>Tashkent str.</item>
@@ -817,7 +820,7 @@
         <item>Tsarav Aghbyur str.</item>
         <item>Tsitsarnakaberd higway</item>
         <item>Ulnetsi str.</item>
-        <item>Ulnetsi str.(To Monument)</item>
+        <item>Ulnetsi str. (To Monument)</item>
         <item>Vazgen Sargsyan str.</item>
         <item>Vakhtangovi str.</item>
         <item>Vahagni district</item>
@@ -834,18 +837,15 @@
         <item>Victory bridge</item>
         <item>Vilnus str.</item>
         <item>Vstrech bridge</item>
-        <item>Vracakan str.</item>
-        <item>Yerevan State University</item>
+        <item>Vratsakan str.</item>
         <item>Yerablur</item>
+        <item>Yerevan State University</item>
         <item>Yerevan State Humanitarian Collage</item>
-        <item>Yervan Kochar str.</item>
+        <item>Yervand Kochar str.</item>
         <item>Zavaryan str.</item>
         <item>Zakarya Kanaqerci str.</item>
         <item>Zakyan str.</item>
         <item>Zeytun 5th str.</item>
-        <item>Zovuni 6th str.</item>
-        <item>Zovuni 8th str.</item>
-        <item>Zovuni 39th str.</item>
         <item>Zoravar Andranik str.</item>
         <item>Zvarthnoc Airport</item>
         <item>Abovyan city</item>
@@ -858,17 +858,20 @@
         <item>Geghanist village</item>
         <item>Dashtavan village</item>
         <item>Zovuni village</item>
+        <item>Zovuni 6th str.</item>
+        <item>Zovuni 8th str.</item>
+        <item>Zovuni 39th str.</item>
         <item>Khachpar village</item>
         <item>Kharberd village</item>
-        <item>1st str. of Haghtanak village</item>
-        <item>10th str. of Haghtanak village</item>
-        <item>3nd str. of Haghtanak village</item>
-        <item>3rd str. of Haghtanak village</item>
-        <item>6th str. of Haghtanak village</item>
-        <item>7th str. of Haghtanak village</item>
-        <item>8th str. of Haghtanak village</item>
-        <item>9th str. of Haghtanak village</item>
-        <item>Marmashen village</item>
+        <item>Haghtanak village 1st str.</item>
+        <item>Haghtanak village 10th str.</item>
+        <item>Haghtanak village 2nd str.</item>
+        <item>Haghtanak village 3rd str.</item>
+        <item>Haghtanak village 6th str.</item>
+        <item>Haghtanak village 7th str.</item>
+        <item>Haghtanak village 8th str.</item>
+        <item>Haghtanak village 9th str.</item>
+        <item>Marmarashen village</item>
         <item>Mushavan village</item>
         <item>Norabac village</item>
         <item>Jrashen village</item>
@@ -953,10 +956,10 @@
         <item>ул. Бадала Мурадяна</item>
         <item>ул. Багян</item>
         <item>просп. Баграмян (Американский университет)</item>
-        <item>просп. Баграмян (SAS )</item>
+        <item>просп. Баграмян (SAS)</item>
         <item>просп. Баграмян (школа им. Камо)</item>
         <item>просп. Баграмян (Конституционный суд)</item>
-        <item>просп. Баграмян (Оперный театр)</item>
+        <item>просп. Баграмян (Опера)</item>
         <item>ул. Башинджагян</item>
         <item>ул. Белинского</item>
         <item>ул. Бекназарян</item>
@@ -1060,9 +1063,9 @@
         <item>просп. Комитаса (перекрёсток Вагаршян)</item>
         <item>просп. Комитаса (перекрёсток Врацакан)</item>
         <item>просп. Комитаса (перекрёсток Папазян)</item>
-        <item>ул.Корюна (Цитадель)</item>
-        <item>ул.Кусто</item>
-        <item>ул.Кургиняна</item>
+        <item>ул. Корюна (Цитадель)</item>
+        <item>ул. Кусто</item>
+        <item>ул. Кургиняна</item>
         <item>ул. Ленинградян (Евроваген)</item>
         <item>ул. Ленинградян (Киевский мост)</item>
         <item>ул. Ленинградян (перекрёсток Монте Мелконян)</item>
@@ -1078,7 +1081,6 @@
         <item>ул. Маис 9 (ул. 9 мая)</item>
         <item>ул. Манандян</item>
         <item>ул.Манташян</item>
-        <item>Педагогический университет</item>
         <item>просп. Маштоца (перекрёсток Амирян)</item>
         <item>просп. Маштоца (Крытый рынок)</item>
         <item>просп. Маштоца (Консерватория)</item>
@@ -1168,6 +1170,7 @@
         <item>ул. Овс Овсепяна</item>
         <item>Площадь Республики</item>
         <item>ул. Папазян</item>
+        <item>Педагогический университет</item>
         <item>т/ц Петак</item>
         <item>ул. Паронян (Цезар палас)</item>
         <item>ул. Паруйра Севака</item>
@@ -1232,7 +1235,7 @@
         <item>ул. Ташкентская</item>
         <item>ул. Таронцу</item>
         <item>ул. Терян</item>
-        <item>просп. Тиграна Меца (к/т Айрарат )</item>
+        <item>просп. Тиграна Меца (к/т Айрарат)</item>
         <item>просп. Тиграна Меца (Каяран) (Станция)</item>
         <item>просп. Тиграна Меца (ЮКЖД)</item>
         <item>просп. Тиграна Меца (Ташир т/ц)</item>

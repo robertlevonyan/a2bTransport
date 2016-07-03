@@ -14,4 +14,6 @@
     <color name="resultDarkText">#595959</color>
 
     <color name="resultBg">#f1f1f1</color>
+
+    <color name="toolbarBg">#50f1f1f1</color>
 </resources>

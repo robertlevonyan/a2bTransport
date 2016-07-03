@@ -17,6 +17,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.ListPopupWindow;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -40,6 +42,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -83,6 +86,9 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     private String searchResult;
     private Snackbar snackbar;
     private boolean reseted;
+
+    private ImageView translate;
+    private PopupMenu languagesPopup;
 
     private RecyclerView mainRecycler;
 
@@ -133,7 +139,7 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         initRate();
         initSearch(fab);
         initReset(fabReset);
-        initLanguagesButtons();
+        initLanguagesPopup();
         initSuggestions(root);
 
         changeLanguage(getLanguage());
@@ -196,17 +202,26 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
     private void init() {
         thisContext = Main.this;
         progressDialog = new ProgressDialog(this);
+        searchResult = "";
+        sharedPreferences = thisContext.getSharedPreferences("Transport", MODE_PRIVATE);
+
         fromWhence = (Spinner) findViewById(R.id.from_whence);
         toWhere = (Spinner) findViewById(R.id.to_where);
         fromWhenceInput = (EditText) findViewById(R.id.from_whence_input);
         toWhereInput = (EditText) findViewById(R.id.to_where_input);
         fromWhenceSuggestions = (ListView) findViewById(R.id.from_whence_suggestions);
         toWhereSuggestions = (ListView) findViewById(R.id.to_where_suggestions);
-
-        searchResult = "";
+        translate = (ImageView) findViewById(R.id.translate);
         mainRecycler = (RecyclerView) findViewById(R.id.main_content_recycler);
 
-        sharedPreferences = thisContext.getSharedPreferences("Transport", MODE_PRIVATE);
+        fromWhenceInput.setHint(R.string.hint_whence);
+        toWhereInput.setHint(R.string.hint_where);
+        translate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup();
+            }
+        });
     }
 
     private class GetTransport extends AsyncTask<String, Void, String> {
@@ -230,7 +245,22 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
             databaseAdapter = new DatabaseAdapter(thisContext);
 
-            String transports = databaseAdapter.getTransport();
+            String transports;
+            switch (getLanguage()) {
+                case "en":
+                    transports = databaseAdapter.getTransportEn();
+                    break;
+                case "hy":
+                    transports = databaseAdapter.getTransport();
+                    break;
+                case "ru":
+                    transports = databaseAdapter.getTransportRu();
+                    break;
+                default:
+                    transports = null;
+            }
+
+//            transports = databaseAdapter.getTransport();
             return transports;
         }
 
@@ -421,6 +451,8 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
 
         new GetTransport(this).execute(null, null, null);
         new GetStops().execute(null, null, null);
+        fromWhenceInput.setHint(R.string.hint_whence);
+        toWhereInput.setHint(R.string.hint_where);
     }
 
     private void saveLanguage(String lng) {
@@ -574,81 +606,6 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         }
     }
 
-    private void initLanguagesButtons() {
-
-        FloatingActionButton fabLanguage = (FloatingActionButton) findViewById(R.id.fab_language);
-        final FloatingActionButton fabLanguageAm = (FloatingActionButton) findViewById(R.id.fab_language_am);
-        final FloatingActionButton fabLanguageEn = (FloatingActionButton) findViewById(R.id.fab_language_en);
-
-        final FrameLayout fade = (FrameLayout) findViewById(R.id.fade);
-        final FrameLayout fade2 = (FrameLayout) findViewById(R.id.fade2);
-        fade.setVisibility(View.GONE);
-        fade2.setVisibility(View.GONE);
-
-        fabLanguage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fade.getVisibility() == View.VISIBLE && fade2.getVisibility() == View.VISIBLE) {
-                    fade.setVisibility(View.GONE);
-                    fade2.setVisibility(View.GONE);
-                    fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                    fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-                } else {
-                    fade.setVisibility(View.VISIBLE);
-                    fade2.setVisibility(View.VISIBLE);
-                    fabLanguageAm.animate().translationX(100f).translationY(-100f).setDuration(250);
-                    fabLanguageEn.animate().translationX(100f).translationY(100f).setDuration(250);
-                }
-            }
-        });
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            fabLanguageAm.setPaddingRelative(0, 0, 0, 0);
-            fabLanguageEn.setPaddingRelative(0, 0, 0, 0);
-        }
-
-        fade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-        fade2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-
-        fabLanguageAm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeLanguage("hy");
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-
-        fabLanguageEn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeLanguage("en");
-                fade.setVisibility(View.GONE);
-                fade2.setVisibility(View.GONE);
-                fabLanguageAm.animate().translationX(0f).translationY(0f).setDuration(250);
-                fabLanguageEn.animate().translationX(0f).translationY(0f).setDuration(250);
-            }
-        });
-    }
-
     private void initReset(FloatingActionButton fabReset) {
         if (fabReset != null) {
             fabReset.setOnClickListener(new View.OnClickListener() {
@@ -745,4 +702,35 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
         }
     }
 
+    private void initLanguagesPopup() {
+        languagesPopup = new PopupMenu(thisContext, translate);
+        languagesPopup.getMenuInflater().inflate(R.menu.menu_languages, languagesPopup.getMenu());
+        languagesPopup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.hy:
+                        changeLanguage("hy");
+                        return true;
+                    case R.id.en:
+                        changeLanguage("en");
+                        return true;
+//                    case R.id.ru:
+//                        changeLanguage("ru");
+//                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+    private void showPopup() {
+        languagesPopup.show();
+        if (languagesPopup.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener) {
+            ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) languagesPopup.getDragToOpenListener();
+            listener.getPopup().setVerticalOffset(-translate.getHeight());
+            listener.getPopup().show();
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">How2Transport</string>
+    <string name="app_name">A2B Transport</string>
     <string name="action_settings">Настройки</string>
     <string name="action_open_map">Карта</string>
 
@@ -21,12 +21,14 @@
     <string name="title_activity_detailes">Детали</string>
     <string name="google_maps_api_key">AIzaSyCLqHRL74bfJnWAO5cQOzSnwN8bGmiJUbc</string>
 
-    <string name="ok">Хорошо</string>
-
     <string name="rate_title">Оцените</string>
     <string name="rate_message">Если вам нравится это предложение, пожалуйста оцените его. Спасибо!</string>
     <string name="rate_rate">Оценить</string>
     <string name="rate_cancel">Позже</string>
     <string name="rate_thanks">Нет, Спасибо</string>
+
+    <string name="ok">Хорошо</string>
+
+    <string name="part_a">а</string>
 
 </resources>

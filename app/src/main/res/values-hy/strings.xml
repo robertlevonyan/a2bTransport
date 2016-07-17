@@ -18,9 +18,7 @@
     <string name="input">Լրացրեք պահանջվող դաշտերը</string>
     <string name="reseted">Ցուցակն ամբողջական է</string>
 
-
     <string name="title_activity_detailes">Մանրամասներ</string>
-    <string name="google_maps_api_key">AIzaSyCLqHRL74bfJnWAO5cQOzSnwN8bGmiJUbc</string>
 
     <string name="rate_title">Գնահատեք</string>
     <string name="rate_message">Եթե հավանում եք հավելվածը, խնդրում եմ գնահատեք այն։ Շնորհակալություն</string>
@@ -32,4 +30,1350 @@
 
     <string name="part_a">ա</string>
 
+    <string-array name="stops">
+        <item>15-րդ թաղամաս</item>
+        <item>16-րդ թաղամաս</item>
+        <item>Աբովյան փ․ (Գյուղակադեմիա)</item>
+        <item>Աբովյան փ․ (Երիտասարդական մ/կ)</item>
+        <item>Աբովյան փ․ (Պլանի գլուխ)</item>
+        <item>Աբելյան փ․</item>
+        <item>Ագաթանգեղոսի փ․</item>
+        <item>Ադոնցի փ․</item>
+        <item>Աերացիա</item>
+        <item>Ազատամարտիկների փ․</item>
+        <item>Ազատության պ․ (Զինկոմիսարիատ)</item>
+        <item>Ազատության պ․ (Հաղթանակի այգի)</item>
+        <item>Ազատության պ․ (Նաիրի Զարյան խաչմերուկ)</item>
+        <item>Ազատության պ․ (Ռայկոմ)</item>
+        <item>Աթենքի փ․</item>
+        <item>Աթոյան փ․</item>
+        <item>Ալեք-Մանուկյան փ․</item>
+        <item>Ալմաթիի փ․</item>
+        <item>Ակսել Բակունցի փ․</item>
+        <item>Ահարոնյան փ․</item>
+        <item>Աղաբաբյան փ․</item>
+        <item>Աղբյուր Սերոբի փ․</item>
+        <item>Աղի հանք</item>
+        <item>Աճառյան փ․</item>
+        <item>Աճառյան փ. 2-րդ փակուղի</item>
+        <item>Ամիրյան փ․</item>
+        <item>Այվազովսկու փ․</item>
+        <item>Անաստաս Միկոյան փ․</item>
+        <item>Աշխաբադի փ․</item>
+        <item>Աշխատանքի հրապարակ (Բանվորի արձան)</item>
+        <item>Աշտարակի խճ․</item>
+        <item>Առինջ Մոլ</item>
+        <item>Առնո Բաբաջանյան փ․</item>
+        <item>Ավան</item>
+        <item>Ավան-Առինջ</item>
+        <item>Ավանեսովի փ․</item>
+        <item>Ավետ Ավետիսյան փ․</item>
+        <item>Արաբկիրի 17-րդ փ․</item>
+        <item>Արաբկիրի 29-րդ փ․</item>
+        <item>Արագածի փ.</item>
+        <item>Արամ Խաչատրյան փ․</item>
+        <item>Արարատյան փ․</item>
+        <item>Արաքս մ/դ</item>
+        <item>Արաքս գ/ն</item>
+        <item>Արգիշտի փ․</item>
+        <item>Արևելյան քաղցրավենիքներ գ/ն</item>
+        <item>Արզումանյան փ․</item>
+        <item>Արին Բերդի 3-րդ նրբ.</item>
+        <item>Արին Բերդի փ.</item>
+        <item>Արղության փ․</item>
+        <item>Արմենալ գ/ն</item>
+        <item>Արմենակյան փ․</item>
+        <item>Արմենիա հ/ը</item>
+        <item>Արշակունյաց պ․ (Դեպի Չարբախ)</item>
+        <item>Արշակունյաց պ․ (Երևան Մոլ)</item>
+        <item>Արշակունյաց պ․ (Կոմիտասի այգի)</item>
+        <item>Արշակունյաց պ․ (Կրկես)</item>
+        <item>Արշակունյաց պ․ (Հայրենիք կ/թ)</item>
+        <item>Արշակունյաց պ․ (Սուրմալու ա/կ)</item>
+        <item>Արտաշատի խճ․</item>
+        <item>Արտաշիսյան փ․</item>
+        <item>Արտեմ Միկոյան փ․</item>
+        <item>Արցախի փ․</item>
+        <item>Բագրատունյաց պ․ (Արտաշիսյան խաչմերուկ)</item>
+        <item>Բագրատունյաց պ․ (Բանվորի արձան)</item>
+        <item>Բագրատունյաց պ․ (Երևան Սիթի)</item>
+        <item>Բագրատունյաց պ․ (Իսակով խաչմերուկ)</item>
+        <item>Բագրևանդի փ․</item>
+        <item>Բադալ Մուրադյան փ․</item>
+        <item>Բաղյան փ․</item>
+        <item>Բաղրամյան պ․ (Ամերիկյան համալսարան)</item>
+        <item>Բաղրամյան պ․ (SAS)</item>
+        <item>Բաղրամյան պ․ (Կամոյի դպրոց)</item>
+        <item>Բաղրամյան պ․ (Սահմանադրական դատարան)</item>
+        <item>Բաղրամյան պ․ (Օպերա)</item>
+        <item>Բաշինջաղյան փ․</item>
+        <item>Բելինսկու փ․</item>
+        <item>Բեկնազարյան փ․</item>
+        <item>Բեյրութի փ․</item>
+        <item>Բժշկական համալսարան</item>
+        <item>Բորյան փ․</item>
+        <item>Բորսայի շենք</item>
+        <item>Բուսաբանական այգի</item>
+        <item>Գազպրոմ Արմենիա</item>
+        <item>Գալշոյան փ․</item>
+        <item>Գայի պ․ (Աքվատեք)</item>
+        <item>Գայի պ․ (Գայի արձան)</item>
+        <item>Գայի պ․ (Մերսեդեսի սրահ)</item>
+        <item>Գաջեգործների փ․</item>
+        <item>Գարեգին Նժդեհի հրապարակ</item>
+        <item>Գարեգին Նժդեհի փ․</item>
+        <item>Գեներալ Բաբայանի փ․</item>
+        <item>Գլինկայի փ․</item>
+        <item>Գյուլբենկյան փ․</item>
+        <item>Գյուլիքեխվյան փ․</item>
+        <item>Գյուրջյան փ․ </item>
+        <item>Գումի շուկա</item>
+        <item>Գուսան Շերամի փ․</item>
+        <item>Գրանդ Քենդի ՀՁ</item>
+        <item>Գրիբոյեդովի փ․</item>
+        <item>Գրիգոր Լուսավորիչ (Երևանի քաղաքապետարան)</item>
+        <item>Գրիգոր Լուսավորիչ (Կրկես)</item>
+        <item>Գրիգոր Հասրաթյան փ․</item>
+        <item>Դալմա Գարդեն Մոլ</item>
+        <item>Դավթաշենի 1-ին թաղ.</item>
+        <item>Դավթաշենի 2-րդ թաղ.</item>
+        <item>Դավթաշենի 3-րդ թաղ.</item>
+        <item>Դավթաշենի 4-րդ թաղ․</item>
+        <item>Դավթաշենի կամուրջ</item>
+        <item>Դավիթ Անհաղթի փ․ (Դրոյի խաչմերուկ)</item>
+        <item>Դավիթ Անհաղթի փ․ (թաղապետարան)</item>
+        <item>Դավիթ Անհաղթի փ․ (Կերամա Մարացի)</item>
+        <item>Դավիթ Բեկի փ․</item>
+        <item>Դուրյան թաղ․</item>
+        <item>Դրոյի փ․</item>
+        <item>Եղվարդի խճ․</item>
+        <item>ԵՊՀ</item>
+        <item>Եռաբլուր</item>
+        <item>Երևանի պետական հումանիտար քոլեջ</item>
+        <item>Երվանդ Քոչար փ․</item>
+        <item>Զավարյան փ․</item>
+        <item>Զաքարիա Քանաքեռցու փ․</item>
+        <item>Զաքյան փ․</item>
+        <item>Զեյթունի 5-րդ փ․</item>
+        <item>Զովունի 39-րդ փ․</item>
+        <item>Զովունի 6-րդ փ․</item>
+        <item>Զովունի 8-րդ փ․</item>
+        <item>Զորավար Անդրանիկի փ․</item>
+        <item>Զվարթնոց օդանավակայան</item>
+        <item>Էզրաս Հասրաթյան փ․</item>
+        <item>Էլեկտրոն գ/ն</item>
+        <item>Էներգետիկների բանավան</item>
+        <item>Էջմիածնի խճ․</item>
+        <item>Էջմիածնի հին խճ․</item>
+        <item>Էստոնական փ․</item>
+        <item>Էրեբունու զ/ծ</item>
+        <item>Էրեբունու թ/ն</item>
+        <item>Էրեբունու փ․</item>
+        <item>Էրեբունի օդանավակայան</item>
+        <item>Թադևոսյան փ․</item>
+        <item>Թբիլիսյան խճ․ (Այբ ավագ դպրոց)</item>
+        <item>Թբիլիսյան խճ․ (Երևանի Շամպայնի գ/ն)</item>
+        <item>Թբիլիսյան խճ․ (Լամպերի գ/ն)</item>
+        <item>Թբիլիսյան խճ․ (Ռադիոկայմ)</item>
+        <item>Թևոսյան փ․</item>
+        <item>Թոթովենցի փ․</item>
+        <item>Թումանյան թաղ.</item>
+        <item>Թումանյան փ․</item>
+        <item>Ժամացույցի գ/ն</item>
+        <item>Իոսիֆյան փ․</item>
+        <item>Լենինգրադյան փ․ (Եվրովագեն)</item>
+        <item>Լենինգրադյան փ․ (Կիևյան կամուրջ)</item>
+        <item>Լենինգրադյան փ․ (Մոնթե Մելքոնյան խաչմերուկ)</item>
+        <item>Լեփսիուսի փ․</item>
+        <item>Լուկաշինի փ․</item>
+        <item>Լվովյան փ․</item>
+        <item>Խաղաղ Դոնի փ․</item>
+        <item>Խանջյան փ․ (Լունապարկ)</item>
+        <item>Խանջյան փ․ (Շախմատի տուն)</item>
+        <item>Խաչիկ Դաշտենցի փ․</item>
+        <item>Խորենացու փ․ (Մաշտոց խաչմերուկ)</item>
+        <item>Խորենացու փ․ (Շահումյան հրապ․)</item>
+        <item>Խորենացու փ․ (Սիլաչի)</item>
+        <item>Խուդյակովի փ․</item>
+        <item>Ծարավ Աղբյուրի փ․</item>
+        <item>Ծիծեռնակաբերդի խճ․</item>
+        <item>Ծովակալ Իսակովի պ․</item>
+        <item>Ծովակալ Իսակովի պ․ (Սեբաստիայի խաչմերուկ)</item>
+        <item>Կաթի գ/ն</item>
+        <item>Կաթի կոմբինատ</item>
+        <item>Կանազ հոսպիտալ</item>
+        <item>Կասյան փ․</item>
+        <item>Կարմիր խաչ</item>
+        <item>Կիևյան փ․ (Բարեկամություն)</item>
+        <item>Կիևյան փ․ (Կիևյան կամուրջ)</item>
+        <item>Կիևյան փ․ (Օրբելի խաչմերուկ)</item>
+        <item>Կիլիկիա ավտոկայան</item>
+        <item>Կոմիտասի պ․ (Գյուլբենկյան խաչմերուկ)</item>
+        <item>Կոմիտասի պ․ (Լամբադա կամուրջ)</item>
+        <item>Կոմիտասի պ․ (Կոմիտասի շուկա)</item>
+        <item>Կոմիտասի պ․ (Սլավոնական համալսարան)</item>
+        <item>Կոմիտասի պ․ (Վաղարշյան խաչմերուկ)</item>
+        <item>Կոմիտասի պ․ (Վրացական խաչմերուկ)</item>
+        <item>Կոմիտասի պ․ (Փափազյան խաչմերուկ)</item>
+        <item>Կորյունի փ․ (Ցիտադել)</item>
+        <item>Կուստոյի փ․</item>
+        <item>Կուրղինյան փ․</item>
+        <item>Հ․Հովսեփյան փ․</item>
+        <item>ՀԱԹ</item>
+        <item>Հալաբյան փ․ (ԹՈՒՄՈ)</item>
+        <item>Հալաբյան փ․ (Կիևյան կամուրջ)</item>
+        <item>Հալաբյան փ․ (Ֆիզիկայի խաչմերուկ)</item>
+        <item>Հակոբ Հակոբյան փ․</item>
+        <item>Հաղթանակի  կ/ջ</item>
+        <item>Հայ֊Բելոռուսական ա/կ</item>
+        <item>Հանրապետական մ/դ</item>
+        <item>Հանրապետության Հրապարակ</item>
+        <item>Հեռուստակենտրոն</item>
+        <item>Հերացու փ․</item>
+        <item>Հյուսիսային ավտոկայան</item>
+        <item>Հովհաննիսյան փ․</item>
+        <item>Հովսեփյան փ․</item>
+        <item>Հույսի թաղ․</item>
+        <item>Հունան Ավետիսյան փ․</item>
+        <item>Հուշանվերների կոմբինատ</item>
+        <item>Հրազդան մ/դ</item>
+        <item>Հրաչյա Քոչար փ․ (Գյուլբենկյան խաչմերուկ)</item>
+        <item>Հրաչյա Քոչար փ․ (Վաղարշյան խաչմերուկ)</item>
+        <item>Հրաչյա Քոչար փ․ (Փափազյան խաչմերուկ)</item>
+        <item>Ղափանցյան փ․</item>
+        <item>Մազմանյան փ․</item>
+        <item>Մալաթիա բ/կ</item>
+        <item>Մալխասյանց փ․</item>
+        <item>Մալխասյանց փակուղի</item>
+        <item>Մահարու փ․</item>
+        <item>Մամիկոնյանց փ․</item>
+        <item>Մայիսի 9-ի փ․</item>
+        <item>Մանանդյան փ.</item>
+        <item>Մանթաշյան փ․</item>
+        <item>Մանկավարժական համալսարան</item>
+        <item>Մաշտոցի պ․ (Ամիրյան խաչմերուկ)</item>
+        <item>Մաշտոցի պ․ (Ծածկած շուկա)</item>
+        <item>Մաշտոցի պ․ (Կոնսերվատորիա)</item>
+        <item>Մաշտոցի պ․ (Ձկան խանութ)</item>
+        <item>Մաշտոցի պ․ (Մատենադարան)</item>
+        <item>Մաշտոցի պ․ (Մարգարյան հիվ․)</item>
+        <item>Մաշտոցի պ․ (Օպերա)</item>
+        <item>Մելիք-Ադամյան փ․</item>
+        <item>Մարաշ</item>
+        <item>Մարգարյան փ․ (Հանրապետական հիվ․)</item>
+        <item>Մարգարյան փ․ (Պեգաս)</item>
+        <item>Մարշալ Բաբաջանյան փ․</item>
+        <item>Մարշալ Խուդյակովի փ․</item>
+        <item>Մարս գ-ն</item>
+        <item>Մարտիրոսյան փ․</item>
+        <item>Մելքումովի փ.</item>
+        <item>Մերգելյանի ինստիտուտ</item>
+        <item>Մինսկի փ․ (Նոր նորքի 8-րդ զ/ծ)</item>
+        <item>Մյասնիկյան պ․ (Հերացի խաչմերուկ)</item>
+        <item>Մյասնիկյան պ․ (Կենդանաբանական այգի)</item>
+        <item>Մյասնիկյան պ․ (Ջրաշխարհ)</item>
+        <item>Մոլդովական փ․</item>
+        <item>Մոսկովյան փ․ (Թումանյան խաչմերուկ)</item>
+        <item>Մոսկովյան փ․ (Կամերային երաժշտության տուն)</item>
+        <item>Մոսկովյան փ․ (Կասկադ)</item>
+        <item>Մոսկովյան փ․ (Կոնսերվատորիա)</item>
+        <item>Մուսաելյան փ․</item>
+        <item>Մուրացանի փ․</item>
+        <item>Մսի կոմբինատ</item>
+        <item>Նազարբեկյան թաղ.</item>
+        <item>Նաիրի Զարյան փ․</item>
+        <item>Նալբանդյան փ․ (ԵՊՏՀ)</item>
+        <item>Նալբանդյան փ․ (Հանրապետության Հրապարակ)</item>
+        <item>Նանսենի փ․</item>
+        <item>Նար-Դոսի փ․ (Սիլաչի խաչմերուկ)</item>
+        <item>Ներսիսյան փ․</item>
+        <item>Ներքին Շենգավիթ</item>
+        <item>Ներքին Շենգավիթի 11-րդ փ.</item>
+        <item>Ներքին Շենգավիթի 9-րդ փ.</item>
+        <item>Ներքին Չարբախի 1-ին փ․</item>
+        <item>Ներսոն Սաֆարյան փ․</item>
+        <item>Նոր Արեշի 20-րդ փ․</item>
+        <item>Նոր Արեշի 50-րդ փ․</item>
+        <item>Նոր Արեշի 7-րդ փ․</item>
+        <item>Նոր Խարբերդ</item>
+        <item>Նոր Նորքի 1-ին զ/ծ</item>
+        <item>Նոր Նորքի 2-րդ զ/ծ</item>
+        <item>Նոր Նորքի 3-րդ զ/ծ</item>
+        <item>Նոր Նորքի 4-րդ զ/ծ</item>
+        <item>Նոր Նորքի 5-րդ զ/ծ</item>
+        <item>Նոր Նորքի 6-րդ զ/ծ</item>
+        <item>Նոր Նորքի 7-րդ զ/ծ</item>
+        <item>Նոր Նորքի 8-րդ զ/ծ</item>
+        <item>Նոր Նորքի 9-րդ զ/ծ</item>
+        <item>Նորագավթի 1-ին փ․</item>
+        <item>Նորագյուղ</item>
+        <item>Նորաշեն թաղ.</item>
+        <item>Նորք կ/թ</item>
+        <item>Նորք-Մարաշ բ/կ</item>
+        <item>Նորքի 1-ին փող. նրբ.</item>
+        <item>Նորքի 13-րդ փ․</item>
+        <item>Նորքի 2-րդ փող. նրբ.</item>
+        <item>Նորքի 5-րդ փ․</item>
+        <item>Նորքի 6-րդ փ․</item>
+        <item>Նորքի 7-րդ փ․</item>
+        <item>Նորքի 8-րդ փ․</item>
+        <item>Նորքի 9-րդ փ․</item>
+        <item>Նորքի այգիներ 1-ին անցուղի</item>
+        <item>Նուբարաշենի 10-րդ փ․</item>
+        <item>Նուբարաշենի 11-րդ փ․</item>
+        <item>Նուբարաշենի 6-րդ փ․</item>
+        <item>Նուբարաշենի 9-րդ փ․</item>
+        <item>Նուբարաշենի խճ․</item>
+        <item>Նուբարաշենի խճ. (Զորամաս)</item>
+        <item>Նուբարաշենի փ․</item>
+        <item>Նվեր Սաֆարյան փ․</item>
+        <item>Շահամիրյան փ․</item>
+        <item>Շահումյանի 4-րդ փ․</item>
+        <item>Շարուրի փ․</item>
+        <item>Շենգավիթ մ/կ</item>
+        <item>Շինարարների փ․</item>
+        <item>Շիրազի փ․</item>
+        <item>Շիրակի 5-րդ նրբ.</item>
+        <item>Շիրակի փ․ (Էրեբունի օդանավակայան)</item>
+        <item>Շիրակի փ․ (Ձիարշավարան)</item>
+        <item>Շիրակի փ․ (Չարբախի շուկա)</item>
+        <item>Շիրվանզադեի փ․</item>
+        <item>Շոպրոնի փ․</item>
+        <item>Ուլնեցու փ․</item>
+        <item>Ուլնեցու փ․ (Դեպի Մոնումենտ)</item>
+        <item>Ուռուցքաբանության ինստիտուտ</item>
+        <item>Ուսումնական հանրակացարաններ</item>
+        <item>Չաուշի փ․</item>
+        <item>Չարենցի փ․ (Zigzag խանութ-սրահ)</item>
+        <item>Չարենցի փ․ (ԵՊՀ)</item>
+        <item>Չարենցի փ․ (ՀՀ Ոստիկանություն)</item>
+        <item>Չեխովի փ․</item>
+        <item>Պարոնյան փ․ (Կեսարի պալատ)</item>
+        <item>Պարույր Սևակի փ․</item>
+        <item>Պռոշյան ավան</item>
+        <item>Պռոշյան փ․ </item>
+        <item>Պրոթեզավորման Կենտրոն</item>
+        <item>Ջանիբեկյան փ․</item>
+        <item>ՋԵԿ</item>
+        <item>Ջուղայի փ․</item>
+        <item>Ջրվեժ</item>
+        <item>Ռադիոտուն</item>
+        <item>Ռիգայի փ․</item>
+        <item>Ռոմանոս Մելիքյան փ․</item>
+        <item>Ռոստովյան փ․</item>
+        <item>Ռուբինյանց փ․ (Ալմաստ գ/ն)</item>
+        <item>Ռուբինյանց փ․ (Ահարոնյան փ․)</item>
+        <item>Ռուբինյանց փ․ (Երևան Սիթի)</item>
+        <item>Ռուս-Հայկական համալսարան</item>
+        <item>Սայաթ-Նովա պ․ (Աբովյան խաչմերուկ)</item>
+        <item>Սայաթ-Նովա պ․ (Ալեք Մանուկյան խաչմերուկ)</item>
+        <item>Սայաթ-Նովա պ․ (Նալբանդյան խաչմերուկ)</item>
+        <item>Սասնա Ծռերի փ․</item>
+        <item>Սասունցի Դավթի փ․</item>
+        <item>Սարալանջի փ․</item>
+        <item>Սարի թաղ</item>
+        <item>Սարի թաղի 1-ին փ․</item>
+        <item>Սարի թաղի 11-րդ փ․</item>
+        <item>Սարի թաղի 12-րդ փ․</item>
+        <item>Սարի թաղի 20-րդ փ․</item>
+        <item>Սարի թաղի 21-րդ փ․</item>
+        <item>Սարի թաղի 3-րդ փ․</item>
+        <item>Սարի թաղի 5-րդ փ․</item>
+        <item>Սարյան փ․ (Ամիրյան խաչմերուկ)</item>
+        <item>Սարյան փ․ (Թումանյան խաչմերուկ)</item>
+        <item>Սարյան փ․ (Սարյան փոշտ)</item>
+        <item>Սբ. Գրիգոր Լուսավորիչ եկեղեցի</item>
+        <item>Սեբաստիայի փ․ (Տիչինայի խաչմերուկ)</item>
+        <item>Սեբաստիայի փ․ (Կուրղինյան խաչմերուկ)</item>
+        <item>Սեբաստիայի փ․ (Լենինգրադյան խաչմերուկ)</item>
+        <item>Սեբաստիայի փ․ (Մալաթիայի շուկա)</item>
+        <item>Սևանի փ․</item>
+        <item>Սիլիկյան 10-րդ փ․</item>
+        <item>Սիլիկյան 4-րդ փ․</item>
+        <item>Սիլիկյան 7-րդ փ․</item>
+        <item>Սիլիկյան թաղ․</item>
+        <item>Սիլիկյան Նոր խճ․</item>
+        <item>Սուրբ Գրիգոր Լուսավորիչ բ/կ</item>
+        <item>Սպանդարյան կայարան</item>
+        <item>Ստեփանյան փ․</item>
+        <item>Վազգեն Սարգսյան փ․</item>
+        <item>Վախթանգովի փ․</item>
+        <item>Վահագնի թաղ․</item>
+        <item>Վաղարշյան փ․</item>
+        <item>Վանթյան փ․</item>
+        <item>Վարդանանց փ․</item>
+        <item>Վարդաշենի 5-րդ փ.</item>
+        <item>Վարդաշենի 6-րդ փ.</item>
+        <item>Վարդաշենի 9-րդ փ.</item>
+        <item>Վարշավյան փ․</item>
+        <item>Վարուժանի փ․</item>
+        <item>Վերին Չարբախ</item>
+        <item>Վերնիսաժ</item>
+        <item>Վիլնյուսի փ․</item>
+        <item>Վստրեչի կամուրջ</item>
+        <item>Վրացական փ․</item>
+        <item>Տաշքենդի փ․</item>
+        <item>Տարոնցու փ․</item>
+        <item>Տերյան փ․</item>
+        <item>Տիգրան Մեծի պ․ (Այրարատ կ/թ)</item>
+        <item>Տիգրան Մեծի պ․ (Կայարան)</item>
+        <item>Տիգրան Մեծի պ․ (ՀԿԵՈՒ)</item>
+        <item>Տիգրան Մեծի պ․ (Տաշիր ա/կ)</item>
+        <item>Տիգրան Մեծի պ․ (Ֆիրդուսի շուկա)</item>
+        <item>Տիգրան Պետրոսյան փ․</item>
+        <item>Տիչինայի փ․</item>
+        <item>Տիտոգրադյան փ․</item>
+        <item>Րաֆֆու փ․</item>
+        <item>Րաֆֆու փ․ (Մալաթիայի շուկա)</item>
+        <item>Փափազյան փ․</item>
+        <item>Փեթակ ա/կ</item>
+        <item>Քաղաքային պանթեոն</item>
+        <item>Քանաքեռ ՀԷԿ</item>
+        <item>Քանաքեռ-Զեյթուն բ/կ</item>
+        <item>Քանաքեռի 13-րդ փ.</item>
+        <item>Քոչինյան փ․</item>
+        <item>Քրիստափորի փ․</item>
+        <item>Օդեսայի փ․</item>
+        <item>Օհանովի փ․</item>
+        <item>Օրբելի փ․</item>
+        <item>Ֆանարջյան փ․</item>
+        <item>Ֆուչիկի փ․</item>
+        <item>ք․ Աբովյան</item>
+        <item>ք․ Մասիս</item>
+        <item>գ․ Ազատաշեն</item>
+        <item>գ․ Այնթափ</item>
+        <item>գ. Առինջ</item>
+        <item>գ․ Արգավանդ</item>
+        <item>գ․ Բալահովիտ</item>
+        <item>գ․ Գեղանիստ</item>
+        <item>գ. Դաշտավան</item>
+        <item>գ․ Զովունի</item>
+        <item>գ. Խաչփառ</item>
+        <item>գ․ Խարբերդ</item>
+        <item>գ. Հաղթանակի 1-ին փ․</item>
+        <item>գ. Հաղթանակի 10-րդ փ․</item>
+        <item>գ. Հաղթանակի 2-րդ փ․</item>
+        <item>գ. Հաղթանակի 3-րդ փ․</item>
+        <item>գ. Հաղթանակի 6-րդ փ․</item>
+        <item>գ. Հաղթանակի 7-րդ փ․</item>
+        <item>գ. Հաղթանակի 8-րդ փ․</item>
+        <item>գ. Հաղթանակի 9-րդ փ․</item>
+        <item>գ. Մարմարաշեն</item>
+        <item>գ․ Մուշավան</item>
+        <item>գ. Նորաբաց</item>
+        <item>գ. Ջրաշեն</item>
+        <item>գ․ Վարդաշեն</item>
+        <item>գ․ Վերին Պտղնի</item>
+        <item>գ. Փարաքար</item>
+        <item>գ. Քասախ</item>
+    </string-array>
+
+    <string-array name="stops_en">
+        <item>15th district</item>
+        <item>16th district</item>
+        <item>Abovyan str. (Agrarayin Academy)</item>
+        <item>Abovyan str. (Yeritasardakan m/s)</item>
+        <item>Abovyan str. (Abovyan park)</item>
+        <item>Abelyan str.</item>
+        <item>Agathangeghos str.</item>
+        <item>Adonts str.</item>
+        <item>Aeratsia</item>
+        <item>Azatamartikneri str.</item>
+        <item>Azatutyan Ave. (Military Commission)</item>
+        <item>Azatutyan Ave. (The Victory Park)</item>
+        <item>Azatutyan Ave. (Nairi Zaryan cross)</item>
+        <item>Azatutyan Ave. (Raykom)</item>
+        <item>Athens str.</item>
+        <item>Atoyan str.</item>
+        <item>Alek Manukyan str.</item>
+        <item>Almati str.</item>
+        <item>Aksel Bakunts str.</item>
+        <item>Aharonyan str.</item>
+        <item>Aghababyan str.</item>
+        <item>Aghbyur Serob str.</item>
+        <item>Acharyan str.</item>
+        <item>Acharyan str. 2nd deadlock</item>
+        <item>Amiryan str.</item>
+        <item>Ayvazovski str.</item>
+        <item>Anastas Mikoyan str.</item>
+        <item>Ashkhabad str.</item>
+        <item>Ashkhatanq square (Worker\'s statue)</item>
+        <item>Ashtarak road</item>
+        <item>Arinj Mall</item>
+        <item>Arno Babajanyan str.</item>
+        <item>Avan</item>
+        <item>Avan-Arinj</item>
+        <item>Avanesov str.</item>
+        <item>Avet Avetisyan str.</item>
+        <item>Arabkir 17th str.</item>
+        <item>Arabkir 29th str.</item>
+        <item>Aragats str.</item>
+        <item>Aram Khachaturyan str.</item>
+        <item>Araratyan str.</item>
+        <item>Arax stadium</item>
+        <item>Arax factory</item>
+        <item>Argishti str.</item>
+        <item>Arzumanyan str.</item>
+        <item>Arin Berd 3rd lane</item>
+        <item>Arin Berd str.</item>
+        <item>Arghutyan str.</item>
+        <item>Armenal factory</item>
+        <item>Armenakyan str.</item>
+        <item>Armenia TV</item>
+        <item>Armenian-Belorussian trade center</item>
+        <item>Arshakunyats Ave. (To Charbakh)</item>
+        <item>Arshakunyats Ave. (Yerevan Mall)</item>
+        <item>Arshakunyats Ave. (Komitas\'s park)</item>
+        <item>Arshakunyats Ave. (Circus)</item>
+        <item>Arshakunyats Ave. (Hayreniq cinema)</item>
+        <item>Arshakunyats Ave. (Surmalu Mall)</item>
+        <item>Artashat road</item>
+        <item>Artashisyan str.</item>
+        <item>Artem Mikoyan str.</item>
+        <item>Artsakh str.</item>
+        <item>Bagratunyats Ave. (Artashisyan cross)</item>
+        <item>Bagratunyats Ave. (Worker\'s statue)</item>
+        <item>Bagratunyats Ave. (Yerevan City Supermarket)</item>
+        <item>Bagratunyats Ave. (Isakov cross)</item>
+        <item>Bagrevand str.</item>
+        <item>Badal Muradyan str.</item>
+        <item>Baghyan str.</item>
+        <item>Baghramyan Ave. (American University of Armenia)</item>
+        <item>Baghramyan Ave. (SAS Supermarket)</item>
+        <item>Baghramyan Ave. (School after Kamo)</item>
+        <item>Baghramyan Ave. (Constitutional Court)</item>
+        <item>Baghramyan Ave. (Opera House)</item>
+        <item>Bashinjaghyan str.</item>
+        <item>Belinsku str.</item>
+        <item>Beknazaryan str.</item>
+        <item>Beirut str.</item>
+        <item>Boryan str.</item>
+        <item>Botanical park</item>
+        <item>Chaush str.</item>
+        <item>Charenc str. (Zigzag)</item>
+        <item>Charenc str. (Yerevan State University)</item>
+        <item>Charenc str. (RA Police)</item>
+        <item>Chekhov str.</item>
+        <item>Clock factory</item>
+        <item>Custo str.</item>
+        <item>Dalma Garden Mall</item>
+        <item>Davtashen 1st district</item>
+        <item>Davtashen 2nd district</item>
+        <item>Davtashen 3rd district</item>
+        <item>Davtashen 4th district</item>
+        <item>Davtashen bridge</item>
+        <item>Davit Anhaght str. (Dro str. cross)</item>
+        <item>Davit Anhaght str. (Municipality)</item>
+        <item>Davit Anhaght str. (Kerama Marazzi)</item>
+        <item>Davit Bek</item>
+        <item>Duryan district</item>
+        <item>Dro srt.</item>
+        <item>Eastern Sweets factory</item>
+        <item>Educational Hostels</item>
+        <item>Eghvard highway</item>
+        <item>Ezras Hasratyan str.</item>
+        <item>Electron factory</item>
+        <item>Energetikneri banavan</item>
+        <item>Ejmiatsin highway</item>
+        <item>Ejmiatsin old highway</item>
+        <item>Estonakan str.</item>
+        <item>Erebuni district</item>
+        <item>Erebuni museum</item>
+        <item>Erebuni str.</item>
+        <item>Erebuni Airport</item>
+        <item>Exchange building</item>
+        <item>Fanarjyan str.</item>
+        <item>Fuchik str.</item>
+        <item>Gasprom Armenia</item>
+        <item>Galshoyan str.</item>
+        <item>Gayi ave. (Aquatec)</item>
+        <item>Gayi ave. (Statue of Gay)</item>
+        <item>Gayi ave. (Mersedes Benz Salon)</item>
+        <item>Gajegorcneri str.</item>
+        <item>Garegin Njdeh square</item>
+        <item>Garegin Njdeh str.</item>
+        <item>General Babayan str.</item>
+        <item>Glinka str.</item>
+        <item>Gyulbenkyan str.</item>
+        <item>Gyuliqekhvyan str.</item>
+        <item>Gyurjyan str.</item>
+        <item>Gum Market</item>
+        <item>Gusan Sheram str.</item>
+        <item>Grand Candy</item>
+        <item>Griboyedov str.</item>
+        <item>Grigor Lusavoritch str. (City Hall)</item>
+        <item>Grigor Lusavoritch str. (Circus)</item>
+        <item>Grigor Hasratyan str.</item>
+        <item>Ghapantsyan str.</item>
+        <item>H. Hovsepyan str.</item>
+        <item>Halabyan str. (TUMO)</item>
+        <item>Halabyan str. (Kievyan bridge)</item>
+        <item>Halabyan str. (Fizika cross)</item>
+        <item>Hakob Hakobyan str.</item>
+        <item>Hanrapetakan stadium</item>
+        <item>Heratsi str.</item>
+        <item>Hovhannisyan str.</item>
+        <item>Hovsepyan str.</item>
+        <item>Huysi district</item>
+        <item>Hunan Avetisyan str.</item>
+        <item>Hrazdan stadium</item>
+        <item>Hrachya Kochar str. (Gyulbenkyan cross)</item>
+        <item>Hrachya Kochar str. (Vagharshyan cross)</item>
+        <item>Hrachya Kochar str. (Vratsakan cross)</item>
+        <item>Hrachya Kochar str. (Papazyan cross)</item>
+        <item>Iosifyan str.</item>
+        <item>Isakov ave.</item>
+        <item>Isakov ave. (Sebastia cross)</item>
+        <item>Janibekyan str.</item>
+        <item>Jugha str.</item>
+        <item>Jrvezh</item>
+        <item>Kanaz Military Hospital</item>
+        <item>Kasyan str.</item>
+        <item>Khakhagh Don str.</item>
+        <item>Khanjyan str. (Lunapark)</item>
+        <item>Khanjyan str. (Chess house)</item>
+        <item>Khachik Dashtents str.</item>
+        <item>Khorenatsi str. (Mashtoc cross)</item>
+        <item>Khorenatsi str. (Shahumyan square)</item>
+        <item>Khorenatsi str. (Shilachi)</item>
+        <item>Khudyakov str.</item>
+        <item>Kievyan str.(Barkamutyun)</item>
+        <item>Kievyan str.(Kievyan bridge)</item>
+        <item>Kievyan str.(Orbeli cross)</item>
+        <item>Kilikia autostation</item>
+        <item>Komitas ave. (Gyulbenkyan cross)</item>
+        <item>Komitas ave. (Lambada bridge)</item>
+        <item>Komitas ave. (Komitas Market)</item>
+        <item>Komitas ave. (Russian-Armenian University)</item>
+        <item>Komitas ave. (Vagharshyan cross)</item>
+        <item>Komitas ave. (Vracakan cross)</item>
+        <item>Komitas ave. (Papazyan cross)</item>
+        <item>Koryun str. (Citadel)</item>
+        <item>Kurghinyan str.</item>
+        <item>Leningradyan str. (Eurowagen)</item>
+        <item>Leningradyan str. (Kievyan bridge)</item>
+        <item>Leningradyan str. (Monte Melkonyan cross)</item>
+        <item>Leningradyan str. (Shinararner cross)</item>
+        <item>Lepsius str.</item>
+        <item>Lukashin str.</item>
+        <item>Lvovyan str.</item>
+        <item>Mazmanyan str.</item>
+        <item>Malatia Medical Center</item>
+        <item>Malkhasyants str.</item>
+        <item>Malkhasyants dead end</item>
+        <item>Mahari str.</item>
+        <item>Mamikonyants str.</item>
+        <item>Mayisi 9th str.</item>
+        <item>Manandyan str.</item>
+        <item>Mantashyan str.</item>
+        <item>Mashtots ave. (Amiryan cross)</item>
+        <item>Mashtots ave. (Covered market)</item>
+        <item>Mashtots ave. (Conservatoire)</item>
+        <item>Mashtots ave. (Fish market)</item>
+        <item>Mashtots ave. (Matenadaran)</item>
+        <item>Mashtots ave. (Margaryan hospital)</item>
+        <item>Mashtots ave. (Opera)</item>
+        <item>Medical University</item>
+        <item>Melik-Adamyan str.</item>
+        <item>Marash</item>
+        <item>Margaryan str. (Hanrapetakan hospital)</item>
+        <item>Margaryan str. (Pegas)</item>
+        <item>Marshal Babajanyan str.</item>
+        <item>Marshal Khudyakov str.</item>
+        <item>Mars factory</item>
+        <item>Martirossyan str.</item>
+        <item>Melqumov str.</item>
+        <item>Mergelyan Intitute</item>
+        <item>Minsk str. (Nor Nor 8th district)</item>
+        <item>Milk factory</item>
+        <item>Milk combinate</item>
+        <item>Myasnikyan ave. (Heratsi cross)</item>
+        <item>Myasnikyan ave. (Yerevan Zoo)</item>
+        <item>Myasnikyan ave. (Water world)</item>
+        <item>Moldovakan str.</item>
+        <item>Moskovyan str. (Camera music house)</item>
+        <item>Moskovyan str. (Cascade)</item>
+        <item>Moskovyan str. (Conservatoire)</item>
+        <item>Moskovyan str. (Tumanyan cross)</item>
+        <item>Musayelyan str.</item>
+        <item>Muratsan str.</item>
+        <item>Meat combinate</item>
+        <item>Nazarbekyan district</item>
+        <item>Nairi Zaryan str.</item>
+        <item>Nalbandyan str. (Yerevan State Economical University)</item>
+        <item>Nalbandyan str. (Republic Square)</item>
+        <item>Nansen str.</item>
+        <item>Nar-Dos str. (Shilachi cross)</item>
+        <item>Northern autostation</item>
+        <item>Nersisyan str.</item>
+        <item>Noragavit 1st str.</item>
+        <item>Nerqin Shengavit</item>
+        <item>Nerqin Shengavit 11th str.</item>
+        <item>Nerqin Shengavit 9th str.</item>
+        <item>Nerqin Charbakh 1st str.</item>
+        <item>Nerson Safaryan str.</item>
+        <item>Nor Aresh 20th str.</item>
+        <item>Nor Aresh 50th str.</item>
+        <item>Nor Aresh 7th str.</item>
+        <item>Nor Kharberd</item>
+        <item>Nor Norq 1st district</item>
+        <item>Nor Norq 2nd district</item>
+        <item>Nor Norq 3rd district</item>
+        <item>Nor Norq 4th district</item>
+        <item>Nor Norq 5th district</item>
+        <item>Nor Norq 6th district</item>
+        <item>Nor Norq 7th district</item>
+        <item>Nor Norq 8th district</item>
+        <item>Nor Norq 9th district</item>
+        <item>Noragavith 1st str.</item>
+        <item>Noragyukh</item>
+        <item>Norashen district</item>
+        <item>Norq cinema</item>
+        <item>Norq Marash Medical Center</item>
+        <item>Norq 1st str. lane</item>
+        <item>Norq 2nd srt. lane</item>
+        <item>Norq 5th str.</item>
+        <item>Norq 6th str.</item>
+        <item>Norq 7th str.</item>
+        <item>Norq 8th str.</item>
+        <item>Norq 9th str.</item>
+        <item>Norq 13th str.</item>
+        <item>Norq Gardens 1st lane</item>
+        <item>Nubarashen 10th str.</item>
+        <item>Nubarashen 11th str.</item>
+        <item>Nubarashen 6th str.</item>
+        <item>Nubarashen 9th str.</item>
+        <item>Nubarashen highway</item>
+        <item>Nubarashen highway (Military unit)</item>
+        <item>Nubarashen str.</item>
+        <item>Nver Safaryan str.</item>
+        <item>Odesa str.</item>
+        <item>Ohanov str.</item>
+        <item>Oncology Institute</item>
+        <item>Orbeli str.</item>
+        <item>Papazyan str.</item>
+        <item>Pedagogical University</item>
+        <item>Petak Mall</item>
+        <item>City Pantheon</item>
+        <item>Paronyan str. (Nairi Medical Center)</item>
+        <item>Paronyan str. (Cesar Palace)</item>
+        <item>Paruyr Sevak str.</item>
+        <item>Proshyan avan</item>
+        <item>Proshyan str.</item>
+        <item>Prosthetics Center</item>
+        <item>Qanaqer Hydro Power Plant</item>
+        <item>Qanaqer Zeytun Medical Center</item>
+        <item>Qanaqer 13th str.</item>
+        <item>Qochinyan str.</item>
+        <item>Qristapor str.</item>
+        <item>Red Cross</item>
+        <item>Republic Square</item>
+        <item>Radiohouse</item>
+        <item>Raffi str.</item>
+        <item>Raffi str. (Malatia Market)</item>
+        <item>Riga str.</item>
+        <item>Romanos Melikyan str.</item>
+        <item>Rostovyan str.</item>
+        <item>Rubinyants str. (Almast factory)</item>
+        <item>Rubinyants str. (Aharonyan str.)</item>
+        <item>Rubinyants str. (Yerevan City Supermarket)</item>
+        <item>Russian-Armenian University</item>
+        <item>Salt Mine</item>
+        <item>Sayat Nova ave. (Abovyan cross)</item>
+        <item>Sayat Nova ave. (Aleq Manukyan cross)</item>
+        <item>Sayat Nova ave. (Nalbandyan cross)</item>
+        <item>Sasna Tsrer str.</item>
+        <item>Sasuntsi Davit str.</item>
+        <item>Saralanj str.</item>
+        <item>Sari tagh</item>
+        <item>Sari Tagh 1st str.</item>
+        <item>Sari Tagh 3rd str.</item>
+        <item>Sari Tagh 5th str.</item>
+        <item>Sari Tagh 11th str.</item>
+        <item>Sari Tagh 12th str.</item>
+        <item>Sari Tagh 20th str.</item>
+        <item>Sari Tagh 21th str.</item>
+        <item>Saryan str. (Amiryan cross)</item>
+        <item>Saryan str. (Tumanyan cross)</item>
+        <item>Saryan str. (Saryan post)</item>
+        <item>Saint Gregory Iluminator Church</item>
+        <item>Sebastia str. (Tichina cross)</item>
+        <item>Sebastia str. (Kurghinyan cross)</item>
+        <item>Sebastia str. (Leningradyan cross)</item>
+        <item>Sebastia str. (Malatia Market)</item>
+        <item>Sevan str.</item>
+        <item>Silikyan 4th str.</item>
+        <item>Silikyan 7th str.</item>
+        <item>Silikyan 10th str.</item>
+        <item>Silikyan district</item>
+        <item>Silikyan New Highway</item>
+        <item>Saint Gregory Iluminator Medical Center</item>
+        <item>South-Western district</item>
+        <item>Spandaryan Station</item>
+        <item>Stepanyan str.</item>
+        <item>Souvenirs combinate</item>
+        <item>Shahamiryan str.</item>
+        <item>Shahumyan 4th str.</item>
+        <item>Sharur str.</item>
+        <item>Shengavit metro station</item>
+        <item>Shinararner str.</item>
+        <item>Shiraz str.</item>
+        <item>Shirak 5th lane</item>
+        <item>Shirak str. (Erebuni Airport)</item>
+        <item>Shirak str. (Hippodrome)</item>
+        <item>Shirak str. (Charbakh Market)</item>
+        <item>Shirvanzade str.</item>
+        <item>Shopron str.</item>
+        <item>Tadevosyan str.</item>
+        <item>Tbilisyan highway (Ayb High School)</item>
+        <item>Tbilisyan highway (Shampain factory of Yerevan)</item>
+        <item>Tbilisyan highway (Lights factory)</item>
+        <item>Tbilisyan highway (Radiomast)</item>
+        <item>Thermal Power Plant</item>
+        <item>Telecenter</item>
+        <item>Tevosyan str.</item>
+        <item>Totovents str.</item>
+        <item>Tumanyan district</item>
+        <item>Tumanyan str.</item>
+        <item>Tashkent str.</item>
+        <item>Tarontsi str.</item>
+        <item>Teryan str.</item>
+        <item>Tigran Mets ave. (Ayrarat cinema)</item>
+        <item>Tigran Mets ave. (Yerevan Railway Station)</item>
+        <item>Tigran Mets ave. (Yerevan Railway Station Management)</item>
+        <item>Tigran Mets ave. (Tashir Mall)</item>
+        <item>Tigran Mets ave. (Firdus Market)</item>
+        <item>Tigran Petrosyan str.</item>
+        <item>Tichina str.</item>
+        <item>Titigradyan str.</item>
+        <item>Tsarav Aghbyur str.</item>
+        <item>Tsitsarnakaberd higway</item>
+        <item>Ulnetsi str.</item>
+        <item>Ulnetsi str. (To Monument)</item>
+        <item>Vazgen Sargsyan str.</item>
+        <item>Vakhtangovi str.</item>
+        <item>Vahagni district</item>
+        <item>Vagharshyan str.</item>
+        <item>Vantyan str.</item>
+        <item>Vardananc str.</item>
+        <item>Vardashen 5th str.</item>
+        <item>Vardashen 6th str.</item>
+        <item>Vardashen 9th str.</item>
+        <item>Varshavyan str.</item>
+        <item>Varouzhan str.</item>
+        <item>Verin Charbakh</item>
+        <item>Vernisage</item>
+        <item>Victory bridge</item>
+        <item>Vilnus str.</item>
+        <item>Vstrech bridge</item>
+        <item>Vratsakan str.</item>
+        <item>Yerablur</item>
+        <item>Yerevan State University</item>
+        <item>Yerevan State Humanitarian Collage</item>
+        <item>Yervand Kochar str.</item>
+        <item>Zavaryan str.</item>
+        <item>Zakarya Kanaqerci str.</item>
+        <item>Zakyan str.</item>
+        <item>Zeytun 5th str.</item>
+        <item>Zoravar Andranik str.</item>
+        <item>Zvarthnoc Airport</item>
+        <item>Abovyan city</item>
+        <item>Masis city</item>
+        <item>Azatashen village</item>
+        <item>Aynthap village</item>
+        <item>Argavand village</item>
+        <item>Arinj village</item>
+        <item>Balahovit village</item>
+        <item>Geghanist village</item>
+        <item>Dashtavan village</item>
+        <item>Zovuni village</item>
+        <item>Zovuni 6th str.</item>
+        <item>Zovuni 8th str.</item>
+        <item>Zovuni 39th str.</item>
+        <item>Khachpar village</item>
+        <item>Kharberd village</item>
+        <item>Haghtanak village 1st str.</item>
+        <item>Haghtanak village 10th str.</item>
+        <item>Haghtanak village 2nd str.</item>
+        <item>Haghtanak village 3rd str.</item>
+        <item>Haghtanak village 6th str.</item>
+        <item>Haghtanak village 7th str.</item>
+        <item>Haghtanak village 8th str.</item>
+        <item>Haghtanak village 9th str.</item>
+        <item>Marmarashen village</item>
+        <item>Mushavan village</item>
+        <item>Norabac village</item>
+        <item>Jrashen village</item>
+        <item>Vardashen village</item>
+        <item>Verin Ptghni village</item>
+        <item>Paraqar village</item>
+        <item>Qasakh village</item>
+    </string-array>
+
+    <string-array name="stops_ru">
+        <item>15 квартал</item>
+        <item>16 квартал</item>
+
+        <item>ул. Абеляна</item>
+        <item>ул. Абовяна (Сельскохозяйственная академия)</item>
+        <item>ул. Абовяна (скверик Абовяна)</item>
+        <item>ул. Абовяна (ст/м Еритасардакан (Молодёжная))</item>
+        <item>ул. Аванесова</item>
+        <item>Аван</item>
+        <item>Аван-Ариндж</item>
+        <item>ул. Авет Аветисян</item>
+        <item>ул. Аветис Агаронян</item>
+        <item>ул. Агабабян</item>
+        <item>ул. Агатангехоси</item>
+        <item>ул. Адонц</item>
+        <item>просп. Азатутян (Военкомат)</item>
+        <item>просп. Азатутян (Наири Зарян перекрёсток)</item>
+        <item>просп. Азатутян (Парк Победы)</item>
+        <item>просп. Азатутян (Райком)</item>
+        <item>ул. Азатамартикнери</item>
+        <item>ул. Айвазовского</item>
+        <item>ул. Акоп Акопян</item>
+        <item>ул. Аксел Бакунца</item>
+        <item>ул. Алабян (Киевский мост)</item>
+        <item>ул. Алабян (перекрёсток института физики)</item>
+        <item>ул. Алабян (ТУМО)</item>
+        <item>ул. Алека Манукяна</item>
+        <item>ул. Алматы</item>
+        <item>ул. Амиряна</item>
+        <item>ул. Анастаса Микояна</item>
+        <item>Арабкир ул. 17</item>
+        <item>Арабкир ул. 29</item>
+        <item>ул. Арагац</item>
+        <item>Аракс стадион</item>
+        <item>завод Аракс</item>
+        <item>ул. Арама Хачатуряна</item>
+        <item>ул. Араратян</item>
+        <item>ул. Аргишти</item>
+        <item>ул. Арзуманян</item>
+        <item>ул. Арин-Берди</item>
+        <item>Арин-Берди 3-й пер.</item>
+        <item>Ариндж молл</item>
+        <item>ул. Арменак Арменакяна</item>
+        <item>завод Арменал</item>
+        <item>Армения ТВ</item>
+        <item>Армяно-Белорусский торговый дом Ар-Бе</item>
+        <item>ул. Арно Бабаджанян</item>
+        <item>Арташатское шс.</item>
+        <item>ул. Арташисян</item>
+        <item>ул. Артем Микоян</item>
+        <item>ул. Архутян</item>
+        <item>ул. Арцаха</item>
+        <item>просп. Аршакуняц (Ереван Молл)</item>
+        <item>просп. Аршакуняц (к/т Айреник)</item>
+        <item>просп. Аршакуняц (парк им. Комитаса)</item>
+        <item>просп. Аршакуняц (по напр. Чарбах)</item>
+        <item>просп. Аршакуняц (т/ц Сурмалу)</item>
+        <item>просп. Аршакуняц (Цирк)</item>
+        <item>ул. Атенка</item>
+        <item>ул. Атоян</item>
+        <item>ул. Ахпюр Сероб</item>
+        <item>ул. Ачаряна</item>
+        <item>ул. Ачаряна 2-ой тупик</item>
+        <item>Аштаракское шс.</item>
+        <item>ул. Ашхабада</item>
+        <item>Аэрация</item>
+
+        <item>просп. Багратуняц (перекрёсток  Арташисян)</item>
+        <item>просп. Багратуняц (памятник Рабочему)</item>
+        <item>просп. Багратуняц (Ереван Сити)</item>
+        <item>просп. Багратуняц (перекрёсток Исаков)</item>
+        <item>ул. Багреванда</item>
+        <item>ул. Бадала Мурадяна</item>
+        <item>ул. Багян</item>
+        <item>просп. Баграмян (Американский университет)</item>
+        <item>просп. Баграмян (SAS)</item>
+        <item>просп. Баграмян (школа им. Камо)</item>
+        <item>просп. Баграмян (Конституционный суд)</item>
+        <item>просп. Баграмян (Опера)</item>
+        <item>ул. Башинджагян</item>
+        <item>ул. Белинского</item>
+        <item>ул. Бекназарян</item>
+        <item>ул. Бейрут</item>
+        <item>ул. Борян</item>
+        <item>зд. Биржы</item>
+        <item>Ботанический сад</item>
+
+        <item>ул. Вазгена Саргсяна</item>
+        <item>ул. Вахтангова</item>
+        <item>квартал Ваагни</item>
+        <item>ул. Вагаршян</item>
+        <item>ул. Ванцян</item>
+        <item>ул. Вардананц</item>
+        <item>Вардашен ул. 5-ая</item>
+        <item>Вардашен ул. 6-ая</item>
+        <item>Вардашен ул. 9-ая</item>
+        <item>ул. Варшавян</item>
+        <item>ул. Варужан</item>
+        <item>Верин Чарбах (Верхний Чарбах)</item>
+        <item>Вернисаж</item>
+        <item>ул. Вильнюса</item>
+        <item>мост Встреча</item>
+        <item>ул. Врацакан</item>
+        <item>фабрика Восточных сладостей</item>
+
+        <item>Газпром Армения</item>
+        <item>ул. Галшоян</item>
+        <item>просп. Гая (Акватек)</item>
+        <item>просп. Гая (Памятник Гаю)</item>
+        <item>просп. Гая (салон Мерседеса)</item>
+        <item>ул. Гаджегорцнери</item>
+        <item>пл. Гарегина Нжде</item>
+        <item>ул. Гарегина Нжде</item>
+        <item>ул. Генерала Бабаяна</item>
+        <item>ул. Гераци</item>
+        <item>ул. Глинки</item>
+        <item>ул. Гюльбенкяна</item>
+        <item>ул. Гюликехвян</item>
+        <item>ул. Гюрджян</item>
+        <item>Рынок ГУМ</item>
+        <item>ул. Гусана Шерама</item>
+        <item>Городской пантеон</item>
+        <item>Гранд Кенди</item>
+        <item>ул. Грачья Кочар (перекрёсток Гюльбенкян)</item>
+        <item>ул. Грачья Кочар (перекрёсток Вагаршян)</item>
+        <item>ул. Грачья Кочар (перекрёсток Врацакан)</item>
+        <item>ул. Грачья Кочар (перекрёсток Папазян)</item>
+        <item>ул. Грибоедова</item>
+        <item>Григор Лусаворич (Мэрия Еревана)</item>
+        <item>Григор Лусаворич (Цирк)</item>
+        <item>м/р Св. Григор Лусаворич</item>
+        <item>ул. Григор Асратян</item>
+        <item>церковь Св. Григория Просветителя</item>
+
+        <item>Далма Гарден Молл</item>
+        <item>Давидашен 1-й квартал</item>
+        <item>Давидашен 2-й квартал</item>
+        <item>Давидашен 3-й квартал</item>
+        <item>Давидашен 4-й квартал</item>
+        <item>Давидашенский мост</item>
+        <item>ул. Давида Анахта (перекрёсток Дро)</item>
+        <item>ул. Давида Анахта (Административное деление)</item>
+        <item>ул. Давида Анахта (Керама Марацци)</item>
+        <item>ул. Давид-Бека</item>
+        <item>ул. Джанибекян</item>
+        <item>ул. Джугаи</item>
+        <item>Джрвеж</item>
+        <item>Дом Радио</item>
+        <item>ул. Дро</item>
+        <item>кв. Дурян</item>
+
+        <item>Егвардское шс.</item>
+        <item>ЕГУ</item>
+        <item>Ераблур</item>
+        <item>Ереванский государственный гуманитарный колледж</item>
+        <item>ул. Ерванда Кочара</item>
+
+        <item>ул. Заваряна</item>
+        <item>ул. Закария Канакерци</item>
+        <item>ул. Закян</item>
+        <item>Зейтун 5-ая ул.</item>
+        <item>Зовуни 39-ая ул.</item>
+        <item>Зовуни 6-ая ул.</item>
+        <item>Зовуни 8-ая ул.</item>
+        <item>ул. Зоравар Андраник</item>
+        <item>Аэропорт Звартноц</item>
+
+        <item>ул. Иосифян</item>
+        <item>просп. Исакова</item>
+        <item>просп. Исакова (перекрёсток Себастия)</item>
+
+        <item>Каназ военный госп.</item>
+        <item>Канакерская ГЭС</item>
+        <item>мед. центр Канакер-Зейтун</item>
+        <item>Канакер 13-ая ул.</item>
+        <item>ул. Касян</item>
+        <item>ул. Капанцян</item>
+        <item>Крастный Крест</item>
+        <item>ул. Киевян (Барекамутюн)</item>
+        <item>ул. Киевян (Киевский мост)</item>
+        <item>ул. Киевян (перекрёсток Орбели)</item>
+        <item>Киликия автовокзал</item>
+        <item>просп. Комитаса (перекрёсток Гюлбенкян)</item>
+        <item>просп. Комитаса (мост Ламбада)</item>
+        <item>просп. Комитаса (рынок Комитаса)</item>
+        <item>просп. Комитаса (Славянский университет)</item>
+        <item>просп. Комитаса (перекрёсток Вагаршян)</item>
+        <item>просп. Комитаса (перекрёсток Врацакан)</item>
+        <item>просп. Комитаса (перекрёсток Папазян)</item>
+        <item>ул. Корюна (Цитадель)</item>
+        <item>ул. Кочинян</item>
+        <item>ул. Кусто</item>
+        <item>ул. Кургиняна</item>
+
+        <item>ул. Ленинградян (Евроваген)</item>
+        <item>ул. Ленинградян (Киевский мост)</item>
+        <item>ул. Ленинградян (перекрёсток Шинарарнер)</item>
+        <item>ул. Ленинградян (перекрёсток Монте Мелконян)</item>
+        <item>ул. Лепсиус</item>
+        <item>ул. Лукашина</item>
+        <item>ул. Лвовян</item>
+
+        <item>ул. Мазманян</item>
+        <item>мед. центр Малатия</item>
+        <item>ул. Малхасянц</item>
+        <item>тупик Малхасянц</item>
+        <item>ул. Маари</item>
+        <item>ул. Мамиконянц</item>
+        <item>ул. Маис 9 (ул. 9 мая)</item>
+        <item>ул. Манандян</item>
+        <item>ул. Манташян</item>
+        <item>просп. Маштоца (перекрёсток Амирян)</item>
+        <item>просп. Маштоца (Крытый рынок)</item>
+        <item>просп. Маштоца (Консерватория)</item>
+        <item>просп. Маштоца (магазин РЫБЫ)</item>
+        <item>просп. Маштоца (Матенадаран)</item>
+        <item>просп. Маштоца (больница им. Маргаряна)</item>
+        <item>просп. Маштоца (Опера)</item>
+        <item>ул. Мелик-Адамян</item>
+        <item>Мараш</item>
+        <item>ул. Маргарян (Республиканская больница)</item>
+        <item>ул. Маргарян (ПЕГАС)</item>
+        <item>ул. Маршал Бабаджанян</item>
+        <item>ул. Маршал Худяков</item>
+        <item>п/о МАРС</item>
+        <item>ул. Мартиросян</item>
+        <item>Медицинский университет</item>
+        <item>ул. Мелкумова</item>
+        <item>ЕРНИИММ им. Мергеляна</item>
+        <item>ул. Минска (8-й Норкский массив)</item>
+        <item>просп. Мясникяна (перекрёсток Гераци)</item>
+        <item>просп. Мясникяна (ЗООПАРК)</item>
+        <item>просп. Мясникяна (Джрашхар)</item>
+        <item>ул. Молдовакан</item>
+        <item>ул. Московян (перекрёсток Туманян)</item>
+        <item>ул. Московян (дом Камерной музыки)</item>
+        <item>ул. Московян (КАСКАД)</item>
+        <item>ул. Московян (Консерватория)</item>
+        <item>ул. Мусаелян</item>
+        <item>ул. Мурацан</item>
+        <item>Мяс. комбинат</item>
+        <item>п/о Молока</item>
+        <item>комбинат Молока</item>
+
+        <item>поселок Надежды (Уйси аван)</item>
+        <item>ул. Назарбекян (16-й квартал)</item>
+        <item>ул. Наири Зарян</item>
+        <item>ул. Налбандян (ЕПТУ)</item>
+        <item>ул. Налбандян (Площадь Республики)</item>
+        <item>ул. Нансена</item>
+        <item>ул. Нар-Дос (перекресток Силачи)</item>
+        <item>ул. Нерсисян</item>
+        <item>Неркин (Нижний) Шенгавит</item>
+        <item>Неркин (Нижний) Шенгавит 11-ая ул.</item>
+        <item>Неркин (Нижний) Шенгавит 9-ая ул.</item>
+        <item>Неркин (Нижний) Чарбах 9-ая ул.</item>
+        <item>ул. Нерсон Сафаряна</item>
+        <item>Нор-Ареш 20-ая ул.</item>
+        <item>Нор-Ареш 50-ая ул.</item>
+        <item>Нор-Ареш 7-ая ул.</item>
+        <item>Нор-Харберд</item>
+        <item>Нор-Норк 1-й массив</item>
+        <item>Нор-Норк 2-й массив</item>
+        <item>Нор-Норк 3-й массив</item>
+        <item>Нор-Норк 4-й массив</item>
+        <item>Нор-Норк 5-й массив</item>
+        <item>Нор-Норк 6-й массив</item>
+        <item>Нор-Норк 7-й массив</item>
+        <item>Нор-Норк 8-й массив</item>
+        <item>Нор-Норк 9-й массив</item>
+        <item>Норагавит 1-ая ул.</item>
+        <item>Норагюх</item>
+        <item>кв. Норашен</item>
+        <item>к/т Норк</item>
+        <item>мед.центр Норк-Мараш</item>
+        <item>Норк 1-ая ул/пер.</item>
+        <item>Норк 13-ая ул.</item>
+        <item>Норк 2-ая ул/пер.</item>
+        <item>Норк 5-ая ул</item>
+        <item>Норк 6-ая ул.</item>
+        <item>Норк 7-ая ул.</item>
+        <item>Норк 8-ая ул.</item>
+        <item>Норк 9-ая ул.</item>
+        <item>Норк сады 1-й переход</item>
+        <item>Нубарашен 10-ая ул.</item>
+        <item>Нубарашен 11-ая ул.</item>
+        <item>Нубарашен 6-ая ул.</item>
+        <item>Нубарашен 9-ая ул.</item>
+        <item>Нубарашен шс.</item>
+        <item>Нубарашен шс. (В/Ч)</item>
+        <item>ул. Нубарашен</item>
+        <item>ул. Нвер Сафарян</item>
+
+        <item>ул. Г. Овсепян</item>
+        <item>ул. Оганова</item>
+        <item>ул. Одессы</item>
+        <item>Онкологический институт</item>
+        <item>ул. Орбели</item>
+        <item>ул. Оганесяна</item>
+        <item>ул. Овс Овсепяна</item>
+
+        <item>Площадь Республики</item>
+        <item>ул. Папазян</item>
+        <item>Педагогический университет</item>
+        <item>т/ц Петак</item>
+        <item>ул. Паронян (Цезар палас)</item>
+        <item>ул. Паруйра Севака</item>
+        <item>мост Победы</item>
+        <item>Прошян аван</item>
+        <item>ул. Прошян</item>
+        <item>центр Протезирования</item>
+
+        <item>стадион Раздан</item>
+        <item>ул. Раффи</item>
+        <item>ул. Раффи (ярмарка Малатия)</item>
+        <item>ул. Риги</item>
+        <item>ул. Романос Меликян</item>
+        <item>ул. Ростовян</item>
+        <item>ул. Рубинянц (завод Алмаст)</item>
+        <item>ул. Рубинянц (ул. Агаронян)</item>
+        <item>ул. Рубинянц (Ереван Сити)</item>
+        <item>Российско-Армянский университет</item>
+        <item>Республиканский стадион</item>
+
+        <item>просп. Саят-Нова (перекрёсток Абовян)</item>
+        <item>просп. Саят-Нова (перекрёсток Алек-Манукян)</item>
+        <item>просп. Саят-Нова (перекрёсток Налбандян)</item>
+        <item>ул. Сасна Црер</item>
+        <item>ул. Сасунци Давид</item>
+        <item>ул. Сараландж</item>
+        <item>Сари тах</item>
+        <item>Сари тах 1-ая улица</item>
+        <item>Сари тах 11-ая улица</item>
+        <item>Сари тах 12-ая улица</item>
+        <item>Сари тах 20-ая улица</item>
+        <item>Сари тах 21-ая улица</item>
+        <item>Сари тах 3-ая улица</item>
+        <item>Сари тах 5-ая улица</item>
+        <item>ул. Сарьяна (перекрёсток  Амирян)</item>
+        <item>ул. Сарьяна (перекрёсток  Туманян)</item>
+        <item>ул. Сарьяна (почта Сарьян)</item>
+        <item>ул. Себастия (перекрёсток Тычина)</item>
+        <item>ул. Себастия (перекрёсток Кургинян)</item>
+        <item>ул. Себастия (перекрёсток Ленинградян)</item>
+        <item>ул. Себастия (ярмарка Малатия)</item>
+        <item>Северный автовокзал</item>
+        <item>ул. Севан</item>
+        <item>Силикян 10-ая улица</item>
+        <item>Силикян 4-ая улица</item>
+        <item>Силикян 7-ая улица</item>
+        <item>кв. Силикян</item>
+        <item>Новое шоссе Силикян</item>
+        <item>станция Спандарян</item>
+        <item>ул. Степаняна</item>
+        <item>Студенческое общежитие</item>
+        <item>комбинат Сувениров</item>
+        <item>Солерудник</item>
+
+        <item>ул. Тадевосян</item>
+        <item>Телевышка</item>
+        <item>Тбилисское шс. (Высшая школа Айб)</item>
+        <item>Тбилисское шс. (Завод шампанских вин)</item>
+        <item>Тбилисское шс. (электроламповый завод)</item>
+        <item>Тбилисское шс. (Радиомачта)</item>
+        <item>ул. Тевосяна</item>
+        <item>ул. Тотовенц</item>
+        <item>кв. Туманян</item>
+        <item>ул. Туманян</item>
+        <item>ул. Ташкентская</item>
+        <item>ул. Таронцу</item>
+        <item>ул. Терян</item>
+        <item>просп. Тиграна Меца (к/т Айрарат)</item>
+        <item>просп. Тиграна Меца (Каяран) (Станция)</item>
+        <item>просп. Тиграна Меца (ЮКЖД)</item>
+        <item>просп. Тиграна Меца (Ташир т/ц)</item>
+        <item>просп. Тиграна Меца (ярмарка Фирдуси)</item>
+        <item>ул. Тиграна Петросяна</item>
+        <item>ул. Тичина</item>
+        <item>ул. Титоградян</item>
+        <item>пл. Труда (памятник Рабочему)</item>
+        <item>ТЭЦ</item>
+
+        <item>ул. Улнеци</item>
+        <item>ул. Улнеци (по напр.  Монумент)</item>
+        <item>ул. Унана Аветисяна</item>
+
+        <item>ул. Фанарджян</item>
+        <item>ул. Фучика</item>
+
+        <item>ул. Хахах Дона</item>
+        <item>ул. Ханджяна (Лунапарк)</item>
+        <item>ул. Ханджяна (дом Шахмат)</item>
+        <item>ул. Хачика Даштенца</item>
+        <item>ул. Хоренаци (перекрёсток Маштоц)</item>
+        <item>ул. Хоренаци (пл. Шаумяна)</item>
+        <item>ул. Хоренаци (Силачи)</item>
+        <item>ул. Худякова</item>
+        <item>ул. Христофора</item>
+
+        <item>ул. Царав Ахбюр</item>
+        <item>шоссе Цицернакаберд</item>
+
+        <item>ул. Чауша</item>
+        <item>ул. Чаренца (салон-магазин ЗИГЗАГ)</item>
+        <item>ул. Чаренца (ЕГУ)</item>
+        <item>ул. Чаренца (Полиция РА)</item>
+        <item>Часовой завод</item>
+        <item>ул. Чехова</item>
+
+        <item>ул. Шаамиряна</item>
+        <item>ул. Шаумян 4-ая</item>
+        <item>ул. Шарури</item>
+        <item>м/с Шенгавит</item>
+        <item>ул. Шинарарнери</item>
+        <item>ул. Шираза</item>
+        <item>Ширак 5-й пер.</item>
+        <item>ул. Ширака (аэропорт Эребуни)</item>
+        <item>ул. Ширака (Ипподром)</item>
+        <item>ул. Ширака (рынок Чарбаха)</item>
+        <item>ул. Ширванзаде</item>
+        <item>ул. Шопрона</item>
+
+        <item>ул. Эзрас Асратян</item>
+        <item>Завод  Электрон</item>
+        <item>Рабочий поселок Энергетиков</item>
+        <item>Эчмиадзинское шс.</item>
+        <item>Эчмиадзинское шс. старое</item>
+        <item>ул. Эстонакан</item>
+        <item>Эребуни массив</item>
+        <item>музей Эребуни</item>
+        <item>ул. Эребуни</item>
+        <item>Аэропорт Эребуни</item>
+
+        <item>Юго-Западный квартал (Бангладеш)</item>
+
+        <item>г. Абовян</item>
+        <item>г. Масис</item>
+
+        <item>сл. Азаташен</item>
+        <item>сл. Айнтап</item>
+        <item>сл. Ариндж</item>
+        <item>сл. Аргаванд</item>
+        <item>сл. Балаовит</item>
+        <item>сл. Геханист</item>
+        <item>сл. Даштаван</item>
+        <item>сл. Зовуни</item>
+        <item>сл. Хачпар</item>
+        <item>сл. Харберд</item>
+        <item>сл. Ахтанак ул. 1</item>
+        <item>сл. Ахтанак ул. 10</item>
+        <item>сл. Ахтанак ул. 2</item>
+        <item>сл. Ахтанак ул. 3</item>
+        <item>сл. Ахтанак ул. 6</item>
+        <item>сл. Ахтанак ул. 7</item>
+        <item>сл. Ахтанак ул. 8</item>
+        <item>сл. Ахтанак ул. 9</item>
+        <item>сл. Мармарашен</item>
+        <item>сл. Мушаван</item>
+        <item>сл. Норабац</item>
+        <item>сл. Джрашен</item>
+        <item>сл. Вардашен</item>
+        <item>сл. Верин Птгни</item>
+        <item>сл. Паракар</item>
+        <item>сл. Касах</item>
+    </string-array>
 </resources>

@@ -1,38 +1,32 @@
 {
   "project_info": {
-    "project_id": "find-transport",
     "project_number": "568857098349",
-    "name": "Find Transport"
+    "project_id": "find-transport"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:568857098349:android:4aa0e7d8e985ce28",
-        "client_id": "android:robert.findtransport",
-        "client_type": 1,
         "android_client_info": {
           "package_name": "robert.findtransport"
         }
       },
       "oauth_client": [],
-      "api_key": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVjBaUori3EYfc1hPusfgRBlmpWcmFb0w"
+        }
+      ],
       "services": {
         "analytics_service": {
           "status": 2,
           "analytics_property": {
-            "tracking_id": "UA-72267792-1"
+            "tracking_id": "UA-72267792-2"
           }
-        },
-        "cloud_messaging_service": {
-          "status": 1,
-          "apns_config": []
         },
         "appinvite_service": {
           "status": 1,
           "other_platform_oauth_client": []
-        },
-        "google_signin_service": {
-          "status": 1
         },
         "ads_service": {
           "status": 1
@@ -40,6 +34,5 @@
       }
     }
   ],
-  "client_info": [],
-  "ARTIFACT_VERSION": "1"
+  "configuration_version": "1"
 }

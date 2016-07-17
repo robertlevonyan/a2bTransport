@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">A2B Transport</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_open_map">Map</string>
+
+    <string name="hint_whence">Enter the point of departure</string>
+    <string name="hint_where">Enter the arrival stop</string>
+
+    <string name="bus">Bus</string>
+    <string name="microbus">Minibus</string>
+    <string name="trolleybus">Trolleybus</string>
+    <string name="na">N/A</string>
+
+    <string name="no_routes_title">No routes found</string>
+    <string name="no_routes_body">Returning to the full list</string>
+    <string name="change">The departure and arrival stops should be different</string>
+    <string name="input">Please fill the necessary fields</string>
+    <string name="reseted">The list is complete</string>
+
+    <string name="title_activity_detailes">Details</string>
+    <string name="google_maps_api_key" translatable="false">AIzaSyCLqHRL74bfJnWAO5cQOzSnwN8bGmiJUbc</string>
+    <!--<string name="ga_trackingId">UA-72267792-1</string>-->
+
+    <string name="rate_title">Rate</string>
+    <string name="rate_message">If you like this app. Please like it.\nThank you</string>
+    <string name="rate_rate">Rate</string>
+    <string name="rate_cancel">Later</string>
+    <string name="rate_thanks">No, Thanks</string>
+
+    <string name="ok">OK</string>
+
+    <string name="part_a">a</string>
 
     <string-array name="stops">
         <item>15-րդ թաղամաս</item>
@@ -884,70 +915,71 @@
     <string-array name="stops_ru">
         <item>15 квартал</item>
         <item>16 квартал</item>
+
+        <item>ул. Абеляна</item>
         <item>ул. Абовяна (Сельскохозяйственная академия)</item>
-        <item>ул. Абовяна (ст/м Еритасардакан (Молодёжная))</item>
         <item>ул. Абовяна (скверик Абовяна)</item>
-        <item>ул. Абеляна ․</item>
-        <item>ул. Агатангехоси․</item>
-        <item>ул. Адонц․</item>
-        <item>Аэрация </item>
-        <item>ул. Азатамартикнери․</item>
-        <item>просп. Азатутян (Военкомат)</item>
-        <item>просп. Азатутян (Парк Победы)</item>
-        <item>просп. Азатутян (Наири Зарян перекрёсток )</item>
-        <item>просп. Азатутян (Райком)</item>
-        <item>ул. Атенка</item>
-        <item>ул. Aтоян</item>
-        <item>ул. Алека Манукяна</item>
-        <item>ул. Алматы</item>
-        <item>ул. Аксел Бакунца</item>
-        <item>ул. Аветис Агаронян</item>
-        <item>ул. Агабабян</item>
-        <item>ул. Ахпюр Сероб</item>
-        <item>ул. Ачаряна</item>
-        <item>ул. Ачаряна 2-ой тупик</item>
-        <item>ул. Айвазовского</item>
-        <item>ул. Амиряна</item>
-        <item>ул. Анастаса Микояна</item>
-        <item>ул. Ашхабада</item>
-        <item>пл. Труда (памятник Рабочему)</item>
-        <item>Аштаракское шс.</item>
-        <item>Ариндж молл</item>
-        <item>ул. Арно Бабаджанян</item>
+        <item>ул. Абовяна (ст/м Еритасардакан (Молодёжная))</item>
+        <item>ул. Аванесова</item>
         <item>Аван</item>
         <item>Аван-Ариндж</item>
-        <item>ул. Аванесова</item>
         <item>ул. Авет Аветисян</item>
-        <item>ул. Алабян (ТУМО)</item>
+        <item>ул. Аветис Агаронян</item>
+        <item>ул. Агабабян</item>
+        <item>ул. Агатангехоси</item>
+        <item>ул. Адонц</item>
+        <item>просп. Азатутян (Военкомат)</item>
+        <item>просп. Азатутян (Наири Зарян перекрёсток)</item>
+        <item>просп. Азатутян (Парк Победы)</item>
+        <item>просп. Азатутян (Райком)</item>
+        <item>ул. Азатамартикнери</item>
+        <item>ул. Айвазовского</item>
+        <item>ул. Акоп Акопян</item>
+        <item>ул. Аксел Бакунца</item>
         <item>ул. Алабян (Киевский мост)</item>
         <item>ул. Алабян (перекрёсток института физики)</item>
-        <item>ул. Акоп Акопян</item>
+        <item>ул. Алабян (ТУМО)</item>
+        <item>ул. Алека Манукяна</item>
+        <item>ул. Алматы</item>
+        <item>ул. Амиряна</item>
+        <item>ул. Анастаса Микояна</item>
         <item>Арабкир ул. 17</item>
         <item>Арабкир ул. 29</item>
         <item>ул. Арагац</item>
-        <item>ул. Арама Хачатуряна</item>
-        <item>ул. Араратян</item>
         <item>Аракс стадион</item>
         <item>завод Аракс</item>
+        <item>ул. Арама Хачатуряна</item>
+        <item>ул. Араратян</item>
         <item>ул. Аргишти</item>
         <item>ул. Арзуманян</item>
         <item>ул. Арин-Берди</item>
         <item>Арин-Берди 3-й пер.</item>
-        <item>ул. Архутян</item>
-        <item>завод Арменал</item>
+        <item>Ариндж молл</item>
         <item>ул. Арменак Арменакяна</item>
+        <item>завод Арменал</item>
         <item>Армения ТВ</item>
         <item>Армяно-Белорусский торговый дом Ар-Бе</item>
-        <item>просп. Аршакуняц (по напр. Чарбах)</item>
-        <item>просп. Аршакуняц (Ереван Молл)</item>
-        <item>просп. Аршакуняц (парк им. Комитаса)</item>
-        <item>просп. Аршакуняц (Цирк)</item>
-        <item>просп. Аршакуняц (к/т Айреник)</item>
-        <item>просп. Аршакуняц (т/ц Сурмалу)</item>
+        <item>ул. Арно Бабаджанян</item>
         <item>Арташатское шс.</item>
         <item>ул. Арташисян</item>
         <item>ул. Артем Микоян</item>
+        <item>ул. Архутян</item>
         <item>ул. Арцаха</item>
+        <item>просп. Аршакуняц (Ереван Молл)</item>
+        <item>просп. Аршакуняц (к/т Айреник)</item>
+        <item>просп. Аршакуняц (парк им. Комитаса)</item>
+        <item>просп. Аршакуняц (по напр. Чарбах)</item>
+        <item>просп. Аршакуняц (т/ц Сурмалу)</item>
+        <item>просп. Аршакуняц (Цирк)</item>
+        <item>ул. Атенка</item>
+        <item>ул. Атоян</item>
+        <item>ул. Ахпюр Сероб</item>
+        <item>ул. Ачаряна</item>
+        <item>ул. Ачаряна 2-ой тупик</item>
+        <item>Аштаракское шс.</item>
+        <item>ул. Ашхабада</item>
+        <item>Аэрация</item>
+
         <item>просп. Багратуняц (перекрёсток  Арташисян)</item>
         <item>просп. Багратуняц (памятник Рабочему)</item>
         <item>просп. Багратуняц (Ереван Сити)</item>
@@ -967,6 +999,7 @@
         <item>ул. Борян</item>
         <item>зд. Биржы</item>
         <item>Ботанический сад</item>
+
         <item>ул. Вазгена Саргсяна</item>
         <item>ул. Вахтангова</item>
         <item>квартал Ваагни</item>
@@ -984,6 +1017,7 @@
         <item>мост Встреча</item>
         <item>ул. Врацакан</item>
         <item>фабрика Восточных сладостей</item>
+
         <item>Газпром Армения</item>
         <item>ул. Галшоян</item>
         <item>просп. Гая (Акватек)</item>
@@ -1004,13 +1038,15 @@
         <item>Гранд Кенди</item>
         <item>ул. Грачья Кочар (перекрёсток Гюльбенкян)</item>
         <item>ул. Грачья Кочар (перекрёсток Вагаршян)</item>
+        <item>ул. Грачья Кочар (перекрёсток Врацакан)</item>
         <item>ул. Грачья Кочар (перекрёсток Папазян)</item>
         <item>ул. Грибоедова</item>
-        <item>Григор Лусаворич (Городское управление Еревана)</item>
+        <item>Григор Лусаворич (Мэрия Еревана)</item>
         <item>Григор Лусаворич (Цирк)</item>
-        <item>м/р Св.Григор Лусаворич</item>
+        <item>м/р Св. Григор Лусаворич</item>
         <item>ул. Григор Асратян</item>
         <item>церковь Св. Григория Просветителя</item>
+
         <item>Далма Гарден Молл</item>
         <item>Давидашен 1-й квартал</item>
         <item>Давидашен 2-й квартал</item>
@@ -1027,11 +1063,13 @@
         <item>Дом Радио</item>
         <item>ул. Дро</item>
         <item>кв. Дурян</item>
+
         <item>Егвардское шс.</item>
         <item>ЕГУ</item>
         <item>Ераблур</item>
         <item>Ереванский государственный гуманитарный колледж</item>
         <item>ул. Ерванда Кочара</item>
+
         <item>ул. Заваряна</item>
         <item>ул. Закария Канакерци</item>
         <item>ул. Закян</item>
@@ -1041,18 +1079,19 @@
         <item>Зовуни 8-ая ул.</item>
         <item>ул. Зоравар Андраник</item>
         <item>Аэропорт Звартноц</item>
+
         <item>ул. Иосифян</item>
         <item>просп. Исакова</item>
         <item>просп. Исакова (перекрёсток Себастия)</item>
+
         <item>Каназ военный госп.</item>
         <item>Канакерская ГЭС</item>
         <item>мед. центр Канакер-Зейтун</item>
         <item>Канакер 13-ая ул.</item>
-        <item>ул. Кочинян</item>
         <item>ул. Касян</item>
         <item>ул. Капанцян</item>
         <item>Крастный Крест</item>
-        <item>ул. Киевян (Барекамутюн )</item>
+        <item>ул. Киевян (Барекамутюн)</item>
         <item>ул. Киевян (Киевский мост)</item>
         <item>ул. Киевян (перекрёсток Орбели)</item>
         <item>Киликия автовокзал</item>
@@ -1064,14 +1103,18 @@
         <item>просп. Комитаса (перекрёсток Врацакан)</item>
         <item>просп. Комитаса (перекрёсток Папазян)</item>
         <item>ул. Корюна (Цитадель)</item>
+        <item>ул. Кочинян</item>
         <item>ул. Кусто</item>
         <item>ул. Кургиняна</item>
+
         <item>ул. Ленинградян (Евроваген)</item>
         <item>ул. Ленинградян (Киевский мост)</item>
+        <item>ул. Ленинградян (перекрёсток Шинарарнер)</item>
         <item>ул. Ленинградян (перекрёсток Монте Мелконян)</item>
         <item>ул. Лепсиус</item>
         <item>ул. Лукашина</item>
         <item>ул. Лвовян</item>
+
         <item>ул. Мазманян</item>
         <item>мед. центр Малатия</item>
         <item>ул. Малхасянц</item>
@@ -1080,7 +1123,7 @@
         <item>ул. Мамиконянц</item>
         <item>ул. Маис 9 (ул. 9 мая)</item>
         <item>ул. Манандян</item>
-        <item>ул.Манташян</item>
+        <item>ул. Манташян</item>
         <item>просп. Маштоца (перекрёсток Амирян)</item>
         <item>просп. Маштоца (Крытый рынок)</item>
         <item>просп. Маштоца (Консерватория)</item>
@@ -1099,20 +1142,21 @@
         <item>Медицинский университет</item>
         <item>ул. Мелкумова</item>
         <item>ЕРНИИММ им. Мергеляна</item>
-        <item>ул.Минска (8-й Норкский массив)</item>
+        <item>ул. Минска (8-й Норкский массив)</item>
         <item>просп. Мясникяна (перекрёсток Гераци)</item>
-        <item>просп.Мясникяна (ЗООПАРК)</item>
-        <item>просп.Мясникяна (Джрашхар)</item>
+        <item>просп. Мясникяна (ЗООПАРК)</item>
+        <item>просп. Мясникяна (Джрашхар)</item>
         <item>ул. Молдовакан</item>
         <item>ул. Московян (перекрёсток Туманян)</item>
         <item>ул. Московян (дом Камерной музыки)</item>
         <item>ул. Московян (КАСКАД)</item>
         <item>ул. Московян (Консерватория)</item>
         <item>ул. Мусаелян</item>
-        <item>ул. Мурацан․</item>
+        <item>ул. Мурацан</item>
         <item>Мяс. комбинат</item>
         <item>п/о Молока</item>
         <item>комбинат Молока</item>
+
         <item>поселок Надежды (Уйси аван)</item>
         <item>ул. Назарбекян (16-й квартал)</item>
         <item>ул. Наири Зарян</item>
@@ -1154,13 +1198,14 @@
         <item>Норк 9-ая ул.</item>
         <item>Норк сады 1-й переход</item>
         <item>Нубарашен 10-ая ул.</item>
-        <item>Нубарашен  11-ая ул.</item>
+        <item>Нубарашен 11-ая ул.</item>
         <item>Нубарашен 6-ая ул.</item>
         <item>Нубарашен 9-ая ул.</item>
         <item>Нубарашен шс.</item>
         <item>Нубарашен шс. (В/Ч)</item>
         <item>ул. Нубарашен</item>
         <item>ул. Нвер Сафарян</item>
+
         <item>ул. Г. Овсепян</item>
         <item>ул. Оганова</item>
         <item>ул. Одессы</item>
@@ -1168,6 +1213,7 @@
         <item>ул. Орбели</item>
         <item>ул. Оганесяна</item>
         <item>ул. Овс Овсепяна</item>
+
         <item>Площадь Республики</item>
         <item>ул. Папазян</item>
         <item>Педагогический университет</item>
@@ -1178,6 +1224,7 @@
         <item>Прошян аван</item>
         <item>ул. Прошян</item>
         <item>центр Протезирования</item>
+
         <item>стадион Раздан</item>
         <item>ул. Раффи</item>
         <item>ул. Раффи (ярмарка Малатия)</item>
@@ -1189,6 +1236,7 @@
         <item>ул. Рубинянц (Ереван Сити)</item>
         <item>Российско-Армянский университет</item>
         <item>Республиканский стадион</item>
+
         <item>просп. Саят-Нова (перекрёсток Абовян)</item>
         <item>просп. Саят-Нова (перекрёсток Алек-Манукян)</item>
         <item>просп. Саят-Нова (перекрёсток Налбандян)</item>
@@ -1206,7 +1254,7 @@
         <item>ул. Сарьяна (перекрёсток  Амирян)</item>
         <item>ул. Сарьяна (перекрёсток  Туманян)</item>
         <item>ул. Сарьяна (почта Сарьян)</item>
-        <item>ул. Себастия (перекрёсток Тычина )</item>
+        <item>ул. Себастия (перекрёсток Тычина)</item>
         <item>ул. Себастия (перекрёсток Кургинян)</item>
         <item>ул. Себастия (перекрёсток Ленинградян)</item>
         <item>ул. Себастия (ярмарка Малатия)</item>
@@ -1222,13 +1270,14 @@
         <item>Студенческое общежитие</item>
         <item>комбинат Сувениров</item>
         <item>Солерудник</item>
+
         <item>ул. Тадевосян</item>
         <item>Телевышка</item>
         <item>Тбилисское шс. (Высшая школа Айб)</item>
         <item>Тбилисское шс. (Завод шампанских вин)</item>
         <item>Тбилисское шс. (электроламповый завод)</item>
         <item>Тбилисское шс. (Радиомачта)</item>
-        <item>ул. Тевосяна․</item>
+        <item>ул. Тевосяна</item>
         <item>ул. Тотовенц</item>
         <item>кв. Туманян</item>
         <item>ул. Туманян</item>
@@ -1243,12 +1292,16 @@
         <item>ул. Тиграна Петросяна</item>
         <item>ул. Тичина</item>
         <item>ул. Титоградян</item>
+        <item>пл. Труда (памятник Рабочему)</item>
         <item>ТЭЦ</item>
+
         <item>ул. Улнеци</item>
         <item>ул. Улнеци (по напр.  Монумент)</item>
         <item>ул. Унана Аветисяна</item>
+
         <item>ул. Фанарджян</item>
         <item>ул. Фучика</item>
+
         <item>ул. Хахах Дона</item>
         <item>ул. Ханджяна (Лунапарк)</item>
         <item>ул. Ханджяна (дом Шахмат)</item>
@@ -1258,14 +1311,17 @@
         <item>ул. Хоренаци (Силачи)</item>
         <item>ул. Худякова</item>
         <item>ул. Христофора</item>
+
         <item>ул. Царав Ахбюр</item>
         <item>шоссе Цицернакаберд</item>
+
         <item>ул. Чауша</item>
         <item>ул. Чаренца (салон-магазин ЗИГЗАГ)</item>
         <item>ул. Чаренца (ЕГУ)</item>
         <item>ул. Чаренца (Полиция РА)</item>
         <item>Часовой завод</item>
         <item>ул. Чехова</item>
+
         <item>ул. Шаамиряна</item>
         <item>ул. Шаумян 4-ая</item>
         <item>ул. Шарури</item>
@@ -1278,6 +1334,7 @@
         <item>ул. Ширака (рынок Чарбаха)</item>
         <item>ул. Ширванзаде</item>
         <item>ул. Шопрона</item>
+
         <item>ул. Эзрас Асратян</item>
         <item>Завод  Электрон</item>
         <item>Рабочий поселок Энергетиков</item>
@@ -1288,9 +1345,12 @@
         <item>музей Эребуни</item>
         <item>ул. Эребуни</item>
         <item>Аэропорт Эребуни</item>
+
         <item>Юго-Западный квартал (Бангладеш)</item>
+
         <item>г. Абовян</item>
         <item>г. Масис</item>
+
         <item>сл. Азаташен</item>
         <item>сл. Айнтап</item>
         <item>сл. Ариндж</item>
@@ -1318,5 +1378,4 @@
         <item>сл. Паракар</item>
         <item>сл. Касах</item>
     </string-array>
-
 </resources>

@@ -715,9 +715,9 @@ public class Main extends AppCompatActivity implements DatabaseLoadListener {
                     case R.id.en:
                         changeLanguage("en");
                         return true;
-//                    case R.id.ru:
-//                        changeLanguage("ru");
-//                        return true;
+                    case R.id.ru:
+                        changeLanguage("ru");
+                        return true;
                     default:
                         return false;
                 }

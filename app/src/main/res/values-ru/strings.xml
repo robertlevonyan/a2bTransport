@@ -10,7 +10,7 @@
     <string name="bus">Автобус</string>
     <string name="microbus">Микроавтобус</string>
     <string name="trolleybus">Троллейбус</string>
-    <string name="na">N/A</string>
+    <string name="na">Недоступно</string>
 
     <string name="no_routes_title">Не найдено ни одного маршрута</string>
     <string name="no_routes_body">Возвращаемся к полному списку</string>

@@ -7,7 +7,7 @@
     <item
         android:id="@+id/en"
         android:title="English" />
-    <!--<item-->
-        <!--android:id="@+id/ru"-->
-        <!--android:title="Русский" />-->
+    <item
+        android:id="@+id/ru"
+        android:title="Русский" />
 </menu>
